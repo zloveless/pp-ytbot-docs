@@ -5,7 +5,7 @@ title: How It Works — ytbot
 
 # How It Works
 
-## Points {#points}
+## Points
 
 You earn points automatically while watching the stream.
 
@@ -14,7 +14,7 @@ You earn points automatically while watching the stream.
 - **Checking your balance:** Type `!points` in chat — your balance appears on the stream overlay (not in chat).
 - **Points persist:** Unspent points carry over from stream to stream. Bank them for a big play later.
 
-## Super Chats {#super-chats}
+## Super Chats
 
 Super Chats let you bypass the points economy entirely using a real-money donation.
 
@@ -24,7 +24,7 @@ Super Chats let you bypass the points economy entirely using a real-money donati
 
 Points and Super Chats work the same way mechanically — the only difference is whether you're spending accumulated points or sending money.
 
-## Patreon & Discord Bonuses {#bonuses}
+## Patreon & Discord Bonuses
 
 Supporting the stream gives you a **chance to earn an extra point every 10 seconds** on top of the base rate.
 
@@ -38,7 +38,7 @@ Supporting the stream gives you a **chance to earn an extra point every 10 secon
 
 Bonuses are **additive**. A Tier 2 Patreon member who also holds the Infernal Discord role gets a **50%** (25 + 25) chance at an extra point per tick.
 
-## Command Syntax {#syntax}
+## Command Syntax
 
 Commands are **not case-sensitive** and can appear anywhere in your chat message. Each command must include:
 
@@ -58,12 +58,12 @@ Targeting `@all` applies the command to **both players simultaneously** for **75
 
 > **Do not mix commands** or use keywords from multiple commands in the same message. You may accidentally trigger the wrong command or none at all. Executing multiple distinct commands from a single chat message is not supported.
 
-## Bot Behavior {#behavior}
+## Bot Behavior
 
 - The bot normally checks for new chat messages **every 5 seconds**.
 - If chat is quiet for 5 minutes, the bot slows its polling — your command may take up to **60 seconds** to process.
 - **Tip:** During quiet periods, send a few normal messages before your command to wake the bot back up.
 
-## If Something Goes Wrong {#errors}
+## If Something Goes Wrong
 
 The bot is still a work in progress. If your command fails due to a bug, the streamer will manually execute it in-game. Points are only deducted on a successful command execution — there are no refunds if the target player is out of range or otherwise unreachable.
