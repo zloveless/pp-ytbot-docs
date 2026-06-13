@@ -12,6 +12,16 @@ $info:    #8b6af0;   // funny commands — purple
 
 @import 'bootstrap/scss/bootstrap';
 
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
 // --- Dark theme surface overrides (after import, same specificity) ---
 [data-bs-theme="dark"] {
   --bs-body-bg:            #0f1117;
