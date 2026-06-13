@@ -444,8 +444,9 @@ cd ytbot_docs</code></pre>
   <section id="deploy" data-type="deploy">
     <h2>Publishing changes</h2>
     <p>
-      The site deploys automatically via Cloudflare Pages whenever you push to the
-      <code>main</code> branch. There is no manual deploy step.
+      The site deploys automatically via <strong>GitHub Actions</strong> whenever you push to the
+      <code>main</code> branch. There is no manual deploy step — GitHub builds and publishes the
+      site to <strong>GitHub Pages</strong> for you.
     </p>
 
     <div class="step">
@@ -470,7 +471,8 @@ git commit -m "Add new command: freeze"</code></pre>
       <div class="step-body">
         <p><strong>Push to GitHub:</strong></p>
         <pre><code>git push</code></pre>
-        <p>Cloudflare Pages will pick up the push and deploy within a minute or two.</p>
+        <p>GitHub Actions will build and publish the site within a minute or two. You can watch the
+        progress under the <strong>Actions</strong> tab in the GitHub repo.</p>
       </div>
     </div>
 
@@ -478,6 +480,12 @@ git commit -m "Add new command: freeze"</code></pre>
       <strong>Want to double-check before publishing?</strong> Run <code>yarn build</code> locally —
       if it finishes without errors, the deploy will succeed. The built files land in <code>dist/</code>
       but you don't need to commit them.
+    </div>
+
+    <div class="callout tip">
+      <strong>One-time repo setup:</strong> After forking or transferring this repo, go to
+      <strong>Settings → Pages</strong> in GitHub and set the source to <strong>"GitHub Actions"</strong>.
+      You only need to do this once — after that, every push to <code>main</code> deploys automatically.
     </div>
   </section>
 

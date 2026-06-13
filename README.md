@@ -1,6 +1,6 @@
 # ytbot docs
 
-Viewer-facing documentation site for the **@pseudoposse** YouTube chat bot. Covers the points system, all chat commands, and spawn mechanics. Built with [Astro](https://astro.build) and deployed to Cloudflare Pages.
+Viewer-facing documentation site for the **@pseudoposse** YouTube chat bot. Covers the points system, all chat commands, and spawn mechanics. Built with [Astro](https://astro.build) and deployed to GitHub Pages.
 
 ## Quick start
 
@@ -30,7 +30,11 @@ See [`docs/setup.html`](docs/setup.html) for a full ELI5 walkthrough.
 yarn build    # outputs to dist/
 ```
 
-Pushing to `main` triggers an automatic Cloudflare Pages deploy — no manual step needed.
+Pushing to `main` triggers an automatic GitHub Actions deploy to GitHub Pages — no manual step needed.
+
+### One-time setup (new repo)
+
+After forking or transferring this repo, go to **Settings → Pages** and set the source to **"GitHub Actions"**. That's it — subsequent pushes to `main` deploy automatically.
 
 ## Project structure
 
@@ -45,4 +49,5 @@ src/
   styles/             # Global SCSS
 docs/                 # Internal HTML docs (setup guide, implementation plan)
 public/               # Static assets
+.github/workflows/    # GitHub Actions deploy pipeline
 ```

@@ -3,6 +3,7 @@ import '../styles/main.scss';
 import { getCollection } from 'astro:content';
 
 const { frontmatter } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const versionEntries = (await getCollection('commands'))
   .sort((a, b) => b.data.updatedAt.localeCompare(a.data.updatedAt));
@@ -33,7 +34,7 @@ const latestVersion = versionEntries[0];
   <body>
     <nav class="navbar navbar-expand-md bg-body-tertiary border-bottom mb-4">
       <div class="container">
-        <a class="navbar-brand fw-bold" href="/">@pseudoposse Viewer Bot</a>
+        <a class="navbar-brand fw-bold" href={base}>@pseudoposse Viewer Bot</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -47,10 +48,10 @@ const latestVersion = versionEntries[0];
         </button>
         <div class="collapse navbar-collapse" id="nav-collapse">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="/how-it-works">How It Works</a></li>
-            <li class="nav-item"><a class="nav-link" href="/commands">Commands</a></li>
-            <li class="nav-item"><a class="nav-link" href="/commands/spawns">Spawns</a></li>
+            <li class="nav-item"><a class="nav-link" href={base}>Home</a></li>
+            <li class="nav-item"><a class="nav-link" href={`${base}/how-it-works`}>How It Works</a></li>
+            <li class="nav-item"><a class="nav-link" href={`${base}/commands`}>Commands</a></li>
+            <li class="nav-item"><a class="nav-link" href={`${base}/commands/spawns`}>Spawns</a></li>
           </ul>
           <div class="d-flex align-items-center gap-2">
             <select id="version-select" class="form-select form-select-sm" style="width: auto;" aria-label="Command version">
