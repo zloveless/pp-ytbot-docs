@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ytbot Docs — Implementation Plan</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --border: #2d3147;
+      --accent: #6c8fff;
+      --accent2: #a78bfa;
+      --text: #e2e5f1;
+      --muted: #8b91b0;
+      --positive: #4ade80;
+      --negative: #f87171;
+      --spawn: #fb923c;
+      --warn: #fbbf24;
+      --code-bg: #12151f;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 2.5rem;
+    }
+
+    header h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    header p {
+      color: var(--muted);
+      margin-top: 0.25rem;
+      font-size: 0.9rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--border);
+      color: var(--accent2);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      margin-right: 0.4rem;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 4rem;
+    }
+
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent);
+      border-left: 3px solid var(--accent);
+      padding-left: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--accent2);
+      margin: 1.5rem 0 0.6rem;
+    }
+
+    p { margin-bottom: 0.75rem; }
+
+    ul, ol {
+      padding-left: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    li { margin-bottom: 0.35rem; }
+
+    code {
+      background: var(--code-bg);
+      color: #7dd3fc;
+      font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+      font-size: 0.85em;
+      padding: 0.1em 0.35em;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+    }
+
+    pre code {
+      display: block;
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+      line-height: 1.6;
+      font-size: 0.85rem;
+    }
+
+    .callout {
+      background: var(--surface);
+      border-left: 3px solid var(--warn);
+      padding: 0.75rem 1rem;
+      border-radius: 0 6px 6px 0;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .callout strong { color: var(--warn); }
+
+    .decided { color: var(--positive); font-size: 0.8rem; font-weight: 600; }
+
+    .diagram-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem 1rem;
+      margin: 1.25rem 0;
+      overflow-x: auto;
+    }
+
+    .diagram-wrap .caption {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.75rem;
+    }
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 700px) { .grid2 { grid-template-columns: 1fr; } }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+    }
+
+    .card h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .card.recommended { border-color: var(--accent); }
+    .card.recommended h4::after { content: ' ★ recommended'; font-size: 0.7rem; color: var(--accent); font-weight: 400; }
+
+    .tag-neg { color: var(--negative); font-weight: 600; }
+    .tag-pos { color: var(--positive); font-weight: 600; }
+    .tag-spawn { color: var(--spawn); font-weight: 600; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      margin: 1rem 0;
+    }
+
+    th {
+      background: var(--surface);
+      color: var(--accent);
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 2px solid var(--border);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    td {
+      padding: 0.45rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:hover td { background: var(--surface); }
+
+    .decision-table td:first-child { color: var(--accent2); font-weight: 600; }
+
+    .open { color: var(--warn); font-size: 0.8rem; font-style: italic; }
+
+    .phase {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .phase-label {
+      display: inline-block;
+      background: var(--accent);
+      color: #0f1117;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.1rem 0.45rem;
+      border-radius: 3px;
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .phase h4 { font-size: 1rem; margin-bottom: 0.35rem; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>ytbot Docs — Implementation Plan</h1>
+  <p>
+    <span class="badge">@pseudoposse</span>
+    <span class="badge">7DTD</span>
+    <span class="badge">Vanilla / Early Game</span>
+    &nbsp;Static site bootstrapping &amp; RTF content distillation
+  </p>
+</header>
+
+<main>
+
+  <!-- ===== 1. OVERVIEW ===== -->
+  <section id="overview">
+    <h2>1. Overview</h2>
+    <p>
+      <strong>ytbot</strong> is a YouTube chat integration bot for <em>7 Days to Die</em> (7DTD).
+      Viewers spend accumulated points to trigger in-game events — debuffs, heals, zombie spawns —
+      by typing commands in the YouTube live chat. This documentation site will serve as the
+      viewer-facing reference for the points system, available commands, costs, and behavior rules.
+    </p>
+    <p>
+      The authoritative source for the initial content is
+      <code>YTbot Commands-VanillaVersion-EarlyGame.rtf</code>. The filename encodes two scope
+      signals that directly inform the site architecture:
+    </p>
+    <ul>
+      <li><strong>VanillaVersion</strong> — a modded variant with a different command set may follow.</li>
+      <li><strong>EarlyGame</strong> — costs and command availability may change for mid/late game.</li>
+    </ul>
+    <div class="callout">
+      <strong>Design constraint:</strong> The content model must be version- and stage-aware
+      from day one. Hardcoding a single table of commands/costs will require a rewrite the moment
+      a second RTF appears. See §4 (Content Model) for the extensibility approach.
+    </div>
+  </section>
+
+  <!-- ===== 2. SOURCE ANALYSIS ===== -->
+  <section id="source">
+    <h2>2. Source Document Analysis</h2>
+    <p>
+      The RTF file contains eight logical sections. These map directly to documentation pages or
+      content blocks on the final site.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>RTF Section</th>
+          <th>Content Summary</th>
+          <th>Suggested Site Destination</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Introduction / Welcome</td>
+          <td>Greeting; overview of the points economy concept</td>
+          <td>Home page hero / intro blurb</td>
+        </tr>
+        <tr>
+          <td>Points System Rules</td>
+          <td>Earn 1 pt per 10 s while active; 5-min inactivity pauses gain; multipliers by Patreon/Discord tier</td>
+          <td><code>/how-it-works#points</code></td>
+        </tr>
+        <tr>
+          <td>Super Chat Rules</td>
+          <td>$X donation → awarded points at 1 pt per $0.10; bonus scaling table</td>
+          <td><code>/how-it-works#super-chats</code></td>
+        </tr>
+        <tr>
+          <td>Patreon / Discord Bonuses</td>
+          <td>Additive per-tier point multipliers; Infernal Discord role also grants +25%</td>
+          <td><code>/how-it-works#bonuses</code></td>
+        </tr>
+        <tr>
+          <td>Command Format</td>
+          <td>Syntax <code>!keyword @target</code>; self-target default; targeting rules</td>
+          <td><code>/commands#syntax</code></td>
+        </tr>
+        <tr>
+          <td>Zombie Spawning Behavior</td>
+          <td>Base count formula; extra-zombie scaling; feral/rad modifiers</td>
+          <td><code>/commands/spawns</code></td>
+        </tr>
+        <tr>
+          <td>Chat Polling / Error Behavior</td>
+          <td>Rate limits; cost deducted only on success; no refund on missed target</td>
+          <td><code>/how-it-works#behavior</code></td>
+        </tr>
+        <tr>
+          <td>Command Reference Table</td>
+          <td>~25+ commands with name, effect, base cost, target type</td>
+          <td><code>/commands</code> (full reference)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Command Taxonomy</h3>
+    <p>Commands fall into three behavioral categories, each warranting its own visual treatment:</p>
+
+    <div class="diagram-wrap">
+      <pre class="mermaid">
+flowchart TD
+  C[ytbot Commands] --> N[Negative]
+  C --> P[Positive]
+  C --> S[Spawn]
+
+  N --> ND[Debuffs\nburn · shock · slow · stumble · trip\nblinded · flip controls · drunk]
+  N --> NW[Weapon / Armor nerfs\ndisable melee · disable ranged\nweaken melee · weaken ranged · unarmor]
+  N --> NI[Injuries\nbroken leg · broken arm\nsprain leg · sprain arm]
+  N --> NX[Chaos\nexplode · resurrect · empty hands\nstrike · stagger]
+
+  P --> PH[Healing\nregen · instant regen]
+  P --> PB[Buffs\ntough guy · buff ranged weapon\nbuff melee weapon]
+
+  S --> SN[Normal variants\nspawn normal · spawn rad normal\nspawn feral normal · spawn feral strong\nspawn strong]
+  S --> SS[Special types\nspawn ranged · spawn dogs\nspawn animals · spawn bees\nspawn screamers]
+      </pre>
+      <p class="caption">Command taxonomy derived from the RTF source</p>
+    </div>
+
+    <h3>Command Data Model</h3>
+    <p>
+      Each command entry from the RTF carries these fields. This becomes the schema for the
+      data files the SSG consumes:
+    </p>
+    <table>
+      <thead>
+        <tr><th>Field</th><th>Type</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>keyword</code></td><td>string</td><td>Chat trigger, e.g. <code>burn</code></td></tr>
+        <tr><td><code>category</code></td><td>enum</td><td><span class="tag-neg">negative</span> · <span class="tag-pos">positive</span> · <span class="tag-spawn">spawn</span></td></tr>
+        <tr><td><code>effect</code></td><td>string</td><td>Human-readable description of what happens in-game</td></tr>
+        <tr><td><code>cost</code></td><td>number</td><td>Point cost to activate</td></tr>
+        <tr><td><code>target</code></td><td>enum</td><td><code>self</code> · <code>player</code> · <code>all</code></td></tr>
+        <tr><td><code>superChatMin</code></td><td>number?</td><td>Minimum Super Chat USD equivalent, if applicable</td></tr>
+        <tr><td><code>version</code></td><td>string</td><td>e.g. <code>vanilla</code>, <code>modded</code></td></tr>
+        <tr><td><code>stage</code></td><td>string</td><td>e.g. <code>early</code>, <code>mid</code>, <code>late</code></td></tr>
+        <tr><td><code>notes</code></td><td>string?</td><td>Edge-case behavior, duration, etc.</td></tr>
+      </tbody>
+    </table>
+    <p>For spawn commands, two additional fields apply:</p>
+    <table>
+      <thead>
+        <tr><th>Field</th><th>Type</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>baseCount</code></td><td>number</td><td>Zombies spawned at minimum viewer count</td></tr>
+        <tr><td><code>extraZombieThreshold</code></td><td>number</td><td>Additional viewers required per +1 spawn</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===== 3. TOOLING ===== -->
+  <section id="tooling">
+    <h2>3. Tooling Recommendation</h2>
+
+    <div class="grid2">
+      <div class="card recommended">
+        <h4>Astro</h4>
+        <ul>
+          <li>Zero JS by default; ships pure HTML — ideal for a reference doc</li>
+          <li>First-class content collections with typed frontmatter (<code>.yml</code> or <code>.json</code> data files)</li>
+          <li>Starter templates install in one command; Yarn 4 compatible</li>
+          <li>Markdown + MDX pages; no framework lock-in</li>
+          <li>Built-in <code>astro build</code> → static output; trivially deployable</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Eleventy (11ty)</h4>
+        <ul>
+          <li>Extremely lightweight; no JS framework</li>
+          <li>Flexible templating (Nunjucks, Liquid, Markdown)</li>
+          <li>Data cascade well-suited to versioned JSON command sets</li>
+          <li>Less opinionated — more manual wiring required</li>
+          <li>Good choice if Astro feels over-engineered for a small site</li>
+        </ul>
+      </div>
+    </div>
+
+    <p>
+      <strong>Recommendation: Astro.</strong> The content-collections API maps directly to the
+      command data model (§2) and handles the version/stage dimensions without custom code.
+      Eleventy is a valid fallback if the team prefers minimal dependencies.
+    </p>
+
+    <h3>Bootstrap Commands (Astro, via Yarn 4)</h3>
+    <pre><code>yarn create astro@latest . -- --template minimal --no-install
+yarn install
+yarn dev          # local preview at http://localhost:4321
+yarn build        # production output → dist/
+    </code></pre>
+
+    <div class="callout">
+      <strong>CLAUDE.md constraint:</strong> All package operations must use <code>yarn</code>.
+      Never run <code>npm</code> or <code>npx</code>. The <code>yarn create</code> invocation above
+      satisfies this; Astro's own docs suggest <code>npm create</code> — ignore those instructions.
+    </div>
+  </section>
+
+  <!-- ===== 4. CONTENT MODEL ===== -->
+  <section id="content-model">
+    <h2>4. Content Model &amp; Site Architecture</h2>
+
+    <p>
+      Commands are stored as structured data (JSON or YAML) in a <code>src/data/commands/</code>
+      directory, keyed by version and stage. Pages are authored in Markdown / MDX.
+      The SSG queries the data at build time to render command tables.
+    </p>
+
+    <h3>Proposed Directory Layout</h3>
+    <pre><code>src/
+  content/
+    commands/
+      vanilla-early.json       ← current RTF
+      vanilla-mid.json         ← future
+      modded-early.json        ← future
+    pages/
+      index.md
+      how-it-works.md
+      commands.mdx             ← queries commands/*.json
+      commands/
+        spawns.mdx
+  layouts/
+    Base.astro
+    CommandRef.astro
+public/
+  favicon.svg
+dist/                          ← build output (gitignored)
+    </code></pre>
+
+    <div class="diagram-wrap">
+      <pre class="mermaid">
+flowchart LR
+  subgraph Site Structure
+    Home["/\nHome"]
+    How["/how-it-works\nHow It Works"]
+    Cmd["/commands\nCommand Reference"]
+    Spawn["/commands/spawns\nSpawn Reference"]
+
+    Home --> How
+    Home --> Cmd
+    Cmd --> Spawn
+  end
+
+  subgraph How It Works sections
+    H1["#points\nPoints System"]
+    H2["#super-chats\nSuper Chats"]
+    H3["#bonuses\nPatreon / Discord"]
+    H4["#behavior\nBot Behavior"]
+    How --> H1
+    How --> H2
+    How --> H3
+    How --> H4
+  end
+
+  subgraph Command Reference sections
+    C1["#syntax\nCommand Syntax"]
+    C2["#negative\nNegative Commands"]
+    C3["#positive\nPositive Commands"]
+    Cmd --> C1
+    Cmd --> C2
+    Cmd --> C3
+  end
+      </pre>
+      <p class="caption">Site map — arrows represent navigation / anchor links</p>
+    </div>
+  </section>
+
+  <!-- ===== 5. CONTENT PIPELINE ===== -->
+  <section id="pipeline">
+    <h2>5. Content Distillation Pipeline</h2>
+
+    <p>
+      The RTF source is not directly machine-parseable by most SSG tooling. The distillation
+      steps below transform it into the structured data and prose the site needs.
+    </p>
+
+    <div class="diagram-wrap">
+      <pre class="mermaid">
+flowchart TD
+  A["YTbot Commands-VanillaVersion-EarlyGame.rtf\n(source of truth)"]
+  A --> B["Manual extraction\nRead RTF, strip markup,\nidentify sections &amp; rows"]
+  B --> C["vanilla-early.json\nStructured command array\n(keyword, cost, effect, target, ...)"]
+  B --> D["Prose sections → Markdown\nhow-it-works.md\nindex.md"]
+  C --> E["Astro content collection\nsrc/content/commands/"]
+  D --> E
+  E --> F["yarn build\nAstro SSG"]
+  F --> G["dist/ — static HTML/CSS\nready to deploy"]
+  G --> H["Hosting\nGitHub Pages · Netlify · Vercel"]
+      </pre>
+      <p class="caption">RTF → structured data → SSG → deployment</p>
+    </div>
+
+    <h3>Extraction Strategy</h3>
+    <p>
+      Since no RTF-to-text conversion tool (<code>unrtf</code>, <code>pandoc</code>, <code>catdoc</code>)
+      is available in the environment, the extraction approach is:
+    </p>
+    <ol>
+      <li>Read the RTF file in 150–200 line chunks (the file is ~963 lines).</li>
+      <li>
+        Identify text after control word sequences — prose appears after patterns like
+        <code>\loch\f45</code> and <code>\hich\af45\dbch\af49\loch\f47</code>.
+      </li>
+      <li>Author <code>vanilla-early.json</code> from the extracted command rows.</li>
+      <li>
+        Write prose sections in Markdown by paraphrasing extracted text
+        (not verbatim copy to avoid RTF artifact noise).
+      </li>
+    </ol>
+
+    <h3>Points Economy Flow</h3>
+    <div class="diagram-wrap">
+      <pre class="mermaid">
+flowchart TD
+  Watch["Viewer is watching\nyoutube.com/live"]
+  Watch --> Active{"Active in\nlast 5 min?"}
+  Active -->|"No"| Pause["Point gain\npaused"]
+  Active -->|"Yes"| Base["+ 1 pt per 10 s\n(base rate)"]
+  Base --> Patreon{"Patreon tier?"}
+  Patreon -->|"T1"| PT1["+10% chance\nextra pt"]
+  Patreon -->|"T2"| PT2["+25% chance\nextra pt"]
+  Patreon -->|"T3"| PT3["+50% chance\nextra pt"]
+  Patreon -->|"T4"| PT4["+100% guaranteed\nextra pt"]
+  Patreon -->|"None"| DC{"Discord\nInfernal role?"}
+  PT1 --> Spend
+  PT2 --> Spend
+  PT3 --> Spend
+  PT4 --> Spend
+  DC -->|"Yes"| DY["+25% chance\nextra pt"]
+  DC -->|"No"| Spend
+  DY --> Spend
+  Spend["Spend points\n!keyword @target\nin YouTube chat"]
+      </pre>
+      <p class="caption">How viewers earn and spend points</p>
+    </div>
+
+    <h3>Command Trigger Flow</h3>
+    <div class="diagram-wrap">
+      <pre class="mermaid">
+sequenceDiagram
+  participant V as Viewer
+  participant YT as YouTube Chat
+  participant Bot as ytbot
+  participant Game as 7DTD Server
+
+  V->>YT: !burn @Zack
+  YT->>Bot: Chat message event
+  Bot->>Bot: Parse keyword + target
+  Bot->>Bot: Check viewer point balance
+  alt Balance >= cost
+    Bot->>Bot: Deduct points
+    Bot->>Game: Apply burn effect to Zack
+    Game-->>Bot: Effect applied
+    Bot->>YT: Confirm message
+  else Balance < cost
+    Bot->>YT: Insufficient points message
+  end
+      </pre>
+      <p class="caption">Command trigger sequence</p>
+    </div>
+  </section>
+
+  <!-- ===== 6. DISTILLATION APPROACH ===== -->
+  <section id="distillation">
+    <h2>6. Distillation Strategy: RTF → Scannable Docs</h2>
+
+    <p>
+      The RTF document is written as prose with embedded tables. The following treatments convert
+      it into the scannable reference format viewers need mid-stream.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>RTF Content Type</th>
+          <th>Web Treatment</th>
+          <th>Component / Pattern</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Points rules (prose)</td>
+          <td>Numbered list + callout box for inactivity rule</td>
+          <td>Markdown prose in <code>how-it-works.md</code></td>
+        </tr>
+        <tr>
+          <td>Patreon tier bonus table</td>
+          <td>HTML table: Tier · Label · Point Multiplier</td>
+          <td>Inline MDX table or <code>BonusTable.astro</code></td>
+        </tr>
+        <tr>
+          <td>Super Chat bonus table</td>
+          <td>HTML table: USD · Points Awarded</td>
+          <td>Same pattern</td>
+        </tr>
+        <tr>
+          <td>Command syntax rules</td>
+          <td>Code block with syntax diagram + targeting rules</td>
+          <td>Fenced code + prose in <code>commands.mdx</code></td>
+        </tr>
+        <tr>
+          <td>Command reference rows (~25+)</td>
+          <td>Filterable table: Keyword · Category · Effect · Cost · Target</td>
+          <td><code>CommandTable.astro</code> — reads <code>vanilla-early.json</code> at build time</td>
+        </tr>
+        <tr>
+          <td>Spawn count formula</td>
+          <td>Formula callout + table of spawn types with base/extra fields</td>
+          <td><code>commands/spawns.mdx</code></td>
+        </tr>
+        <tr>
+          <td>Error / behavior rules</td>
+          <td>Bulleted list with "gotcha" callout for no-refund rule</td>
+          <td>Prose section at bottom of <code>how-it-works.md</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Sample Data Entry (vanilla-early.json)</h3>
+    <pre><code>[
+  {
+    "keyword": "burn",
+    "category": "negative",
+    "effect": "Sets the target on fire",
+    "cost": 150,
+    "target": "player",
+    "version": "vanilla",
+    "stage": "early"
+  },
+  {
+    "keyword": "spawn normal",
+    "category": "spawn",
+    "effect": "Spawns a group of standard zombies near the player",
+    "cost": 200,
+    "target": "player",
+    "baseCount": 3,
+    "extraZombieThreshold": 10,
+    "version": "vanilla",
+    "stage": "early"
+  }
+]
+    </code></pre>
+  </section>
+
+  <!-- ===== 7. IMPLEMENTATION PHASES ===== -->
+  <section id="phases">
+    <h2>7. Implementation Phases</h2>
+
+    <div class="diagram-wrap">
+      <pre class="mermaid">
+flowchart LR
+  P1["Phase 1\nBootstrap SSG"] --> P2["Phase 2\nExtract &amp; Structure\nRTF Content"]
+  P2 --> P3["Phase 3\nAuthor Site Pages"]
+  P3 --> P4["Phase 4\nStyle &amp; Polish"]
+  P4 --> P5["Phase 5\nDeploy"]
+      </pre>
+      <p class="caption">High-level implementation phases</p>
+    </div>
+
+    <div class="phase">
+      <span class="phase-label">Phase 1</span>
+      <h4>Bootstrap SSG</h4>
+      <ul>
+        <li>Run <code>yarn create astro@latest</code> with minimal template</li>
+        <li>Confirm <code>yarn dev</code> serves a blank page</li>
+        <li>Add <code>.editorconfig</code> (2-space, LF, UTF-8) and <code>.gitignore</code></li>
+        <li>Create <code>src/content/commands/</code> directory and register the collection in <code>astro.config.mjs</code></li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <span class="phase-label">Phase 2</span>
+      <h4>Extract &amp; Structure RTF Content</h4>
+      <ul>
+        <li>Read RTF in chunks; manually extract all ~25+ command rows</li>
+        <li>Author <code>src/content/commands/vanilla-early.json</code> using the schema from §2</li>
+        <li>Author prose sections as Markdown files (<code>index.md</code>, <code>how-it-works.md</code>)</li>
+        <li>Cross-check all costs, effects, and notes against the RTF</li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <span class="phase-label">Phase 3</span>
+      <h4>Author Site Pages</h4>
+      <ul>
+        <li>Build <code>CommandTable.astro</code> component — reads <code>vanilla-early.json</code>, renders table with clickable column sort (vanilla JS, no framework)</li>
+        <li>Build <code>commands.mdx</code> — imports <code>CommandTable</code>, adds syntax section</li>
+        <li>Build <code>how-it-works.md</code> — points system, Super Chats, Patreon/Discord, behavior</li>
+        <li>Build <code>commands/spawns.mdx</code> — spawn mechanics, count formula, spawn-type table</li>
+        <li>Wire navigation in base layout</li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <span class="phase-label">Phase 4</span>
+      <h4>Style &amp; Polish</h4>
+      <ul>
+        <li>Apply brand palette (dark theme matching stream aesthetic)</li>
+        <li>Add category color-coding to command rows (<span class="tag-neg">negative</span> · <span class="tag-pos">positive</span> · <span class="tag-spawn">spawn</span>)</li>
+        <li>Add <code>@pseudoposse</code> channel link in header/footer</li>
+        <li>Test responsive layout on mobile</li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <span class="phase-label">Phase 5</span>
+      <h4>Deploy</h4>
+      <ul>
+        <li>Finalize between <strong>GitHub Pages</strong> and <strong>Cloudflare Pages</strong> — both support Astro out of the box; Cloudflare gives preview deploys on PRs and a global CDN edge, GitHub Pages is simpler to configure for an existing GitHub org</li>
+        <li>Add <code>yarn build</code> → publish <code>dist/</code> step in CI (GitHub Actions for either target)</li>
+        <li>Set <code>site</code> and <code>base</code> in <code>astro.config.mjs</code> to match the final URL</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== 8. OPEN DECISIONS ===== -->
+  <section id="decisions">
+    <h2>8. Open Decisions</h2>
+
+    <table class="decision-table">
+      <thead>
+        <tr><th>Decision</th><th>Options</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>SSG framework</td>
+          <td><strong>Astro</strong></td>
+          <td><span class="decided">&#10003; decided</span></td>
+        </tr>
+        <tr>
+          <td>Hosting target</td>
+          <td>GitHub Pages · Cloudflare Pages</td>
+          <td><span class="open">narrowing down</span></td>
+        </tr>
+        <tr>
+          <td>Command table interactivity</td>
+          <td><strong>Clickable column sort</strong> — client-side JS, no framework</td>
+          <td><span class="decided">&#10003; decided</span></td>
+        </tr>
+        <tr>
+          <td>Version/stage switcher on site</td>
+          <td><strong>Not needed</strong> — versioning handled via git (branches / tags)</td>
+          <td><span class="decided">&#10003; decided</span></td>
+        </tr>
+        <tr>
+          <td>Data format for commands</td>
+          <td><strong>JSON array</strong> — one file per version/stage slug (e.g. <code>vanilla-early.json</code>)</td>
+          <td><span class="decided">&#10003; decided</span></td>
+        </tr>
+        <tr>
+          <td>Modded / multi-version support</td>
+          <td><strong>Git-managed</strong> — separate branch or tag per release; no runtime switcher on site</td>
+          <td><span class="decided">&#10003; decided</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</main>
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'dark',
+    themeVariables: {
+      background: '#1a1d27',
+      primaryColor: '#6c8fff',
+      primaryTextColor: '#e2e5f1',
+      primaryBorderColor: '#2d3147',
+      lineColor: '#8b91b0',
+      secondaryColor: '#2d3147',
+      tertiaryColor: '#12151f'
+    }
+  });
+</script>
+
+</body>
+</html>
