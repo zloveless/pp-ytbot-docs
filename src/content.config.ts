@@ -6,7 +6,7 @@ const commands = defineCollection({
   schema: z.array(
     z.object({
       keyword: z.string(),
-      category: z.enum(['negative', 'positive', 'spawn']),
+      category: z.enum(['negative', 'positive', 'spawn', 'funny']),
       effect: z.string(),
       cost: z.number(),
       target: z.enum(['self', 'player', 'all']),
