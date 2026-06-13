@@ -46,7 +46,7 @@ Commands are **not case-sensitive** and can appear anywhere in your chat message
 2. The command keyword(s)
 3. A target player
 
-**Valid targets:** `@eerie` · `@guru` · `@all` · `@random`
+See [Valid Targets](/commands#valid-targets) for the full list.
 
 ```
 !burn @eerie

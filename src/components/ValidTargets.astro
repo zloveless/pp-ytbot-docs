@@ -1,0 +1,28 @@
+---
+import targets from '../data/targets.json';
+---
+
+<div class="table-responsive">
+  <table class="table table-sm align-middle">
+    <thead class="table-dark">
+      <tr>
+        <th>Target</th>
+        <th>Type</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      {targets.map(t => (
+        <tr>
+          <td><code>@{t.handle}</code></td>
+          <td>
+            <span class={`badge ${t.type === 'player' ? 'text-bg-primary' : 'text-bg-secondary'}`}>
+              {t.type}
+            </span>
+          </td>
+          <td class="text-muted small">{t.note ?? ''}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

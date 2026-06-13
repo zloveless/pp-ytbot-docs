@@ -1,0 +1,6 @@
+[
+  { "handle": "eerie",  "type": "player",  "note": null },
+  { "handle": "guru",   "type": "player",  "note": null },
+  { "handle": "all",    "type": "special", "note": "Targets both players simultaneously — costs 75% more" },
+  { "handle": "random", "type": "special", "note": "Randomly selects one player" }
+]
