@@ -8,7 +8,7 @@ interface Props {
 const { category } = Astro.props;
 
 const entries = await getCollection('commands');
-const all = entries.flatMap(e => e.data);
+const all = entries.flatMap(e => e.data.commands);
 const commands = category ? all.filter(c => c.category === category) : all;
 
 const badgeClass: Record<string, string> = {
