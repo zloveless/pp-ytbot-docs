@@ -1,14 +1,75 @@
 ---
+import '../styles/main.scss';
 const { frontmatter } = Astro.props;
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{frontmatter?.title ?? 'ytbot docs'}</title>
+    <script is:inline>
+      // Apply saved preference before first paint to prevent FOUC
+      (function () {
+        var saved = localStorage.getItem('ytbot-theme');
+        var preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-bs-theme', saved ?? preferred);
+      })();
+    </script>
   </head>
   <body>
-    <slot />
+    <nav class="navbar navbar-expand-md bg-body-tertiary border-bottom mb-4">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="/">ytbot docs</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#nav-collapse"
+          aria-controls="nav-collapse"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav-collapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/how-it-works">How It Works</a></li>
+            <li class="nav-item"><a class="nav-link" href="/commands">Commands</a></li>
+            <li class="nav-item"><a class="nav-link" href="/commands/spawns">Spawns</a></li>
+          </ul>
+          <button id="theme-toggle" class="btn btn-outline-secondary btn-sm" aria-label="Toggle color theme" title="Toggle light/dark mode">
+            ☀️
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container pb-5">
+      <slot />
+    </main>
+
+    <script>
+      import 'bootstrap/dist/js/bootstrap.esm.js';
+
+      const toggle = document.getElementById('theme-toggle') as HTMLButtonElement;
+
+      function getTheme() {
+        return document.documentElement.getAttribute('data-bs-theme') as 'light' | 'dark';
+      }
+
+      function applyTheme(theme: 'light' | 'dark') {
+        document.documentElement.setAttribute('data-bs-theme', theme);
+        localStorage.setItem('ytbot-theme', theme);
+        toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+      }
+
+      applyTheme(getTheme());
+
+      toggle.addEventListener('click', () => {
+        applyTheme(getTheme() === 'dark' ? 'light' : 'dark');
+      });
+    </script>
   </body>
 </html>
