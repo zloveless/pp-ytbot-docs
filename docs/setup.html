@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ytbot Docs — Update Guide</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --border: #2d3147;
+      --accent: #6c8fff;
+      --accent2: #a78bfa;
+      --text: #e2e5f1;
+      --muted: #8b91b0;
+      --positive: #4ade80;
+      --negative: #f87171;
+      --warn: #fbbf24;
+      --code-bg: #12151f;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 2.5rem;
+    }
+
+    header h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    header p {
+      color: var(--muted);
+      margin-top: 0.25rem;
+      font-size: 0.9rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--border);
+      color: var(--accent2);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      margin-right: 0.4rem;
+    }
+
+    nav {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 2.5rem;
+      font-size: 0.85rem;
+    }
+
+    nav a {
+      color: var(--accent);
+      text-decoration: none;
+      margin-right: 1.25rem;
+    }
+
+    nav a:hover { text-decoration: underline; }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 4rem;
+    }
+
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent);
+      border-left: 3px solid var(--accent);
+      padding-left: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--accent2);
+      margin: 1.5rem 0 0.6rem;
+    }
+
+    p { margin-bottom: 0.75rem; }
+
+    ul, ol {
+      padding-left: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    li { margin-bottom: 0.35rem; }
+
+    code {
+      background: var(--code-bg);
+      color: #7dd3fc;
+      font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+      font-size: 0.85em;
+      padding: 0.1em 0.35em;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+    }
+
+    pre code {
+      display: block;
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+      line-height: 1.6;
+      font-size: 0.85rem;
+    }
+
+    .callout {
+      background: var(--surface);
+      border-left: 3px solid var(--warn);
+      padding: 0.75rem 1rem;
+      border-radius: 0 6px 6px 0;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .callout strong { color: var(--warn); }
+
+    .callout.tip { border-color: var(--positive); }
+    .callout.tip strong { color: var(--positive); }
+
+    .step {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      background: var(--accent);
+      color: #0f1117;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      white-space: nowrap;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .step-body { flex: 1; }
+    .step-body p:last-child { margin-bottom: 0; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      margin: 1rem 0;
+    }
+
+    th {
+      background: var(--surface);
+      color: var(--accent);
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 2px solid var(--border);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    td {
+      padding: 0.45rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:hover td { background: var(--surface); }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>ytbot Docs — Update Guide</h1>
+  <p>
+    <span class="badge">@pseudoposse</span>
+    <span class="badge">ELI5</span>
+    How to keep this documentation site up to date
+  </p>
+</header>
+
+<nav>
+  <a href="#what-is-this">What's here</a>
+  <a href="#prerequisites">Prerequisites</a>
+  <a href="#local-setup">Local setup</a>
+  <a href="#update-commands">Updating commands</a>
+  <a href="#update-targets">Updating targets</a>
+  <a href="#update-pages">Updating page text</a>
+  <a href="#deploy">Publishing changes</a>
+  <a href="project.html">← Implementation plan</a>
+</nav>
+
+<main>
+
+  <!-- ===== WHAT IS THIS ===== -->
+  <section id="what-is-this" data-type="overview">
+    <h2>What's here</h2>
+    <p>
+      This is the source code for the <strong>ytbot viewer docs</strong> — the website that explains
+      the points system and lists all the chat commands for the stream. It's a static site built with
+      <a href="https://astro.build" style="color: var(--accent);">Astro</a>.
+    </p>
+    <p>The files you'll touch most often when something changes:</p>
+    <table>
+      <thead>
+        <tr><th>What you want to change</th><th>File to edit</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Add, remove, or edit a command</td>
+          <td><code>src/data/commands/vanilla-early.json</code></td>
+        </tr>
+        <tr>
+          <td>Add or rename a player target (<code>@handle</code>)</td>
+          <td><code>src/data/targets.json</code></td>
+        </tr>
+        <tr>
+          <td>Change the "How It Works" explanations</td>
+          <td><code>src/pages/how-it-works.md</code></td>
+        </tr>
+        <tr>
+          <td>Change the home page blurb</td>
+          <td><code>src/pages/index.md</code></td>
+        </tr>
+        <tr>
+          <td>Change the spawn mechanics page</td>
+          <td><code>src/pages/commands/spawns.mdx</code></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="callout tip">
+      <strong>Tip:</strong> You never need to touch anything in <code>src/components/</code>,
+      <code>src/layouts/</code>, or <code>src/styles/</code> for routine content updates.
+    </div>
+  </section>
+
+  <!-- ===== PREREQUISITES ===== -->
+  <section id="prerequisites" data-type="setup">
+    <h2>Prerequisites</h2>
+    <p>You only need to do this once on a new machine.</p>
+
+    <div class="step">
+      <span class="step-num">1</span>
+      <div class="step-body">
+        <p><strong>Install Node.js (v22 or newer).</strong> Download from
+        <a href="https://nodejs.org" style="color: var(--accent);">nodejs.org</a> — grab the LTS version.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">2</span>
+      <div class="step-body">
+        <p><strong>Enable Corepack</strong> (this gives you Yarn):</p>
+        <pre><code>corepack enable</code></pre>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">3</span>
+      <div class="step-body">
+        <p><strong>Clone the repo</strong> (if you haven't already):</p>
+        <pre><code>git clone https://github.com/pseudoposse/ytbot_docs.git
+cd ytbot_docs</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LOCAL SETUP ===== -->
+  <section id="local-setup" data-type="setup">
+    <h2>Local setup</h2>
+    <p>Run these two commands from the repo folder every time you start working:</p>
+
+    <div class="step">
+      <span class="step-num">1</span>
+      <div class="step-body">
+        <p><strong>Install dependencies</strong> (only needed after cloning or when packages change):</p>
+        <pre><code>yarn install</code></pre>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">2</span>
+      <div class="step-body">
+        <p><strong>Start the preview server:</strong></p>
+        <pre><code>yarn dev</code></pre>
+        <p>Open <code>http://localhost:4321</code> in your browser. The page live-reloads as you save files — no need to restart the server.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>Note:</strong> Always use <code>yarn</code>, never <code>npm</code> or <code>npx</code>.
+      This project uses Yarn 4 and will behave unexpectedly if you mix package managers.
+    </div>
+  </section>
+
+  <!-- ===== UPDATING COMMANDS ===== -->
+  <section id="update-commands" data-type="content">
+    <h2>Updating commands</h2>
+    <p>
+      All commands live in <code>src/data/commands/vanilla-early.json</code>.
+      It's a list of objects — one object per command. Open the file in any text editor.
+    </p>
+
+    <h3>Adding a new command</h3>
+    <p>Copy an existing entry and add it to the list. Every entry needs these fields:</p>
+
+    <table>
+      <thead>
+        <tr><th>Field</th><th>What it is</th><th>Example</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>keyword</code></td><td>The chat trigger word (no <code>!</code>)</td><td><code>"burn"</code></td></tr>
+        <tr><td><code>category</code></td><td>One of: <code>negative</code>, <code>positive</code>, <code>funny</code>, <code>spawn</code></td><td><code>"negative"</code></td></tr>
+        <tr><td><code>effect</code></td><td>One-line description shown in the table</td><td><code>"Burns target for 5 seconds"</code></td></tr>
+        <tr><td><code>cost</code></td><td>Point cost (number, no quotes)</td><td><code>100</code></td></tr>
+        <tr><td><code>target</code></td><td>One of: <code>player</code>, <code>self</code>, <code>all</code></td><td><code>"player"</code></td></tr>
+        <tr><td><code>version</code></td><td>Always <code>"vanilla"</code> for now</td><td><code>"vanilla"</code></td></tr>
+        <tr><td><code>stage</code></td><td>Always <code>"early"</code> for now</td><td><code>"early"</code></td></tr>
+      </tbody>
+    </table>
+
+    <p>Optional fields:</p>
+    <table>
+      <thead>
+        <tr><th>Field</th><th>What it is</th><th>Example</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>superChatMin</code></td><td>Minimum Super Chat in USD to trigger this command</td><td><code>2.00</code></td></tr>
+        <tr><td><code>notes</code></td><td>Any extra info shown in the Notes column</td><td><code>"Stacks with burn"</code></td></tr>
+        <tr><td><code>baseCount</code></td><td>Spawn commands only — minimum zombie count</td><td><code>3</code></td></tr>
+        <tr><td><code>extraZombieThreshold</code></td><td>Spawn commands only — viewers per extra zombie</td><td><code>10</code></td></tr>
+      </tbody>
+    </table>
+
+    <p>Example entry:</p>
+    <pre><code>{
+  "keyword": "burn",
+  "category": "negative",
+  "effect": "Burns target for 5 seconds",
+  "cost": 100,
+  "target": "player",
+  "superChatMin": 1.00,
+  "version": "vanilla",
+  "stage": "early"
+}</code></pre>
+
+    <div class="callout">
+      <strong>Watch the commas:</strong> JSON is picky. Every entry in the list needs a comma after
+      its closing <code>}</code> — except the very last one. If the preview server throws an error,
+      a missing or extra comma is the most likely cause.
+    </div>
+
+    <h3>Editing an existing command</h3>
+    <p>Find the entry by its <code>keyword</code> and change whatever field you need. Save the file and the preview reloads automatically.</p>
+
+    <h3>Removing a command</h3>
+    <p>Delete the entire <code>{ … }</code> block for that command, including the trailing comma on the entry before it.</p>
+  </section>
+
+  <!-- ===== UPDATING TARGETS ===== -->
+  <section id="update-targets" data-type="content">
+    <h2>Updating valid targets</h2>
+    <p>
+      Valid targets (the <code>@handles</code> viewers can type) are in <code>src/data/targets.json</code>.
+      This single file controls both the Valid Targets table on the Commands page and anywhere else targets are referenced.
+    </p>
+
+    <p>Each target has three fields:</p>
+    <table>
+      <thead>
+        <tr><th>Field</th><th>What it is</th><th>Example</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>handle</code></td><td>The @mention without the <code>@</code></td><td><code>"eerie"</code></td></tr>
+        <tr><td><code>type</code></td><td>Either <code>player</code> (a streamer) or <code>special</code> (a bot keyword)</td><td><code>"player"</code></td></tr>
+        <tr><td><code>note</code></td><td>Explanation shown in the Notes column. Use <code>null</code> if there's nothing to add.</td><td><code>null</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Renaming a player</h3>
+    <p>Find their entry and change the <code>handle</code> value. Save — done.</p>
+
+    <h3>Adding a new player</h3>
+    <p>Add a new entry to the list:</p>
+    <pre><code>{ "handle": "newperson", "type": "player", "note": null }</code></pre>
+
+    <h3>Removing a player</h3>
+    <p>Delete their <code>{ … }</code> entry from the list (watch the commas).</p>
+  </section>
+
+  <!-- ===== UPDATING PAGES ===== -->
+  <section id="update-pages" data-type="content">
+    <h2>Updating page text</h2>
+    <p>
+      The prose pages are plain Markdown (<code>.md</code>) or MDX (<code>.mdx</code>) files.
+      Open them in any text editor — no special knowledge required beyond basic Markdown.
+    </p>
+
+    <table>
+      <thead>
+        <tr><th>Page</th><th>File</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Home</td><td><code>src/pages/index.md</code></td></tr>
+        <tr><td>How It Works</td><td><code>src/pages/how-it-works.md</code></td></tr>
+        <tr><td>Command Reference intro text</td><td><code>src/pages/commands.mdx</code></td></tr>
+        <tr><td>Spawn mechanics</td><td><code>src/pages/commands/spawns.mdx</code></td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout tip">
+      <strong>Tip:</strong> The <code>.mdx</code> files contain some <code>&lt;Component /&gt;</code>
+      tags mixed in with the text — those are fine to leave alone. Just edit the surrounding prose.
+    </div>
+  </section>
+
+  <!-- ===== DEPLOY ===== -->
+  <section id="deploy" data-type="deploy">
+    <h2>Publishing changes</h2>
+    <p>
+      The site deploys automatically via Cloudflare Pages whenever you push to the
+      <code>main</code> branch. There is no manual deploy step.
+    </p>
+
+    <div class="step">
+      <span class="step-num">1</span>
+      <div class="step-body">
+        <p><strong>Preview your changes locally</strong> with <code>yarn dev</code> and check that everything looks right in the browser.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">2</span>
+      <div class="step-body">
+        <p><strong>Stage and commit your changes:</strong></p>
+        <pre><code>git add src/data/commands/vanilla-early.json
+git commit -m "Add new command: freeze"</code></pre>
+        <p>Replace the file path and message with whatever you actually changed.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">3</span>
+      <div class="step-body">
+        <p><strong>Push to GitHub:</strong></p>
+        <pre><code>git push</code></pre>
+        <p>Cloudflare Pages will pick up the push and deploy within a minute or two.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>Want to double-check before publishing?</strong> Run <code>yarn build</code> locally —
+      if it finishes without errors, the deploy will succeed. The built files land in <code>dist/</code>
+      but you don't need to commit them.
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

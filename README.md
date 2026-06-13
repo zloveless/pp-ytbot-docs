@@ -1,40 +1,48 @@
-# Astro Starter Kit: Minimal
+# ytbot docs
+
+Viewer-facing documentation site for the **@pseudoposse** YouTube chat bot. Covers the points system, all chat commands, and spawn mechanics. Built with [Astro](https://astro.build) and deployed to Cloudflare Pages.
+
+## Quick start
 
 ```sh
-yarn create astro@latest -- --template minimal
+corepack enable      # once per machine — gives you Yarn
+yarn install
+yarn dev             # preview at http://localhost:4321
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Always use `yarn` — never `npm` or `npx`.
 
-## 🚀 Project Structure
+## Common updates
 
-Inside of your Astro project, you'll see the following folders and files:
+| What changed | File to edit |
+|---|---|
+| Add / edit / remove a command | `src/data/commands/vanilla-early.json` |
+| Rename or add a player target (`@handle`) | `src/data/targets.json` |
+| Edit "How It Works" explanations | `src/pages/how-it-works.md` |
+| Edit the home page | `src/pages/index.md` |
+| Edit spawn mechanics | `src/pages/commands/spawns.mdx` |
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+See [`docs/setup.html`](docs/setup.html) for a full ELI5 walkthrough.
+
+## Build & deploy
+
+```sh
+yarn build    # outputs to dist/
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Pushing to `main` triggers an automatic Cloudflare Pages deploy — no manual step needed.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Project structure
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `yarn install`             | Installs dependencies                            |
-| `yarn dev`             | Starts local dev server at `localhost:4321`      |
-| `yarn build`           | Build your production site to `./dist/`          |
-| `yarn preview`         | Preview your build locally, before deploying     |
-| `yarn astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `yarn astro -- --help` | Get help using the Astro CLI                     |
-
+```
+src/
+  data/
+    commands/         # command data (JSON, one file per version+stage)
+    targets.json      # valid @handle targets
+  pages/              # Markdown/MDX pages → routes
+  components/         # Astro components (CommandTable, ValidTargets, …)
+  layouts/            # Base layout
+  styles/             # Global SCSS
+docs/                 # Internal HTML docs (setup guide, implementation plan)
+public/               # Static assets
+```
