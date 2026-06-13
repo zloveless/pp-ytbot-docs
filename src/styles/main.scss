@@ -1,3 +1,29 @@
-// Bootstrap variable overrides go here before import (Phase 4 palette)
+// --- Sass variable overrides (must come before @import) ---
+// Overriding here lets Bootstrap's color-contrast() recompute for badges/buttons.
+
+$primary: #6c8fff;   // periwinkle accent
+
+// Semantic badge colors — tuned for stream aesthetic, saturated enough
+// for white text contrast in Bootstrap's color-contrast() calculation.
+$danger:  #e05252;   // negative commands
+$success: #2ea85f;   // positive commands
+$warning: #e07530;   // spawn commands — orange
+$info:    #8b6af0;   // funny commands — purple
 
 @import 'bootstrap/scss/bootstrap';
+
+// --- Dark theme surface overrides (after import, same specificity) ---
+[data-bs-theme="dark"] {
+  --bs-body-bg:            #0f1117;
+  --bs-body-color:         #e2e5f1;
+  --bs-secondary-bg:       #1a1d27;
+  --bs-tertiary-bg:        #1a1d27;
+  --bs-border-color:       #2d3147;
+  --bs-border-color-translucent: rgba(45, 49, 71, 0.75);
+  --bs-secondary-color:    #8b91b0;
+  --bs-tertiary-color:     #5a607a;
+  --bs-code-color:         #7dd3fc;
+  --bs-link-color:         #8ca8ff;
+  --bs-link-hover-color:   #b8a9fc;
+  --bs-link-color-rgb:     140, 168, 255;
+}

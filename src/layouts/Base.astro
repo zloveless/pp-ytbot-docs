@@ -7,7 +7,7 @@ const { frontmatter } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{frontmatter?.title ?? 'ytbot docs'}</title>
+    <title>{frontmatter?.title ?? 'ytbot docs — @pseudoposse'}</title>
     <script is:inline>
       // Apply saved preference before first paint to prevent FOUC
       (function () {
@@ -20,7 +20,7 @@ const { frontmatter } = Astro.props;
   <body>
     <nav class="navbar navbar-expand-md bg-body-tertiary border-bottom mb-4">
       <div class="container">
-        <a class="navbar-brand fw-bold" href="/">YouTube Integration Bot</a>
+        <a class="navbar-brand fw-bold" href="/">@pseudoposse Viewer Bot</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -39,9 +39,17 @@ const { frontmatter } = Astro.props;
             <li class="nav-item"><a class="nav-link" href="/commands">Commands</a></li>
             <li class="nav-item"><a class="nav-link" href="/commands/spawns">Spawns</a></li>
           </ul>
-          <button id="theme-toggle" class="btn btn-outline-secondary btn-sm" aria-label="Toggle color theme" title="Toggle light/dark mode">
-            ☀️
-          </button>
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="https://youtube.com/@pseudoposse"
+              class="btn btn-sm btn-outline-danger"
+              target="_blank"
+              rel="noopener noreferrer"
+            >▶ Watch Live</a>
+            <button id="theme-toggle" class="btn btn-outline-secondary btn-sm" aria-label="Toggle color theme" title="Toggle light/dark mode">
+              ☀️
+            </button>
+          </div>
         </div>
       </div>
     </nav>
@@ -49,6 +57,16 @@ const { frontmatter } = Astro.props;
     <main class="container pb-5">
       <slot />
     </main>
+
+    <footer class="border-top mt-5 py-3 bg-body-tertiary">
+      <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2 small text-muted">
+        <span>
+          ytbot — 7 Days to Die viewer commands for
+          <a href="https://youtube.com/@pseudoposse" target="_blank" rel="noopener noreferrer">@pseudoposse</a>
+        </span>
+        <span>Vanilla / Early Game</span>
+      </div>
+    </footer>
 
     <script>
       import 'bootstrap/dist/js/bootstrap.esm.js';
