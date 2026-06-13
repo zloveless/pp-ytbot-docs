@@ -794,19 +794,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pseudoposse/ytbot_docs@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@pseudoposse/ytbot_docs@workspace:."
-  dependencies:
-    "@astrojs/mdx": "npm:^6.0.3"
-    "@popperjs/core": "npm:^2.11.8"
-    "@types/bootstrap": "npm:^5"
-    astro: "npm:^6.4.6"
-    bootstrap: "npm:^5.3.8"
-    sass: "npm:^1.101.0"
-  languageName: unknown
-  linkType: soft
-
 "@rollup/pluginutils@npm:^5.3.0":
   version: 5.4.0
   resolution: "@rollup/pluginutils@npm:5.4.0"
@@ -3359,6 +3346,19 @@ __metadata:
   checksum: 10c0/03662c8f9e1544510914c5e594ae72963f67d261027a5fdc06c4134742584fe40dd49b959470d30e757e9fb70b297d8546ab1362a040364144029926ad4e07c4
   languageName: node
   linkType: hard
+
+"pseudoposse-ytbot-docs@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "pseudoposse-ytbot-docs@workspace:."
+  dependencies:
+    "@astrojs/mdx": "npm:^6.0.3"
+    "@popperjs/core": "npm:^2.11.8"
+    "@types/bootstrap": "npm:^5"
+    astro: "npm:^6.4.6"
+    bootstrap: "npm:^5.3.8"
+    sass: "npm:^1.101.0"
+  languageName: unknown
+  linkType: soft
 
 "radix3@npm:^1.1.2":
   version: 1.1.2
