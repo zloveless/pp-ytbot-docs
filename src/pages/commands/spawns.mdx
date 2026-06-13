@@ -1,0 +1,63 @@
+---
+layout: ../../layouts/Base.astro
+title: Spawn Reference — ytbot
+---
+import CommandTable from '../../components/CommandTable.astro';
+
+# Spawn Reference
+
+## How Spawning Works
+
+When a spawn command is triggered:
+
+1. The targeted player receives the **auto-pull buff**, which periodically draws aggro from the spawned zombies.
+2. Zombies are **randomly chosen** from the command's pool based on configured weights.
+3. As **Game Stage** increases, base zombie counts will also increase.
+
+## Extra Zombies via Super Chat
+
+If your Super Chat donation exceeds the command's minimum price, you spawn **extra zombies** on top of the base count.
+
+**Formula:** `extra zombies = floor((donation − minimum) ÷ threshold)`
+
+- `donation` — your Super Chat amount in USD
+- `minimum` — the command's Super Chat minimum (see table below)
+- `threshold` — the USD increment per extra zombie (see table below)
+
+**Example:** `!spawn normal` has a $1.00 minimum and a $0.25 threshold.
+A $2.00 Super Chat → $1.00 over minimum ÷ $0.25 = **4 extra zombies** on top of the base 15.
+
+> **Screamers** are an exception — they have no base count and no Super Chat scaling. The screamer horde size is determined entirely by your current Game Stage.
+
+## Spawn Commands
+
+Click any column header to sort. The **Notes** column lists the zombie pool for each command.
+
+<CommandTable category="spawn" />
+
+### Zombie Pools
+
+<dl class="row row-cols-1 gy-1 mt-1">
+  <div class="col">
+    <dt>Normal</dt>
+    <dd class="text-muted">Arlene, Marlene, Party Girl, Nurse, Joe, Steve, Tom Clark, Business Man, Burnt, Spider, Boe, Hazmat, Janitor, Inmate, Moe, Lab, Darlene, Yo, Utility Worker, Biker, Lumberjack, Fat Mama, Hawaiian, Bowler, Soldier</dd>
+  </div>
+  <div class="col">
+    <dt>Strong</dt>
+    <dd class="text-muted">Biker, Lumberjack, Fat Mama, Hawaiian, Bowler, Soldier, Cop</dd>
+  </div>
+  <div class="col">
+    <dt>Ranged</dt>
+    <dd class="text-muted">Rancher, Chuck, Cop</dd>
+  </div>
+  <div class="col">
+    <dt>Dogs</dt>
+    <dd class="text-muted">Z Dog, Dire Wolf</dd>
+  </div>
+  <div class="col">
+    <dt>Animals</dt>
+    <dd class="text-muted">Z Dog, Dire Wolf, Z Bear, Vulture, Radiated Vulture, Grace</dd>
+  </div>
+</dl>
+
+Feral variants (`spawn feral normal`, `spawn feral strong`) draw from the same pool as their base command but spawn the feral version of each zombie. Feral zombies are faster and more aggressive.

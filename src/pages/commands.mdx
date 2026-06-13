@@ -1,0 +1,33 @@
+---
+layout: ../layouts/Base.astro
+title: Command Reference — ytbot
+---
+import CommandTable from '../components/CommandTable.astro';
+
+# Command Reference
+
+All commands follow the syntax `!keyword @target` — see [How It Works → Command Syntax](/how-it-works#syntax) for full rules.
+
+Costs are in points. The **Super Chat** column shows the minimum USD donation to trigger the command without spending points. Click any column header to sort.
+
+**Jump to:** [Negative](#negative) &middot; [Positive](#positive) &middot; [Funny](#funny) &middot; [Spawn Reference](/commands/spawns)
+
+---
+
+<h2 id="negative">Negative Commands</h2>
+
+Debuffs, injuries, and chaos — used to hinder the streamers.
+
+<CommandTable category="negative" />
+
+<h2 id="positive">Positive Commands</h2>
+
+Heals and buffs — use these to help the streamers out.
+
+<CommandTable category="positive" />
+
+<h2 id="funny">Funny Commands</h2>
+
+Cosmetic effects that don't directly help or hurt — just for the laughs.
+
+<CommandTable category="funny" />

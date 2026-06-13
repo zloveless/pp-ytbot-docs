@@ -1,0 +1,113 @@
+---
+import { getCollection } from 'astro:content';
+
+interface Props {
+  category?: 'negative' | 'positive' | 'spawn' | 'funny';
+}
+
+const { category } = Astro.props;
+
+const entries = await getCollection('commands');
+const all = entries.flatMap(e => e.data);
+const commands = category ? all.filter(c => c.category === category) : all;
+
+const badgeClass: Record<string, string> = {
+  negative: 'text-bg-danger',
+  positive: 'text-bg-success',
+  spawn: 'text-bg-warning',
+  funny: 'text-bg-info',
+};
+
+const showCategory = !category;
+
+// Column TD indices shift depending on whether the category column is visible.
+const c = showCategory
+  ? { cmd: 0, cat: 1, effect: 2, cost: 3, sc: 4, target: 5 }
+  : { cmd: 0, effect: 1, cost: 2, sc: 3, target: 4 };
+
+const tableId = `cmd-${Math.random().toString(36).slice(2, 9)}`;
+---
+
+<div class="table-responsive">
+  <table id={tableId} class="table table-hover table-sm align-middle">
+    <thead class="table-dark">
+      <tr>
+        <th class="sortable col-cmd" data-col={c.cmd}>Command <span class="sort-icon">⇅</span></th>
+        {showCategory && (
+          <th class="sortable" data-col={c.cat}>Category <span class="sort-icon">⇅</span></th>
+        )}
+        <th>Effect</th>
+        <th class="sortable text-end" data-col={c.cost} data-numeric="true">Cost <span class="sort-icon">⇅</span></th>
+        <th class="sortable" data-col={c.sc} data-numeric="true">Super Chat <span class="sort-icon">⇅</span></th>
+        <th class="sortable" data-col={c.target}>Target <span class="sort-icon">⇅</span></th>
+        <th class="col-notes">Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      {commands.map(cmd => (
+        <tr>
+          <td class="col-cmd"><code>!{cmd.keyword}</code></td>
+          {showCategory && (
+            <td>
+              <span class={`badge ${badgeClass[cmd.category] ?? 'text-bg-secondary'}`}>
+                {cmd.category}
+              </span>
+            </td>
+          )}
+          <td>{cmd.effect}</td>
+          <td class="text-end" data-sort={cmd.cost}>{cmd.cost}</td>
+          <td data-sort={cmd.superChatMin ?? 9999}>
+            {cmd.superChatMin != null ? `$${cmd.superChatMin.toFixed(2)}` : '—'}
+          </td>
+          <td>{cmd.target}</td>
+          <td class="text-muted small col-notes">{cmd.notes ?? ''}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<script define:vars={{ tableId }}>
+  document.querySelectorAll(`#${tableId} th.sortable`).forEach(th => {
+    th.style.cursor = 'pointer';
+    th.style.userSelect = 'none';
+    let asc = true;
+
+    th.addEventListener('click', () => {
+      const col = parseInt(th.dataset.col ?? '0', 10);
+      const isNumeric = th.dataset.numeric === 'true';
+      const tbody = th.closest('table').querySelector('tbody');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+
+      rows.sort((a, b) => {
+        const aCell = a.querySelectorAll('td')[col];
+        const bCell = b.querySelectorAll('td')[col];
+        const aVal = aCell?.dataset.sort ?? aCell?.textContent?.trim() ?? '';
+        const bVal = bCell?.dataset.sort ?? bCell?.textContent?.trim() ?? '';
+
+        const cmp = isNumeric
+          ? parseFloat(aVal) - parseFloat(bVal)
+          : aVal.localeCompare(bVal);
+        return asc ? cmp : -cmp;
+      });
+
+      rows.forEach(r => tbody.appendChild(r));
+      asc = !asc;
+    });
+  });
+</script>
+
+<style>
+  th.sortable:hover { background: var(--bs-secondary-bg); }
+  .sort-icon { opacity: 0.5; font-size: 0.75em; }
+
+  .col-cmd { white-space: nowrap; }
+
+  .col-notes {
+    width: 16rem;
+    max-width: 16rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+</style>
