@@ -4,6 +4,7 @@ import { glob } from 'astro/loaders';
 const commands = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/data/commands' }),
   schema: z.object({
+    label: z.string(),
     updatedAt: z.string(),
     commands: z.array(
       z.object({

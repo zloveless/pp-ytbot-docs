@@ -7,10 +7,6 @@ const { frontmatter } = Astro.props;
 const versionEntries = (await getCollection('commands'))
   .sort((a, b) => b.data.updatedAt.localeCompare(a.data.updatedAt));
 
-function fmtId(id: string) {
-  return id.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-}
-
 function fmtDate(iso: string) {
   return new Date(iso + 'T00:00:00').toLocaleDateString('en-US', {
     month: 'short', day: 'numeric', year: 'numeric',
@@ -59,7 +55,7 @@ const latestVersion = versionEntries[0];
           <div class="d-flex align-items-center gap-2">
             <select id="version-select" class="form-select form-select-sm" style="width: auto;" aria-label="Command version">
               {versionEntries.map(v => (
-                <option value={v.id}>{fmtId(v.id)} — {fmtDate(v.data.updatedAt)}</option>
+                <option value={v.id}>{v.data.label} — {fmtDate(v.data.updatedAt)}</option>
               ))}
             </select>
             <a
@@ -87,7 +83,7 @@ const latestVersion = versionEntries[0];
           <a href="https://youtube.com/@pseudoposse" target="_blank" rel="noopener noreferrer">@pseudoposse</a>
         </span>
         {latestVersion && (
-          <span>{fmtId(latestVersion.id)} — updated {fmtDate(latestVersion.data.updatedAt)}</span>
+          <span>{latestVersion.data.label} — updated {fmtDate(latestVersion.data.updatedAt)}</span>
         )}
       </div>
     </footer>
