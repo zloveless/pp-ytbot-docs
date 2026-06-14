@@ -6,6 +6,10 @@ All AI-assisted changes to this repository are logged here.
 
 ## 2026-06-13
 
+### Update footer: add source credit, remove duplicate version
+- Removed version/date from footer (duplicated by the navbar version dropdown)
+- Added "Docs by Genesis" credit linking to github.com/zloveless and "Source on GitHub" linking to the repo
+
 ### Add YouTube Super Chat minimum note to Spawn Reference
 - Added `alert-info` Bootstrap alert at the top of `src/pages/commands/spawns.mdx` explaining that YouTube requires a $2.00 minimum Super Chat to attach a message (platform limit, not a bot restriction)
 

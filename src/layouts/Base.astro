@@ -14,7 +14,6 @@ function fmtDate(iso: string) {
   });
 }
 
-const latestVersion = versionEntries[0];
 ---
 <!doctype html>
 <html lang="en" data-bs-theme="dark">
@@ -83,9 +82,11 @@ const latestVersion = versionEntries[0];
           ytbot — 7 Days to Die viewer commands for
           <a href="https://youtube.com/@pseudoposse" target="_blank" rel="noopener noreferrer">@pseudoposse</a>
         </span>
-        {latestVersion && (
-          <span>{latestVersion.data.label} — updated {fmtDate(latestVersion.data.updatedAt)}</span>
-        )}
+        <span>
+          Docs by <a href="https://github.com/zloveless" target="_blank" rel="noopener noreferrer">Genesis</a>
+          &nbsp;·&nbsp;
+          <a href="https://github.com/zloveless/pp-ytbot-docs" target="_blank" rel="noopener noreferrer">Source on GitHub</a>
+        </span>
       </div>
     </footer>
 
