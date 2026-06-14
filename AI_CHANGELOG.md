@@ -4,6 +4,17 @@ All AI-assisted changes to this repository are logged here.
 
 ---
 
+## 2026-06-13
+
+### Fix broken markdown body links after GitHub Pages migration
+- `base: '/pp-ytbot-docs'` in `astro.config.mjs` is automatically applied to `.astro` template links but not to raw markdown body links
+- Converted all four affected absolute links to relative paths so they resolve correctly regardless of base path:
+  - `src/pages/how-it-works.md`: `/commands#valid-targets` → `../commands#valid-targets`
+  - `src/pages/index.md`: `/how-it-works`, `/commands`, `/commands/spawns` → relative equivalents
+  - `src/pages/commands.mdx`: `/how-it-works#command-syntax` → `../how-it-works#command-syntax`, `/commands/spawns` → `spawns`
+
+---
+
 ## 2026-06-12
 
 ### Bootstrap Styles & Light/Dark Toggle

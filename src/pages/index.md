@@ -11,6 +11,6 @@ You can **help** the streamers with heals and buffs, **hinder** them with debuff
 
 ## Quick links
 
-- [How It Works](/how-it-works) — earn points, Super Chats, Patreon/Discord bonuses, bot behavior
-- [Command Reference](/commands) — full list of all commands, costs, and effects
-- [Spawn Reference](/commands/spawns) — zombie spawn mechanics and creature pools
+- [How It Works](how-it-works) — earn points, Super Chats, Patreon/Discord bonuses, bot behavior
+- [Command Reference](commands) — full list of all commands, costs, and effects
+- [Spawn Reference](commands/spawns) — zombie spawn mechanics and creature pools
