@@ -10,6 +10,10 @@ All AI-assisted changes to this repository are logged here.
 - Removed version/date from footer (duplicated by the navbar version dropdown)
 - Added "Docs by Genesis" credit linking to github.com/zloveless and "Source on GitHub" linking to the repo
 
+### Fix extra spacing inside alert box on Spawn Reference
+- MDX was wrapping inline content in a `<p>` tag (adding `margin-bottom: 1rem` inside the alert padding) because the text was on its own indented line inside the JSX div
+- Fixed by inlining the alert content so MDX emits no block wrapper
+
 ### Add YouTube Super Chat minimum note to Spawn Reference
 - Added `alert-info` Bootstrap alert at the top of `src/pages/commands/spawns.mdx` explaining that YouTube requires a $2.00 minimum Super Chat to attach a message (platform limit, not a bot restriction)
 
