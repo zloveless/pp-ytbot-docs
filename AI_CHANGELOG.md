@@ -6,6 +6,9 @@ All AI-assisted changes to this repository are logged here.
 
 ## 2026-06-13
 
+### Add YouTube Super Chat minimum note to Spawn Reference
+- Added `alert-info` Bootstrap alert at the top of `src/pages/commands/spawns.mdx` explaining that YouTube requires a $2.00 minimum Super Chat to attach a message (platform limit, not a bot restriction)
+
 ### Fix broken markdown body links after GitHub Pages migration
 - `base: '/pp-ytbot-docs'` in `astro.config.mjs` is automatically applied to `.astro` template links but not to raw markdown body links
 - Converted all four affected absolute links to relative paths so they resolve correctly regardless of base path:
