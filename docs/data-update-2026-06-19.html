@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ytbot Docs — Data Update 2026-06-19</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --border: #2d3147;
+      --accent: #6c8fff;
+      --accent2: #a78bfa;
+      --text: #e2e5f1;
+      --muted: #8b91b0;
+      --positive: #4ade80;
+      --negative: #f87171;
+      --spawn: #fb923c;
+      --warn: #fbbf24;
+      --code-bg: #12151f;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 2.5rem;
+    }
+
+    header h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    header p {
+      color: var(--muted);
+      margin-top: 0.25rem;
+      font-size: 0.9rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--border);
+      color: var(--accent2);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      margin-right: 0.4rem;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 4rem;
+    }
+
+    p.meta {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    nav.toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2.5rem;
+      font-size: 0.9rem;
+    }
+
+    nav.toc strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+
+    nav.toc ol {
+      padding-left: 1.25rem;
+    }
+
+    nav.toc li { margin-bottom: 0.2rem; }
+    nav.toc a { color: var(--accent2); text-decoration: none; }
+    nav.toc a:hover { text-decoration: underline; }
+
+    article {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent);
+      border-left: 3px solid var(--accent);
+      padding-left: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--accent2);
+      margin: 1.5rem 0 0.6rem;
+    }
+
+    p { margin-bottom: 0.75rem; }
+
+    ul, ol {
+      padding-left: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    li { margin-bottom: 0.35rem; }
+
+    code {
+      background: var(--code-bg);
+      color: #7dd3fc;
+      font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+      font-size: 0.85em;
+      padding: 0.1em 0.35em;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+    }
+
+    pre code {
+      display: block;
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+      line-height: 1.6;
+      font-size: 0.85rem;
+    }
+
+    .callout {
+      background: var(--surface);
+      border-left: 3px solid var(--warn);
+      padding: 0.75rem 1rem;
+      border-radius: 0 6px 6px 0;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .callout strong { color: var(--warn); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      margin: 1rem 0;
+    }
+
+    th {
+      background: var(--surface);
+      color: var(--accent);
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 2px solid var(--border);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    td {
+      padding: 0.45rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:hover td { background: var(--surface); }
+
+    .old { color: var(--negative); font-weight: 600; }
+    .new { color: var(--positive); font-weight: 600; }
+    .file { color: var(--spawn); font-family: monospace; font-size: 0.85em; }
+
+    .checklist {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .checklist li:last-child { border-bottom: none; }
+
+    .check {
+      color: var(--muted);
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      width: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>ytbot Docs — Data Update 2026-06-19</h1>
+  <p>
+    <span class="badge">@pseudoposse</span>
+    <span class="badge">Vanilla / Early Game</span>
+    &nbsp;Spawn base count revisions from updated RTF
+  </p>
+</header>
+
+<main>
+
+  <h1>Data Update: Spawn Base Counts (2026-06-19)</h1>
+  <p class="meta" data-updated="2026-06-19">Last updated 2026-06-19</p>
+
+  <nav class="toc" aria-label="Table of contents">
+    <strong>Contents</strong>
+    <ol>
+      <li><a href="#summary">1. Summary of Changes</a></li>
+      <li><a href="#json-changes">2. JSON Changes — <code>vanilla-early.json</code></a></li>
+      <li><a href="#prose-changes">3. Prose Changes — <code>spawns.mdx</code></a></li>
+      <li><a href="#checklist">4. Implementation Checklist</a></li>
+    </ol>
+  </nav>
+
+  <!-- ===== 1. SUMMARY ===== -->
+  <article id="summary" data-status="open" data-opened="2026-06-19">
+    <h2>1. Summary of Changes</h2>
+
+    <p>
+      The RTF source document was updated on 2026-06-19 with revised spawn base counts.
+      Five spawn commands had their <code>baseCount</code> values increased; all other
+      command data (costs, effects, pools, <code>extraZombieThreshold</code>) is unchanged.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Command</th>
+          <th>Field</th>
+          <th>Old Value</th>
+          <th>New Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>spawn normal</code></td>
+          <td><code>baseCount</code></td>
+          <td class="old">15</td>
+          <td class="new">20</td>
+        </tr>
+        <tr>
+          <td><code>spawn strong</code></td>
+          <td><code>baseCount</code></td>
+          <td class="old">10</td>
+          <td class="new">15</td>
+        </tr>
+        <tr>
+          <td><code>spawn dogs</code></td>
+          <td><code>baseCount</code></td>
+          <td class="old">4</td>
+          <td class="new">5</td>
+        </tr>
+        <tr>
+          <td><code>spawn animals</code></td>
+          <td><code>baseCount</code></td>
+          <td class="old">4</td>
+          <td class="new">5</td>
+        </tr>
+        <tr>
+          <td><code>spawn bees</code></td>
+          <td><code>baseCount</code></td>
+          <td class="old">4</td>
+          <td class="new">5</td>
+        </tr>
+        <tr>
+          <td>(top-level)</td>
+          <td><code>updatedAt</code></td>
+          <td class="old">2026-06-13</td>
+          <td class="new">2026-06-19</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      The worked example on the Spawn Reference page (<code>spawns.mdx</code>) references the old
+      <code>spawn normal</code> base count of 15 and must also be updated.
+    </p>
+  </article>
+
+  <!-- ===== 2. JSON CHANGES ===== -->
+  <article id="json-changes" data-status="open" data-opened="2026-06-19">
+    <h2>2. JSON Changes — <span class="file">src/data/commands/vanilla-early.json</span></h2>
+
+    <p>Apply the following field-level changes. Line numbers are approximate based on the current file.</p>
+
+    <h3><code>updatedAt</code> (line 3)</h3>
+    <pre><code>- "updatedAt": "2026-06-13",
++ "updatedAt": "2026-06-19",</code></pre>
+
+    <h3><code>spawn normal</code> — <code>baseCount</code> (~line 245)</h3>
+    <pre><code>- "baseCount": 15,
++ "baseCount": 20,</code></pre>
+
+    <h3><code>spawn strong</code> — <code>baseCount</code> (~line 265)</h3>
+    <pre><code>- "baseCount": 10,
++ "baseCount": 15,</code></pre>
+
+    <h3><code>spawn dogs</code> — <code>baseCount</code> (~line 299)</h3>
+    <pre><code>- "baseCount": 4,
++ "baseCount": 5,</code></pre>
+
+    <h3><code>spawn animals</code> — <code>baseCount</code> (~line 312)</h3>
+    <pre><code>- "baseCount": 4,
++ "baseCount": 5,</code></pre>
+
+    <h3><code>spawn bees</code> — <code>baseCount</code> (~line 320)</h3>
+    <pre><code>- "baseCount": 4,
++ "baseCount": 5,</code></pre>
+
+    <div class="callout">
+      <strong>Not changed:</strong> <code>spawn feral normal</code> (baseCount 5), <code>spawn feral strong</code> (baseCount 5),
+      <code>spawn ranged</code> (baseCount 3), and <code>spawn screamers</code> (no baseCount) are all correct per the RTF.
+      All <code>extraZombieThreshold</code> values, costs, and zombie pool notes are also unchanged.
+    </div>
+  </article>
+
+  <!-- ===== 3. PROSE CHANGES ===== -->
+  <article id="prose-changes" data-status="open" data-opened="2026-06-19">
+    <h2>3. Prose Changes — <span class="file">src/pages/commands/spawns.mdx</span></h2>
+
+    <p>
+      The worked example on line 30 hardcodes the old <code>spawn normal</code> base count.
+      Update the inline reference from <strong>15</strong> to <strong>20</strong>:
+    </p>
+
+    <pre><code>- A $2.00 Super Chat → $1.00 over minimum ÷ $0.25 = **4 extra zombies** on top of the base 15.
++ A $2.00 Super Chat → $1.00 over minimum ÷ $0.25 = **4 extra zombies** on top of the base 20.</code></pre>
+
+    <div class="callout">
+      <strong>Note:</strong> The example math (4 extra zombies) remains correct — only the stated base count changes.
+      No other prose in <code>spawns.mdx</code> references specific base counts.
+    </div>
+  </article>
+
+  <!-- ===== 4. CHECKLIST ===== -->
+  <article id="checklist" data-status="open" data-opened="2026-06-19">
+    <h2>4. Implementation Checklist</h2>
+
+    <ul class="checklist">
+      <li><span class="check">☐</span> <code>vanilla-early.json</code> — bump <code>updatedAt</code> to <code>2026-06-19</code></li>
+      <li><span class="check">☐</span> <code>vanilla-early.json</code> — <code>spawn normal</code> baseCount 15 → 20</li>
+      <li><span class="check">☐</span> <code>vanilla-early.json</code> — <code>spawn strong</code> baseCount 10 → 15</li>
+      <li><span class="check">☐</span> <code>vanilla-early.json</code> — <code>spawn dogs</code> baseCount 4 → 5</li>
+      <li><span class="check">☐</span> <code>vanilla-early.json</code> — <code>spawn animals</code> baseCount 4 → 5</li>
+      <li><span class="check">☐</span> <code>vanilla-early.json</code> — <code>spawn bees</code> baseCount 4 → 5</li>
+      <li><span class="check">☐</span> <code>spawns.mdx</code> line 30 — update "base 15" → "base 20" in worked example</li>
+    </ul>
+  </article>
+
+</main>
+</body>
+</html>

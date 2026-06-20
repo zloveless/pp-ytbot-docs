@@ -1,6 +1,6 @@
 {
   "label": "Vanilla 3.0",
-  "updatedAt": "2026-06-13",
+  "updatedAt": "2026-06-19",
   "commands": [
     {
       "keyword": "burn",
@@ -241,7 +241,7 @@
       "cost": 100,
       "target": "player",
       "superChatMin": 1.00,
-      "baseCount": 15,
+      "baseCount": 20,
       "extraZombieThreshold": 0.25,
       "notes": "Pool: Arlene, Marlene, Party Girl, Nurse, Joe, Steve, Tom Clark, Business Man, Burnt, Spider, Boe, Hazmat, Janitor, Inmate, Moe, Lab, Darlene, Yo, Utility Worker, Biker, Lumberjack, Fat Mama, Hawaiian, Bowler, Soldier"
     },
@@ -263,7 +263,7 @@
       "cost": 200,
       "target": "player",
       "superChatMin": 2.00,
-      "baseCount": 10,
+      "baseCount": 15,
       "extraZombieThreshold": 0.25,
       "notes": "Pool: Biker, Lumberjack, Fat Mama, Hawaiian, Bowler, Soldier, Cop"
     },
@@ -296,7 +296,7 @@
       "cost": 200,
       "target": "player",
       "superChatMin": 2.00,
-      "baseCount": 4,
+      "baseCount": 5,
       "extraZombieThreshold": 0.25,
       "notes": "Pool: Z Dog, Dire Wolf"
     },
@@ -307,7 +307,7 @@
       "cost": 300,
       "target": "player",
       "superChatMin": 3.00,
-      "baseCount": 4,
+      "baseCount": 5,
       "extraZombieThreshold": 0.25,
       "notes": "Pool: Z Dog, Dire Wolf, Z Bear, Vulture, Radiated Vulture, Grace"
     },
@@ -318,7 +318,7 @@
       "cost": 200,
       "target": "player",
       "superChatMin": 2.00,
-      "baseCount": 4,
+      "baseCount": 5,
       "extraZombieThreshold": 0.25
     },
     {
