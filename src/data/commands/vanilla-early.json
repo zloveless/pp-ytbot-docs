@@ -1,6 +1,6 @@
 {
   "label": "Vanilla 3.0",
-  "updatedAt": "2026-06-19",
+  "updatedAt": "2026-06-21",
   "commands": [
     {
       "keyword": "burn",
@@ -241,7 +241,7 @@
       "cost": 100,
       "target": "player",
       "superChatMin": 1.00,
-      "baseCount": 20,
+      "baseCount": 25,
       "extraZombieThreshold": 0.25,
       "notes": "Pool: Arlene, Marlene, Party Girl, Nurse, Joe, Steve, Tom Clark, Business Man, Burnt, Spider, Boe, Hazmat, Janitor, Inmate, Moe, Lab, Darlene, Yo, Utility Worker, Biker, Lumberjack, Fat Mama, Hawaiian, Bowler, Soldier"
     },
@@ -252,7 +252,7 @@
       "cost": 200,
       "target": "player",
       "superChatMin": 2.00,
-      "baseCount": 5,
+      "baseCount": 9,
       "extraZombieThreshold": 0.50,
       "notes": "Same zombie pool as spawn normal"
     },
@@ -263,7 +263,7 @@
       "cost": 200,
       "target": "player",
       "superChatMin": 2.00,
-      "baseCount": 15,
+      "baseCount": 20,
       "extraZombieThreshold": 0.25,
       "notes": "Pool: Biker, Lumberjack, Fat Mama, Hawaiian, Bowler, Soldier, Cop"
     },
@@ -274,7 +274,7 @@
       "cost": 250,
       "target": "player",
       "superChatMin": 2.50,
-      "baseCount": 5,
+      "baseCount": 9,
       "extraZombieThreshold": 0.50,
       "notes": "Same zombie pool as spawn strong"
     },
@@ -285,7 +285,18 @@
       "cost": 300,
       "target": "player",
       "superChatMin": 3.00,
-      "baseCount": 3,
+      "baseCount": 6,
+      "extraZombieThreshold": 0.50,
+      "notes": "Pool: Rancher, Chuck, Cop"
+    },
+    {
+      "keyword": "spawn feral ranged",
+      "category": "spawn",
+      "effect": "Spawns feral ranged zombies drawn to the target player",
+      "cost": 400,
+      "target": "player",
+      "superChatMin": 3.00,
+      "baseCount": 4,
       "extraZombieThreshold": 0.50,
       "notes": "Pool: Rancher, Chuck, Cop"
     },
@@ -296,7 +307,7 @@
       "cost": 200,
       "target": "player",
       "superChatMin": 2.00,
-      "baseCount": 5,
+      "baseCount": 6,
       "extraZombieThreshold": 0.25,
       "notes": "Pool: Z Dog, Dire Wolf"
     },
@@ -307,7 +318,7 @@
       "cost": 300,
       "target": "player",
       "superChatMin": 3.00,
-      "baseCount": 5,
+      "baseCount": 6,
       "extraZombieThreshold": 0.25,
       "notes": "Pool: Z Dog, Dire Wolf, Z Bear, Vulture, Radiated Vulture, Grace"
     },
