@@ -243,7 +243,7 @@
       "superChatMin": 1.00,
       "baseCount": 25,
       "extraZombieThreshold": 0.25,
-      "notes": "Pool: Arlene, Marlene, Party Girl, Nurse, Joe, Steve, Tom Clark, Business Man, Burnt, Spider, Boe, Hazmat, Janitor, Inmate, Moe, Lab, Darlene, Yo, Utility Worker, Biker, Lumberjack, Fat Mama, Hawaiian, Bowler, Soldier"
+      "notes": "Normal pool"
     },
     {
       "keyword": "spawn feral normal",
@@ -254,7 +254,7 @@
       "superChatMin": 2.00,
       "baseCount": 9,
       "extraZombieThreshold": 0.50,
-      "notes": "Same zombie pool as spawn normal"
+      "notes": "Normal pool"
     },
     {
       "keyword": "spawn strong",
@@ -265,7 +265,7 @@
       "superChatMin": 2.00,
       "baseCount": 20,
       "extraZombieThreshold": 0.25,
-      "notes": "Pool: Biker, Lumberjack, Fat Mama, Hawaiian, Bowler, Soldier, Cop"
+      "notes": "Strong pool"
     },
     {
       "keyword": "spawn feral strong",
@@ -276,7 +276,7 @@
       "superChatMin": 2.50,
       "baseCount": 9,
       "extraZombieThreshold": 0.50,
-      "notes": "Same zombie pool as spawn strong"
+      "notes": "Strong pool"
     },
     {
       "keyword": "spawn ranged",
@@ -287,7 +287,7 @@
       "superChatMin": 3.00,
       "baseCount": 6,
       "extraZombieThreshold": 0.50,
-      "notes": "Pool: Rancher, Chuck, Cop"
+      "notes": "Ranged pool"
     },
     {
       "keyword": "spawn feral ranged",
@@ -298,7 +298,7 @@
       "superChatMin": 3.00,
       "baseCount": 4,
       "extraZombieThreshold": 0.50,
-      "notes": "Pool: Rancher, Chuck, Cop"
+      "notes": "Ranged pool"
     },
     {
       "keyword": "spawn dogs",
@@ -309,7 +309,7 @@
       "superChatMin": 2.00,
       "baseCount": 6,
       "extraZombieThreshold": 0.25,
-      "notes": "Pool: Z Dog, Dire Wolf"
+      "notes": "Dogs pool"
     },
     {
       "keyword": "spawn animals",
@@ -320,7 +320,7 @@
       "superChatMin": 3.00,
       "baseCount": 6,
       "extraZombieThreshold": 0.25,
-      "notes": "Pool: Z Dog, Dire Wolf, Z Bear, Vulture, Radiated Vulture, Grace"
+      "notes": "Animals pool"
     },
     {
       "keyword": "spawn bees",
@@ -339,7 +339,7 @@
       "cost": 600,
       "target": "player",
       "superChatMin": 6.00,
-      "notes": "No base count; screamer horde size is determined by game stage. No extra-zombie scaling via Super Chat."
+      "notes": "Usually spawns 1-2 screamers depending on game stage."
     }
   ]
 }
