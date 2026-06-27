@@ -20,11 +20,14 @@ const badgeClass: Record<string, string> = {
 
 const showCategory = !category;
 const showNotes = commands.some(cmd => cmd.notes);
+const showBaseCount = commands.some(cmd => cmd.baseCount != null);
 
 // Column TD indices — only sortable columns need tracking.
 const c = showCategory
   ? { cmd: 0, cat: 1, cost: 3, sc: 4 }
-  : { cmd: 0, cost: 2, sc: 3 };
+  : showBaseCount
+    ? { cmd: 0, sc: 2, cost: 3, base: 4 }
+    : { cmd: 0, cost: 2, sc: 3 };
 
 const tableId = `cmd-${Math.random().toString(36).slice(2, 9)}`;
 ---
@@ -40,6 +43,9 @@ const tableId = `cmd-${Math.random().toString(36).slice(2, 9)}`;
         <th>Effect</th>
         <th class="sortable" data-col={c.sc} data-numeric="true">Super Chat <span class="sort-icon">⇅</span></th>
         <th class="sortable text-end" data-col={c.cost} data-numeric="true">Points <span class="sort-icon">⇅</span></th>
+        {showBaseCount && (
+          <th class="sortable text-end" data-col={c.base} data-numeric="true">Base Spawn <span class="sort-icon">⇅</span></th>
+        )}
         {showNotes && <th>Notes</th>}
       </tr>
     </thead>
@@ -59,6 +65,11 @@ const tableId = `cmd-${Math.random().toString(36).slice(2, 9)}`;
             {cmd.superChatMin != null ? `$${cmd.superChatMin.toFixed(2)}` : '—'}
           </td>
           <td class="text-end" data-sort={cmd.cost}>{cmd.cost}</td>
+          {showBaseCount && (
+            <td class="text-end" data-sort={cmd.baseCount ?? 9999}>
+              {cmd.baseCount != null ? cmd.baseCount : '—'}
+            </td>
+          )}
           {showNotes && <td class="text-muted small">{cmd.notes ?? ''}</td>}
         </tr>
       ))}
