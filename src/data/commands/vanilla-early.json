@@ -35,7 +35,7 @@
       "effect": "Burns target for 5 seconds",
       "cost": 100,
       "target": "player",
-      "superChatMin": 1.00
+      "superChatMin": 1
     },
     {
       "keyword": "shock",
@@ -43,7 +43,7 @@
       "effect": "Electric shock for 3 seconds",
       "cost": 100,
       "target": "player",
-      "superChatMin": 1.00
+      "superChatMin": 1
     },
     {
       "keyword": "slow",
@@ -51,7 +51,7 @@
       "effect": "Reduces movement speed for 60 seconds",
       "cost": 100,
       "target": "player",
-      "superChatMin": 1.00
+      "superChatMin": 1
     },
     {
       "keyword": "anti-leech",
@@ -59,7 +59,7 @@
       "effect": "Lose HP when attacking entities for 30 seconds",
       "cost": 200,
       "target": "player",
-      "superChatMin": 2.00
+      "superChatMin": 2
     },
     {
       "keyword": "no running",
@@ -67,7 +67,7 @@
       "effect": "Lose HP while running for 60 seconds",
       "cost": 200,
       "target": "player",
-      "superChatMin": 2.00
+      "superChatMin": 2
     },
     {
       "keyword": "weaken melee weapon",
@@ -75,7 +75,7 @@
       "effect": "Temporarily weakens effectiveness of melee weapons for 30 seconds",
       "cost": 200,
       "target": "player",
-      "superChatMin": 2.00
+      "superChatMin": 2
     },
     {
       "keyword": "weaken ranged weapon",
@@ -83,7 +83,7 @@
       "effect": "Temporarily weakens effectiveness of ranged weapons for 30 seconds",
       "cost": 200,
       "target": "player",
-      "superChatMin": 2.00
+      "superChatMin": 2
     },
     {
       "keyword": "headshot only",
@@ -91,7 +91,7 @@
       "effect": "Entities can only be killed via headshots for 60 seconds",
       "cost": 300,
       "target": "player",
-      "superChatMin": 3.00
+      "superChatMin": 3
     },
     {
       "keyword": "disable ranged weapon",
@@ -99,7 +99,7 @@
       "effect": "Disables the use of ranged weapons for 30 seconds",
       "cost": 300,
       "target": "player",
-      "superChatMin": 3.00
+      "superChatMin": 3
     },
     {
       "keyword": "disable melee weapon",
@@ -107,7 +107,7 @@
       "effect": "Disables the use of melee weapons for 30 seconds",
       "cost": 300,
       "target": "player",
-      "superChatMin": 3.00
+      "superChatMin": 3
     },
     {
       "keyword": "broken leg",
@@ -115,7 +115,7 @@
       "effect": "Breaks the target's leg",
       "cost": 300,
       "target": "player",
-      "superChatMin": 3.00
+      "superChatMin": 3
     },
     {
       "keyword": "broken arm",
@@ -123,7 +123,7 @@
       "effect": "Breaks the target's arm",
       "cost": 300,
       "target": "player",
-      "superChatMin": 3.00
+      "superChatMin": 3
     },
     {
       "keyword": "sprain leg",
@@ -131,7 +131,7 @@
       "effect": "Sprains the target's leg",
       "cost": 350,
       "target": "player",
-      "superChatMin": 3.50
+      "superChatMin": 3.5
     },
     {
       "keyword": "sprain arm",
@@ -139,7 +139,7 @@
       "effect": "Sprains the target's arm",
       "cost": 350,
       "target": "player",
-      "superChatMin": 3.50
+      "superChatMin": 3.5
     },
     {
       "keyword": "nerf xp",
@@ -147,7 +147,7 @@
       "effect": "Temporarily decreases XP gain for 300 seconds",
       "cost": 350,
       "target": "player",
-      "superChatMin": 3.50
+      "superChatMin": 3.5
     },
     {
       "keyword": "trip",
@@ -155,7 +155,7 @@
       "effect": "Target can trip and fall from moving or jumping for 60 seconds",
       "cost": 400,
       "target": "player",
-      "superChatMin": 4.00
+      "superChatMin": 4
     },
     {
       "keyword": "flip controls",
@@ -163,7 +163,7 @@
       "effect": "Flips movement controls for 30 seconds",
       "cost": 400,
       "target": "player",
-      "superChatMin": 4.00
+      "superChatMin": 4
     },
     {
       "keyword": "no driving",
@@ -171,7 +171,7 @@
       "effect": "Lose HP while driving a vehicle for 120 seconds",
       "cost": 400,
       "target": "player",
-      "superChatMin": 4.00
+      "superChatMin": 4
     },
     {
       "keyword": "blinded",
@@ -179,7 +179,7 @@
       "effect": "Turns the screen black for 10 seconds, blinding the target",
       "cost": 450,
       "target": "player",
-      "superChatMin": 4.50
+      "superChatMin": 4.5
     },
     {
       "keyword": "resurrect",
@@ -187,7 +187,7 @@
       "effect": "Resurrects fallen zombies near the target for 90 seconds",
       "cost": 600,
       "target": "player",
-      "superChatMin": 6.00
+      "superChatMin": 6
     },
     {
       "keyword": "regen",
@@ -195,7 +195,7 @@
       "effect": "Instantly restores some HP and removes any active negative buffs",
       "cost": 50,
       "target": "player",
-      "superChatMin": 0.50
+      "superChatMin": 0.5
     },
     {
       "keyword": "tough guy",
@@ -203,7 +203,7 @@
       "effect": "Temporarily increases stamina regen and critical resistance, and decreases HP loss for 60 seconds",
       "cost": 150,
       "target": "player",
-      "superChatMin": 1.50
+      "superChatMin": 1.5
     },
     {
       "keyword": "instant regen",
@@ -211,7 +211,7 @@
       "effect": "Instantly restores full health and removes any active negative buffs",
       "cost": 150,
       "target": "player",
-      "superChatMin": 1.50
+      "superChatMin": 1.5
     },
     {
       "keyword": "buff ranged weapon",
@@ -219,7 +219,7 @@
       "effect": "Temporarily boosts the effectiveness of ranged weapons for 30 seconds",
       "cost": 100,
       "target": "player",
-      "superChatMin": 1.00
+      "superChatMin": 1
     },
     {
       "keyword": "buff melee weapon",
@@ -227,7 +227,7 @@
       "effect": "Temporarily boosts the effectiveness of melee weapons for 30 seconds",
       "cost": 100,
       "target": "player",
-      "superChatMin": 1.00
+      "superChatMin": 1
     },
     {
       "keyword": "buff xp",
@@ -235,7 +235,7 @@
       "effect": "Temporarily doubles XP gain for 600 seconds",
       "cost": 100,
       "target": "player",
-      "superChatMin": 1.00
+      "superChatMin": 1
     },
     {
       "keyword": "fast",
@@ -243,7 +243,7 @@
       "effect": "Temporarily increases run speed and stamina regen while running for 60 seconds",
       "cost": 150,
       "target": "player",
-      "superChatMin": 1.50
+      "superChatMin": 1.5
     },
     {
       "keyword": "silly sounds",
@@ -251,7 +251,7 @@
       "effect": "Replaces normal game sounds with silly ones for 120 seconds",
       "cost": 50,
       "target": "player",
-      "superChatMin": 0.50
+      "superChatMin": 0.5
     },
     {
       "keyword": "confetti",
@@ -259,213 +259,196 @@
       "effect": "Entities burst into a cloud of confetti when killed for 60 seconds",
       "cost": 50,
       "target": "player",
-      "superChatMin": 0.50
-    },
+      "superChatMin": 0.5
+    }
+  ],
+  "spawns": [
     {
       "keyword": "spawn normal",
-      "category": "spawn",
       "effect": "Spawns a group of standard zombies that are drawn to the target player",
       "cost": 100,
       "target": "player",
-      "superChatMin": 1.00,
+      "superChatMin": 1,
       "baseCount": 30,
       "extraZombieThreshold": 0.25,
       "notes": "Pool: Normal"
     },
     {
       "keyword": "spawn feral normal",
-      "category": "spawn",
       "effect": "Spawns feral variants from the standard zombie pool; target player receives auto-pull aggro buff",
       "cost": 200,
       "target": "player",
-      "superChatMin": 2.00,
+      "superChatMin": 2,
       "baseCount": 15,
-      "extraZombieThreshold": 0.50,
+      "extraZombieThreshold": 0.5,
       "notes": "Pool: Normal"
     },
     {
       "keyword": "spawn rad normal",
-      "category": "spawn",
       "effect": "Spawns radiated variants from the standard zombie pool; target player receives auto-pull aggro buff",
       "cost": 300,
       "target": "player",
-      "superChatMin": 3.00,
+      "superChatMin": 3,
       "baseCount": 15,
-      "extraZombieThreshold": 0.50,
+      "extraZombieThreshold": 0.5,
       "notes": "Pool: Normal — Radiated"
     },
     {
       "keyword": "spawn super normal",
-      "category": "spawn",
       "effect": "Spawns charged/infernal variants from the standard zombie pool; target player receives auto-pull aggro buff",
       "cost": 500,
       "target": "player",
-      "superChatMin": 5.00,
+      "superChatMin": 5,
       "baseCount": 15,
       "extraZombieThreshold": 0.75,
       "notes": "Pool: Normal — Charged/Infernal"
     },
     {
       "keyword": "spawn strong",
-      "category": "spawn",
       "effect": "Spawns a group of tougher zombies drawn to the target player",
       "cost": 200,
       "target": "player",
-      "superChatMin": 2.00,
+      "superChatMin": 2,
       "baseCount": 25,
       "extraZombieThreshold": 0.25,
       "notes": "Pool: Strong"
     },
     {
       "keyword": "spawn feral strong",
-      "category": "spawn",
       "effect": "Spawns feral variants from the strong zombie pool; target player receives auto-pull aggro buff",
       "cost": 250,
       "target": "player",
-      "superChatMin": 2.50,
+      "superChatMin": 2.5,
       "baseCount": 15,
-      "extraZombieThreshold": 0.50,
+      "extraZombieThreshold": 0.5,
       "notes": "Pool: Strong"
     },
     {
       "keyword": "spawn rad strong",
-      "category": "spawn",
       "effect": "Spawns radiated variants from the strong zombie pool; target player receives auto-pull aggro buff",
       "cost": 350,
       "target": "player",
-      "superChatMin": 3.50,
+      "superChatMin": 3.5,
       "baseCount": 15,
-      "extraZombieThreshold": 0.50,
+      "extraZombieThreshold": 0.5,
       "notes": "Pool: Strong — Radiated"
     },
     {
       "keyword": "spawn super strong",
-      "category": "spawn",
       "effect": "Spawns charged/infernal variants from the strong zombie pool; target player receives auto-pull aggro buff",
       "cost": 550,
       "target": "player",
-      "superChatMin": 5.50,
+      "superChatMin": 5.5,
       "baseCount": 15,
       "extraZombieThreshold": 0.75,
       "notes": "Pool: Strong — Charged/Infernal"
     },
     {
       "keyword": "spawn ranged",
-      "category": "spawn",
       "effect": "Spawns ranged zombies drawn to the target player",
       "cost": 300,
       "target": "player",
-      "superChatMin": 3.00,
+      "superChatMin": 3,
       "baseCount": 10,
-      "extraZombieThreshold": 0.50,
+      "extraZombieThreshold": 0.5,
       "notes": "Pool: Ranged"
     },
     {
       "keyword": "spawn feral ranged",
-      "category": "spawn",
       "effect": "Spawns feral ranged zombies drawn to the target player",
       "cost": 400,
       "target": "player",
-      "superChatMin": 4.00,
+      "superChatMin": 4,
       "baseCount": 10,
-      "extraZombieThreshold": 0.50,
+      "extraZombieThreshold": 0.5,
       "notes": "Pool: Ranged"
     },
     {
       "keyword": "spawn rad ranged",
-      "category": "spawn",
       "effect": "Spawns radiated ranged zombies drawn to the target player",
       "cost": 500,
       "target": "player",
-      "superChatMin": 5.00,
+      "superChatMin": 5,
       "baseCount": 8,
       "extraZombieThreshold": 0.75,
       "notes": "Pool: Ranged — Radiated"
     },
     {
       "keyword": "spawn super ranged",
-      "category": "spawn",
       "effect": "Spawns charged/infernal ranged zombies drawn to the target player",
       "cost": 600,
       "target": "player",
-      "superChatMin": 6.00,
+      "superChatMin": 6,
       "baseCount": 6,
-      "extraZombieThreshold": 1.00,
+      "extraZombieThreshold": 1,
       "notes": "Pool: Ranged — Charged/Infernal"
     },
     {
       "keyword": "spawn dogs",
-      "category": "spawn",
       "effect": "Spawns zombie dogs drawn to the target player",
       "cost": 200,
       "target": "player",
-      "superChatMin": 2.00,
+      "superChatMin": 2,
       "baseCount": 10,
       "extraZombieThreshold": 0.25,
       "notes": "Pool: Dogs"
     },
     {
       "keyword": "spawn animals",
-      "category": "spawn",
       "effect": "Spawns hostile zombie animals drawn to the target player",
       "cost": 300,
       "target": "player",
-      "superChatMin": 3.00,
+      "superChatMin": 3,
       "baseCount": 6,
       "extraZombieThreshold": 0.25,
       "notes": "Pool: Animals"
     },
     {
       "keyword": "spawn bees",
-      "category": "spawn",
       "effect": "Spawns bees that attack the target player",
       "cost": 200,
       "target": "player",
-      "superChatMin": 2.00,
+      "superChatMin": 2,
       "baseCount": 8,
       "extraZombieThreshold": 0.25,
       "notes": "Pool: Bees"
     },
     {
       "keyword": "spawn feral badass",
-      "category": "spawn",
       "effect": "Spawns feral badass zombies drawn to the target player",
       "cost": 400,
       "target": "player",
-      "superChatMin": 4.00,
+      "superChatMin": 4,
       "baseCount": 10,
-      "extraZombieThreshold": 0.50,
+      "extraZombieThreshold": 0.5,
       "notes": "Pool: Badass — Feral"
     },
     {
       "keyword": "spawn rad badass",
-      "category": "spawn",
       "effect": "Spawns radiated badass zombies drawn to the target player",
       "cost": 500,
       "target": "player",
-      "superChatMin": 5.00,
+      "superChatMin": 5,
       "baseCount": 8,
       "extraZombieThreshold": 0.75,
       "notes": "Pool: Badass — Radiated"
     },
     {
       "keyword": "spawn super badass",
-      "category": "spawn",
       "effect": "Spawns charged/infernal badass zombies drawn to the target player",
       "cost": 600,
       "target": "player",
-      "superChatMin": 6.00,
+      "superChatMin": 6,
       "baseCount": 6,
-      "extraZombieThreshold": 1.00,
+      "extraZombieThreshold": 1,
       "notes": "Pool: Badass — Charged/Infernal"
     },
     {
       "keyword": "spawn screamers",
-      "category": "spawn",
       "effect": "Spawns screamers near the target player; screamers will call a full horde",
       "cost": 600,
       "target": "player",
-      "superChatMin": 6.00,
+      "superChatMin": 6,
       "notes": "Usually spawns 1-2 screamers depending on game stage."
     }
   ]

@@ -8,8 +8,11 @@ interface Props {
 const { category } = Astro.props;
 
 const entries = await getCollection('commands');
-const all = entries.flatMap(e => e.data.commands.map(cmd => ({ ...cmd, _ver: e.id })));
-const commands = category ? all.filter(c => c.category === category) : all;
+const commands = category === 'spawn'
+  ? entries.flatMap(e => (e.data.spawns ?? []).map(cmd => ({ ...cmd, _ver: e.id })))
+  : entries
+      .flatMap(e => e.data.commands.map(cmd => ({ ...cmd, _ver: e.id })))
+      .filter(c => !category || c.category === category);
 
 const badgeClass: Record<string, string> = {
   negative: 'text-bg-danger',

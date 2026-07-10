@@ -16,7 +16,17 @@ const commands = defineCollection({
     commands: z.array(
       z.object({
         keyword: z.string(),
-        category: z.enum(['negative', 'positive', 'spawn', 'funny']),
+        category: z.enum(['negative', 'positive', 'funny']),
+        effect: z.string(),
+        cost: z.number(),
+        target: z.enum(['self', 'player', 'all']),
+        superChatMin: z.number().optional(),
+        notes: z.string().optional(),
+      })
+    ),
+    spawns: z.array(
+      z.object({
+        keyword: z.string(),
         effect: z.string(),
         cost: z.number(),
         target: z.enum(['self', 'player', 'all']),
@@ -25,7 +35,7 @@ const commands = defineCollection({
         baseCount: z.number().optional(),
         extraZombieThreshold: z.number().optional(),
       })
-    ),
+    ).optional(),
   }),
 });
 

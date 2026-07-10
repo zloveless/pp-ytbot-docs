@@ -21,6 +21,11 @@ All AI-assisted changes to this repository are logged here.
 - Added an "Extra Zombies" column showing `extraZombieThreshold` (the per-donation-increment USD threshold), which was already in the schema but had never been rendered
 - Trimmed spawn command `notes` text down to short `"Pool: <name>"` labels (e.g. `"Pool: Normal — Radiated"`); left the two screamer notes as freeform text since screamers aren't a named pool
 
+### Split spawn commands into their own `spawns` array
+- `content.config.ts`: `commands` schema entries no longer accept `category: "spawn"` (now `negative | positive | funny` only); added a sibling optional `spawns` array with the spawn-only fields (`baseCount`, `extraZombieThreshold`) and no `category` field, since every entry in it is implicitly a spawn
+- Moved every `category: "spawn"` command out of `commands` and into the new `spawns` array in both `projectz-2026-early.json` and `vanilla-early.json`, dropping the now-redundant `category` key on each
+- `CommandTable.astro`: `<CommandTable category="spawn" />` now reads from `e.data.spawns` instead of filtering the flat `commands` list; other categories still filter `e.data.commands` as before — no changes needed to `commands.mdx` or `spawns.mdx` call sites
+
 ---
 
 ## 2026-07-09
