@@ -1,0 +1,41 @@
+{
+  "label": "Test Version",
+  "updatedAt": "2026-07-09",
+  "commands": [
+    {
+      "keyword": "burn",
+      "category": "negative",
+      "effect": "TEST DATA — Burns target for 5 seconds",
+      "cost": 999,
+      "target": "player",
+      "superChatMin": 9.99
+    },
+    {
+      "keyword": "regen",
+      "category": "positive",
+      "effect": "TEST DATA — Instantly restores some HP and removes any active negative buffs",
+      "cost": 999,
+      "target": "player",
+      "superChatMin": 9.99
+    },
+    {
+      "keyword": "confetti",
+      "category": "funny",
+      "effect": "TEST DATA — Entities burst into a cloud of confetti when killed for 60 seconds",
+      "cost": 999,
+      "target": "player",
+      "superChatMin": 9.99
+    },
+    {
+      "keyword": "spawn normal",
+      "category": "spawn",
+      "effect": "TEST DATA — Spawns a group of standard zombies that are drawn to the target player",
+      "cost": 999,
+      "target": "player",
+      "superChatMin": 9.99,
+      "baseCount": 1,
+      "extraZombieThreshold": 9.99,
+      "notes": "Test pool"
+    }
+  ]
+}

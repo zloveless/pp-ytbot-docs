@@ -1,6 +1,7 @@
 {
   "label": "Vanilla 3.0",
   "updatedAt": "2026-06-26",
+  "default": true,
   "commands": [
     {
       "keyword": "burn",

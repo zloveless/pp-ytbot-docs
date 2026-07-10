@@ -6,7 +6,11 @@ const { frontmatter } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const versionEntries = (await getCollection('commands'))
-  .sort((a, b) => b.data.updatedAt.localeCompare(a.data.updatedAt));
+  .sort((a, b) => {
+    if (a.data.default && !b.data.default) return -1;
+    if (b.data.default && !a.data.default) return 1;
+    return b.data.updatedAt.localeCompare(a.data.updatedAt);
+  });
 
 function fmtDate(iso: string) {
   return new Date(iso + 'T00:00:00').toLocaleDateString('en-US', {
@@ -55,7 +59,7 @@ function fmtDate(iso: string) {
           <div class="d-flex align-items-center gap-2">
             <select id="version-select" class="form-select form-select-sm" style="width: auto;" aria-label="Command version">
               {versionEntries.map(v => (
-                <option value={v.id}>{v.data.label} — {fmtDate(v.data.updatedAt)}</option>
+                <option value={v.id} selected={v.data.default}>{v.data.label} — {fmtDate(v.data.updatedAt)}</option>
               ))}
             </select>
             <a
@@ -112,6 +116,7 @@ function fmtDate(iso: string) {
       });
 
       const versionSelect = document.getElementById('version-select') as HTMLSelectElement | null;
+      const VERSION_KEY = 'ytbot-version';
 
       function applyVersionFilter(ver: string) {
         document.querySelectorAll<HTMLElement>('[data-ver]').forEach(row => {
@@ -120,7 +125,16 @@ function fmtDate(iso: string) {
       }
 
       if (versionSelect) {
-        versionSelect.addEventListener('change', () => applyVersionFilter(versionSelect.value));
+        const saved = localStorage.getItem(VERSION_KEY);
+        if (saved && Array.from(versionSelect.options).some(o => o.value === saved)) {
+          versionSelect.value = saved;
+        }
+
+        versionSelect.addEventListener('change', () => {
+          localStorage.setItem(VERSION_KEY, versionSelect.value);
+          applyVersionFilter(versionSelect.value);
+        });
+
         applyVersionFilter(versionSelect.value);
       }
     </script>

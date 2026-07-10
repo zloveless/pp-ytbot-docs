@@ -6,6 +6,7 @@ const commands = defineCollection({
   schema: z.object({
     label: z.string(),
     updatedAt: z.string(),
+    default: z.boolean().optional(),
     commands: z.array(
       z.object({
         keyword: z.string(),

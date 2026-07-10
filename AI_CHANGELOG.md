@@ -4,6 +4,17 @@ All AI-assisted changes to this repository are logged here.
 
 ---
 
+## 2026-07-09
+
+### Add second command version and persist dropdown selection across pages
+- Added `src/data/commands/vanilla-test.json` — a small placeholder version (one command per category) to prove out the multi-version dropdown before a real second data set exists
+- Added an optional `default: boolean` field to the commands schema (`content.config.ts`); `vanilla-early.json` is now flagged `default: true`
+- `Base.astro` version dropdown now sorts the `default`-flagged version first and marks its `<option>` `selected`, instead of relying on `updatedAt` recency — a newer secondary version (like the test file, dated today) would otherwise silently become the default shown version
+- Version selection now persists across page navigation via `localStorage` (`ytbot-version` key), mirroring the existing theme-toggle pattern — picking a version on Commands carries over to Spawns
+- Added reference PDF `YTbot Commands-VanillaVersion_2026-06-26.pdf` (source for the June 26 spawn data update)
+
+---
+
 ## 2026-06-13
 
 ### Update footer: add source credit, remove duplicate version
