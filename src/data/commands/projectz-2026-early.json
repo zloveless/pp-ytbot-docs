@@ -1,7 +1,7 @@
 {
-  "label": "Vanilla 3.0",
-  "updatedAt": "2026-06-26",
-  "default": false,
+  "label": "Project Z — Early Game",
+  "updatedAt": "2026-07-10",
+  "default": true,
   "commands": [
     {
       "keyword": "burn",
@@ -242,9 +242,9 @@
       "cost": 100,
       "target": "player",
       "superChatMin": 1.00,
-      "baseCount": 30,
+      "baseCount": 8,
       "extraZombieThreshold": 0.25,
-      "notes": "Normal pool"
+      "notes": "Pool: Arlene, Marlene, Party Girl, Nurse, Joe, Steve, Tom Clark, Business Man, Burnt, Spider, Boe, Hazmat, Janitor, Inmate, Moe, Lab, Darlene, Yo, Utility Worker, Biker, Lumberjack, Fat Mama, Hawaiian, Bowler, Soldier"
     },
     {
       "keyword": "spawn feral normal",
@@ -253,42 +253,20 @@
       "cost": 200,
       "target": "player",
       "superChatMin": 2.00,
-      "baseCount": 15,
+      "baseCount": 3,
       "extraZombieThreshold": 0.50,
-      "notes": "Normal pool"
-    },
-    {
-      "keyword": "spawn rad normal",
-      "category": "spawn",
-      "effect": "Spawns radiated variants from the standard zombie pool; target player receives auto-pull aggro buff",
-      "cost": 300,
-      "target": "player",
-      "superChatMin": 3.00,
-      "baseCount": 15,
-      "extraZombieThreshold": 0.50,
-      "notes": "Normal pool — Radiated"
-    },
-    {
-      "keyword": "spawn super normal",
-      "category": "spawn",
-      "effect": "Spawns charged/infernal variants from the standard zombie pool; target player receives auto-pull aggro buff",
-      "cost": 500,
-      "target": "player",
-      "superChatMin": 5.00,
-      "baseCount": 15,
-      "extraZombieThreshold": 0.75,
-      "notes": "Normal pool — Charged/Infernal"
+      "notes": "Same pool as spawn normal"
     },
     {
       "keyword": "spawn strong",
       "category": "spawn",
       "effect": "Spawns a group of tougher zombies drawn to the target player",
-      "cost": 200,
+      "cost": 150,
       "target": "player",
-      "superChatMin": 2.00,
-      "baseCount": 25,
+      "superChatMin": 1.50,
+      "baseCount": 5,
       "extraZombieThreshold": 0.25,
-      "notes": "Strong pool"
+      "notes": "Pool: Biker, Lumberjack, Fat Mama, Hawaiian, Bowler, Soldier, Cop"
     },
     {
       "keyword": "spawn feral strong",
@@ -297,31 +275,9 @@
       "cost": 250,
       "target": "player",
       "superChatMin": 2.50,
-      "baseCount": 15,
+      "baseCount": 3,
       "extraZombieThreshold": 0.50,
-      "notes": "Strong pool"
-    },
-    {
-      "keyword": "spawn rad strong",
-      "category": "spawn",
-      "effect": "Spawns radiated variants from the strong zombie pool; target player receives auto-pull aggro buff",
-      "cost": 350,
-      "target": "player",
-      "superChatMin": 3.50,
-      "baseCount": 15,
-      "extraZombieThreshold": 0.50,
-      "notes": "Strong pool — Radiated"
-    },
-    {
-      "keyword": "spawn super strong",
-      "category": "spawn",
-      "effect": "Spawns charged/infernal variants from the strong zombie pool; target player receives auto-pull aggro buff",
-      "cost": 550,
-      "target": "player",
-      "superChatMin": 5.50,
-      "baseCount": 15,
-      "extraZombieThreshold": 0.75,
-      "notes": "Strong pool — Charged/Infernal"
+      "notes": "Same pool as spawn strong"
     },
     {
       "keyword": "spawn ranged",
@@ -330,42 +286,9 @@
       "cost": 300,
       "target": "player",
       "superChatMin": 3.00,
-      "baseCount": 10,
+      "baseCount": 3,
       "extraZombieThreshold": 0.50,
-      "notes": "Ranged pool"
-    },
-    {
-      "keyword": "spawn feral ranged",
-      "category": "spawn",
-      "effect": "Spawns feral ranged zombies drawn to the target player",
-      "cost": 400,
-      "target": "player",
-      "superChatMin": 4.00,
-      "baseCount": 10,
-      "extraZombieThreshold": 0.50,
-      "notes": "Ranged pool"
-    },
-    {
-      "keyword": "spawn rad ranged",
-      "category": "spawn",
-      "effect": "Spawns radiated ranged zombies drawn to the target player",
-      "cost": 500,
-      "target": "player",
-      "superChatMin": 5.00,
-      "baseCount": 8,
-      "extraZombieThreshold": 0.75,
-      "notes": "Ranged pool — Radiated"
-    },
-    {
-      "keyword": "spawn super ranged",
-      "category": "spawn",
-      "effect": "Spawns charged/infernal ranged zombies drawn to the target player",
-      "cost": 600,
-      "target": "player",
-      "superChatMin": 6.00,
-      "baseCount": 6,
-      "extraZombieThreshold": 1.00,
-      "notes": "Ranged pool — Charged/Infernal"
+      "notes": "Pool: Rancher, Chuck, Cop"
     },
     {
       "keyword": "spawn dogs",
@@ -374,9 +297,9 @@
       "cost": 200,
       "target": "player",
       "superChatMin": 2.00,
-      "baseCount": 10,
+      "baseCount": 2,
       "extraZombieThreshold": 0.25,
-      "notes": "Dogs pool"
+      "notes": "Pool: Z Dog, Dire Wolf"
     },
     {
       "keyword": "spawn animals",
@@ -385,9 +308,9 @@
       "cost": 300,
       "target": "player",
       "superChatMin": 3.00,
-      "baseCount": 6,
-      "extraZombieThreshold": 0.25,
-      "notes": "Animals pool"
+      "baseCount": 2,
+      "extraZombieThreshold": 0.50,
+      "notes": "Pool: Z Dog, Dire Wolf, Z Bear, Vulture, Radiated Vulture, Grace"
     },
     {
       "keyword": "spawn bees",
@@ -396,41 +319,9 @@
       "cost": 200,
       "target": "player",
       "superChatMin": 2.00,
-      "baseCount": 8,
-      "extraZombieThreshold": 0.25
-    },
-    {
-      "keyword": "spawn feral badass",
-      "category": "spawn",
-      "effect": "Spawns feral badass zombies drawn to the target player",
-      "cost": 400,
-      "target": "player",
-      "superChatMin": 4.00,
-      "baseCount": 10,
-      "extraZombieThreshold": 0.50,
-      "notes": "Badass pool — Feral"
-    },
-    {
-      "keyword": "spawn rad badass",
-      "category": "spawn",
-      "effect": "Spawns radiated badass zombies drawn to the target player",
-      "cost": 500,
-      "target": "player",
-      "superChatMin": 5.00,
-      "baseCount": 8,
-      "extraZombieThreshold": 0.75,
-      "notes": "Badass pool — Radiated"
-    },
-    {
-      "keyword": "spawn super badass",
-      "category": "spawn",
-      "effect": "Spawns charged/infernal badass zombies drawn to the target player",
-      "cost": 600,
-      "target": "player",
-      "superChatMin": 6.00,
-      "baseCount": 6,
-      "extraZombieThreshold": 1.00,
-      "notes": "Badass pool — Charged/Infernal"
+      "baseCount": 2,
+      "extraZombieThreshold": 0.25,
+      "notes": "Pool: Bees"
     },
     {
       "keyword": "spawn screamers",
@@ -439,7 +330,7 @@
       "cost": 600,
       "target": "player",
       "superChatMin": 6.00,
-      "notes": "Usually spawns 1-2 screamers depending on game stage."
+      "notes": "Pool: Screamers + Screamer Horde — base count varies by game stage"
     }
   ]
 }
