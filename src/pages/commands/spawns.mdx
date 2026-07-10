@@ -3,6 +3,7 @@ layout: ../../layouts/Base.astro
 title: Spawn Reference — ytbot
 ---
 import CommandTable from '../../components/CommandTable.astro';
+import ZombiePools from '../../components/ZombiePools.astro';
 
 # Spawn Reference
 
@@ -39,27 +40,6 @@ Click any column header to sort. The **Notes** column references the zombie pool
 
 <h3 id="zombie-pools">Zombie Pools</h3>
 
-<dl class="row row-cols-1 gy-1 mt-1">
-  <div class="col">
-    <dt>Normal</dt>
-    <dd class="text-muted">Arlene, Marlene, Party Girl, Nurse, Joe, Steve, Tom Clark, Business Man, Burnt, Spider, Boe, Hazmat, Janitor, Inmate, Moe, Lab, Darlene, Yo, Utility Worker, Biker, Lumberjack, Fat Mama, Hawaiian, Bowler, Soldier</dd>
-  </div>
-  <div class="col">
-    <dt>Strong</dt>
-    <dd class="text-muted">Biker, Lumberjack, Fat Mama, Hawaiian, Bowler, Soldier, Cop</dd>
-  </div>
-  <div class="col">
-    <dt>Ranged</dt>
-    <dd class="text-muted">Rancher, Chuck, Cop</dd>
-  </div>
-  <div class="col">
-    <dt>Dogs</dt>
-    <dd class="text-muted">Z Dog, Dire Wolf</dd>
-  </div>
-  <div class="col">
-    <dt>Animals</dt>
-    <dd class="text-muted">Z Dog, Dire Wolf, Z Bear, Vulture, Radiated Vulture, Grace</dd>
-  </div>
-</dl>
+<ZombiePools />
 
-Feral variants (`spawn feral normal`, `spawn feral strong`, `spawn feral ranged`) draw from the same pool as their base command but spawn the feral version of each zombie. Feral zombies are faster and more aggressive.
+Feral, radiated, and charged/infernal variants draw from the same pool as their base command but spawn that variant of each zombie instead. Feral zombies are faster and more aggressive.

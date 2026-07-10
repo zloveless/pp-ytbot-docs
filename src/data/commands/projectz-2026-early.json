@@ -2,6 +2,32 @@
   "label": "Project Z — Early Game",
   "updatedAt": "2026-07-10",
   "default": true,
+  "pools": [
+    {
+      "name": "Normal",
+      "pool": "Arlene, Marlene, Party Girl, Nurse, Joe, Steve, Tom Clark, Business Man, Burnt, Spider, Boe, Hazmat, Janitor, Inmate, Moe, Lab, Darlene, Yo, Utility Worker, Biker, Lumberjack, Fat Mama, Hawaiian, Bowler, Soldier"
+    },
+    {
+      "name": "Strong",
+      "pool": "Biker, Lumberjack, Fat Mama, Hawaiian, Bowler, Soldier, Cop"
+    },
+    {
+      "name": "Ranged",
+      "pool": "Rancher, Chuck, Cop"
+    },
+    {
+      "name": "Dogs",
+      "pool": "Z Dog, Dire Wolf"
+    },
+    {
+      "name": "Animals",
+      "pool": "Z Dog, Dire Wolf, Z Bear, Vulture, Radiated Vulture, Grace"
+    },
+    {
+      "name": "Bees",
+      "pool": "Bees"
+    }
+  ],
   "commands": [
     {
       "keyword": "burn",
@@ -244,7 +270,7 @@
       "superChatMin": 1.00,
       "baseCount": 8,
       "extraZombieThreshold": 0.25,
-      "notes": "Pool: Arlene, Marlene, Party Girl, Nurse, Joe, Steve, Tom Clark, Business Man, Burnt, Spider, Boe, Hazmat, Janitor, Inmate, Moe, Lab, Darlene, Yo, Utility Worker, Biker, Lumberjack, Fat Mama, Hawaiian, Bowler, Soldier"
+      "notes": "Pool: Normal"
     },
     {
       "keyword": "spawn feral normal",
@@ -255,7 +281,7 @@
       "superChatMin": 2.00,
       "baseCount": 3,
       "extraZombieThreshold": 0.50,
-      "notes": "Same pool as spawn normal"
+      "notes": "Pool: Normal"
     },
     {
       "keyword": "spawn strong",
@@ -266,7 +292,7 @@
       "superChatMin": 1.50,
       "baseCount": 5,
       "extraZombieThreshold": 0.25,
-      "notes": "Pool: Biker, Lumberjack, Fat Mama, Hawaiian, Bowler, Soldier, Cop"
+      "notes": "Pool: Strong"
     },
     {
       "keyword": "spawn feral strong",
@@ -277,7 +303,7 @@
       "superChatMin": 2.50,
       "baseCount": 3,
       "extraZombieThreshold": 0.50,
-      "notes": "Same pool as spawn strong"
+      "notes": "Pool: Strong"
     },
     {
       "keyword": "spawn ranged",
@@ -288,7 +314,7 @@
       "superChatMin": 3.00,
       "baseCount": 3,
       "extraZombieThreshold": 0.50,
-      "notes": "Pool: Rancher, Chuck, Cop"
+      "notes": "Pool: Ranged"
     },
     {
       "keyword": "spawn dogs",
@@ -299,7 +325,7 @@
       "superChatMin": 2.00,
       "baseCount": 2,
       "extraZombieThreshold": 0.25,
-      "notes": "Pool: Z Dog, Dire Wolf"
+      "notes": "Pool: Dogs"
     },
     {
       "keyword": "spawn animals",
@@ -310,7 +336,7 @@
       "superChatMin": 3.00,
       "baseCount": 2,
       "extraZombieThreshold": 0.50,
-      "notes": "Pool: Z Dog, Dire Wolf, Z Bear, Vulture, Radiated Vulture, Grace"
+      "notes": "Pool: Animals"
     },
     {
       "keyword": "spawn bees",
@@ -330,7 +356,7 @@
       "cost": 600,
       "target": "player",
       "superChatMin": 6.00,
-      "notes": "Pool: Screamers + Screamer Horde — base count varies by game stage"
+      "notes": "Note: Screamer count scales with Game Stage"
     }
   ]
 }

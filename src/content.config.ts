@@ -7,6 +7,12 @@ const commands = defineCollection({
     label: z.string(),
     updatedAt: z.string(),
     default: z.boolean().optional(),
+    pools: z.array(
+      z.object({
+        name: z.string(),
+        pool: z.string(),
+      })
+    ).optional(),
     commands: z.array(
       z.object({
         keyword: z.string(),

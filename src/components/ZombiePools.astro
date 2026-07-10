@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+
+const entries = await getCollection('commands');
+---
+
+{entries.map(e => (
+  <dl class="row row-cols-1 gy-1 mt-1" data-ver={e.id}>
+    {(e.data.pools ?? []).map(p => (
+      <div class="col">
+        <dt>{p.name}</dt>
+        <dd class="text-muted">{p.pool}</dd>
+      </div>
+    ))}
+  </dl>
+))}

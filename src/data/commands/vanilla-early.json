@@ -2,6 +2,32 @@
   "label": "Vanilla 3.0",
   "updatedAt": "2026-06-26",
   "default": false,
+  "pools": [
+    {
+      "name": "Normal",
+      "pool": "Arlene, Marlene, Party Girl, Nurse, Joe, Steve, Tom Clark, Business Man, Burnt, Spider, Boe, Hazmat, Janitor, Inmate, Moe, Lab, Darlene, Yo, Utility Worker, Biker, Lumberjack, Fat Mama, Hawaiian, Bowler, Soldier"
+    },
+    {
+      "name": "Strong",
+      "pool": "Biker, Lumberjack, Fat Mama, Hawaiian, Bowler, Soldier, Cop"
+    },
+    {
+      "name": "Ranged",
+      "pool": "Rancher, Chuck, Cop"
+    },
+    {
+      "name": "Dogs",
+      "pool": "Z Dog, Dire Wolf"
+    },
+    {
+      "name": "Animals",
+      "pool": "Z Dog, Dire Wolf, Z Bear, Vulture, Radiated Vulture, Grace"
+    },
+    {
+      "name": "Bees",
+      "pool": "Bees"
+    }
+  ],
   "commands": [
     {
       "keyword": "burn",
@@ -244,7 +270,7 @@
       "superChatMin": 1.00,
       "baseCount": 30,
       "extraZombieThreshold": 0.25,
-      "notes": "Normal pool"
+      "notes": "Pool: Normal"
     },
     {
       "keyword": "spawn feral normal",
@@ -255,7 +281,7 @@
       "superChatMin": 2.00,
       "baseCount": 15,
       "extraZombieThreshold": 0.50,
-      "notes": "Normal pool"
+      "notes": "Pool: Normal"
     },
     {
       "keyword": "spawn rad normal",
@@ -266,7 +292,7 @@
       "superChatMin": 3.00,
       "baseCount": 15,
       "extraZombieThreshold": 0.50,
-      "notes": "Normal pool — Radiated"
+      "notes": "Pool: Normal — Radiated"
     },
     {
       "keyword": "spawn super normal",
@@ -277,7 +303,7 @@
       "superChatMin": 5.00,
       "baseCount": 15,
       "extraZombieThreshold": 0.75,
-      "notes": "Normal pool — Charged/Infernal"
+      "notes": "Pool: Normal — Charged/Infernal"
     },
     {
       "keyword": "spawn strong",
@@ -288,7 +314,7 @@
       "superChatMin": 2.00,
       "baseCount": 25,
       "extraZombieThreshold": 0.25,
-      "notes": "Strong pool"
+      "notes": "Pool: Strong"
     },
     {
       "keyword": "spawn feral strong",
@@ -299,7 +325,7 @@
       "superChatMin": 2.50,
       "baseCount": 15,
       "extraZombieThreshold": 0.50,
-      "notes": "Strong pool"
+      "notes": "Pool: Strong"
     },
     {
       "keyword": "spawn rad strong",
@@ -310,7 +336,7 @@
       "superChatMin": 3.50,
       "baseCount": 15,
       "extraZombieThreshold": 0.50,
-      "notes": "Strong pool — Radiated"
+      "notes": "Pool: Strong — Radiated"
     },
     {
       "keyword": "spawn super strong",
@@ -321,7 +347,7 @@
       "superChatMin": 5.50,
       "baseCount": 15,
       "extraZombieThreshold": 0.75,
-      "notes": "Strong pool — Charged/Infernal"
+      "notes": "Pool: Strong — Charged/Infernal"
     },
     {
       "keyword": "spawn ranged",
@@ -332,7 +358,7 @@
       "superChatMin": 3.00,
       "baseCount": 10,
       "extraZombieThreshold": 0.50,
-      "notes": "Ranged pool"
+      "notes": "Pool: Ranged"
     },
     {
       "keyword": "spawn feral ranged",
@@ -343,7 +369,7 @@
       "superChatMin": 4.00,
       "baseCount": 10,
       "extraZombieThreshold": 0.50,
-      "notes": "Ranged pool"
+      "notes": "Pool: Ranged"
     },
     {
       "keyword": "spawn rad ranged",
@@ -354,7 +380,7 @@
       "superChatMin": 5.00,
       "baseCount": 8,
       "extraZombieThreshold": 0.75,
-      "notes": "Ranged pool — Radiated"
+      "notes": "Pool: Ranged — Radiated"
     },
     {
       "keyword": "spawn super ranged",
@@ -365,7 +391,7 @@
       "superChatMin": 6.00,
       "baseCount": 6,
       "extraZombieThreshold": 1.00,
-      "notes": "Ranged pool — Charged/Infernal"
+      "notes": "Pool: Ranged — Charged/Infernal"
     },
     {
       "keyword": "spawn dogs",
@@ -376,7 +402,7 @@
       "superChatMin": 2.00,
       "baseCount": 10,
       "extraZombieThreshold": 0.25,
-      "notes": "Dogs pool"
+      "notes": "Pool: Dogs"
     },
     {
       "keyword": "spawn animals",
@@ -387,7 +413,7 @@
       "superChatMin": 3.00,
       "baseCount": 6,
       "extraZombieThreshold": 0.25,
-      "notes": "Animals pool"
+      "notes": "Pool: Animals"
     },
     {
       "keyword": "spawn bees",
@@ -397,7 +423,8 @@
       "target": "player",
       "superChatMin": 2.00,
       "baseCount": 8,
-      "extraZombieThreshold": 0.25
+      "extraZombieThreshold": 0.25,
+      "notes": "Pool: Bees"
     },
     {
       "keyword": "spawn feral badass",
@@ -408,7 +435,7 @@
       "superChatMin": 4.00,
       "baseCount": 10,
       "extraZombieThreshold": 0.50,
-      "notes": "Badass pool — Feral"
+      "notes": "Pool: Badass — Feral"
     },
     {
       "keyword": "spawn rad badass",
@@ -419,7 +446,7 @@
       "superChatMin": 5.00,
       "baseCount": 8,
       "extraZombieThreshold": 0.75,
-      "notes": "Badass pool — Radiated"
+      "notes": "Pool: Badass — Radiated"
     },
     {
       "keyword": "spawn super badass",
@@ -430,7 +457,7 @@
       "superChatMin": 6.00,
       "baseCount": 6,
       "extraZombieThreshold": 1.00,
-      "notes": "Badass pool — Charged/Infernal"
+      "notes": "Pool: Badass — Charged/Infernal"
     },
     {
       "keyword": "spawn screamers",
