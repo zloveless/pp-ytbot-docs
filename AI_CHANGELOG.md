@@ -4,6 +4,25 @@ All AI-assisted changes to this repository are logged here.
 
 ---
 
+## 2026-07-10
+
+### Add Project Z early-game command set from PDF, set as default
+- Replaced the `vanilla-test.json` placeholder with real data extracted from `YTbot Project Z Commands-EarlyGame.pdf` — `src/data/commands/projectz-2026-early.json` (38 commands: 20 negative, 7 positive, 2 funny, 9 spawn)
+- Flipped `default: true` from `vanilla-early.json` to `projectz-2026-early.json` so it's now the version shown on first load
+- Verified `src/data/targets.json` (`@eerie`/`@guru`/`@all`/`@random`, 75% surcharge for `@all`) already matched the PDF exactly — no changes needed there
+- Added the source PDF to the repo for reference
+
+### Move zombie pools into JSON and rework spawn table presentation
+- Added an optional `pools: [{ name, pool }]` array to the commands schema (`content.config.ts`) so each command-set JSON can define its own zombie rosters instead of a hardcoded `<dl>` in `spawns.mdx`
+- Populated `pools` in both `vanilla-early.json` and `projectz-2026-early.json` (Normal, Strong, Ranged, Dogs, Animals, Bees — verified identical rosters across both versions)
+- Added `src/components/ZombiePools.astro`, which renders each version's pools wrapped in a `data-ver`-tagged block so the existing version-select filtering picks it up automatically
+- `spawns.mdx` now renders `<ZombiePools />` instead of the old static list
+- `CommandTable.astro`: dropped the Notes column; the pool label now renders as a small badge on its own line under the Effect text — wrapped in a plain `<div>` because Bootstrap's `.badge` sets `display: inline-block !important`, which otherwise overrides a block wrapper and pulls the badge back onto the same line as the effect text
+- Added an "Extra Zombies" column showing `extraZombieThreshold` (the per-donation-increment USD threshold), which was already in the schema but had never been rendered
+- Trimmed spawn command `notes` text down to short `"Pool: <name>"` labels (e.g. `"Pool: Normal — Radiated"`); left the two screamer notes as freeform text since screamers aren't a named pool
+
+---
+
 ## 2026-07-09
 
 ### Add second command version and persist dropdown selection across pages
