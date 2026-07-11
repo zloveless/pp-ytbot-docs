@@ -6,6 +6,9 @@ All AI-assisted changes to this repository are logged here.
 
 ## 2026-07-10
 
+### Remove feral spawn variants from Project Z early-game data
+- Removed `spawn feral normal` and `spawn feral strong` entries from `src/data/commands/projectz-2026-early.json`'s `spawns` array (not present in the source PDF's early-game command set)
+
 ### Add Project Z early-game command set from PDF, set as default
 - Replaced the `vanilla-test.json` placeholder with real data extracted from `YTbot Project Z Commands-EarlyGame.pdf` — `src/data/commands/projectz-2026-early.json` (38 commands: 20 negative, 7 positive, 2 funny, 9 spawn)
 - Flipped `default: true` from `vanilla-early.json` to `projectz-2026-early.json` so it's now the version shown on first load

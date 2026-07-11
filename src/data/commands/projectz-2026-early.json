@@ -274,16 +274,6 @@
       "notes": "Pool: Normal"
     },
     {
-      "keyword": "spawn feral normal",
-      "effect": "Spawns feral variants from the standard zombie pool; target player receives auto-pull aggro buff",
-      "cost": 200,
-      "target": "player",
-      "superChatMin": 2,
-      "baseCount": 3,
-      "extraZombieThreshold": 0.5,
-      "notes": "Pool: Normal"
-    },
-    {
       "keyword": "spawn strong",
       "effect": "Spawns a group of tougher zombies drawn to the target player",
       "cost": 150,
@@ -291,16 +281,6 @@
       "superChatMin": 1.5,
       "baseCount": 5,
       "extraZombieThreshold": 0.25,
-      "notes": "Pool: Strong"
-    },
-    {
-      "keyword": "spawn feral strong",
-      "effect": "Spawns feral variants from the strong zombie pool; target player receives auto-pull aggro buff",
-      "cost": 250,
-      "target": "player",
-      "superChatMin": 2.5,
-      "baseCount": 3,
-      "extraZombieThreshold": 0.5,
       "notes": "Pool: Strong"
     },
     {
