@@ -6,6 +6,10 @@ All AI-assisted changes to this repository are logged here.
 
 ## 2026-07-10
 
+### Add home-base and POI spawn notes to Spawn Reference
+- Added an `alert-warning` above the spawn command table: spawns aren't allowed while the streamer is at home base (admins will `killall` anything called in there); screamers are exempt since their horde comes in via the telnet `spawnscouts` command regardless of location
+- Added an `alert-info` alongside it: spawns inside points of interest can fail to appear if there isn't enough open space for a large horde, and the bot admin usually catches it and spawns the zombies in using magic points
+
 ### Remove feral spawn variants from Project Z early-game data
 - Removed `spawn feral normal` and `spawn feral strong` entries from `src/data/commands/projectz-2026-early.json`'s `spawns` array (not present in the source PDF's early-game command set)
 
