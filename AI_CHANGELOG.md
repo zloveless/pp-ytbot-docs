@@ -4,6 +4,24 @@ All AI-assisted changes to this repository are logged here.
 
 ---
 
+## 2026-07-17
+
+### Rename Project Z data file to drop the "early-game" scoping (mid-game update)
+- New source doc from the bot creator (`YTbot Project Z Commands-MidGame.rtf`) turned out to be data-identical to the current early-game set — every command's point cost, Super Chat minimum, effect text, and every spawn command's `baseCount`/`extraZombieThreshold`/zombie pool matched exactly (verified field-by-field). The doc itself is no longer scoped to a single game stage (it just notes "As Game Stage increases, base counts will also increase"), so the early/mid split doesn't apply to this data — one file covers both
+- Renamed `src/data/commands/projectz-2026-early.json` → `projectz-2026.json` and changed `label` from `"Project Z — Early Game"` to `"Project Z"`; `default: true` and all command/spawn/pool data carried over unchanged. Bumped `updatedAt` to `2026-07-17`
+- No code changes needed — `src/content.config.ts` loads commands via a glob over `src/data/commands/*.json`, so nothing references the old filename directly
+- Updated `README.md`'s "Currently shipped versions" line to match the new filename/label
+- Added the source RTF to the repo for reference, alongside the untracked `YTbot Project Z Commands-EarlyGame_Jul12.pdf` from the prior update
+
+## 2026-07-12
+
+### Sync Project Z early-game data with updated PDF (feral re-add + base spawn increases)
+- Re-verified `spawn feral normal`/`spawn feral strong` (user had already re-added these to `src/data/commands/projectz-2026-early.json` per the new PDF) and fixed two data-entry mistakes: `superChatMin` was 1 on both rows but should be `cost / 100` like every other row — 2 and 2.5 respectively (matching the PDF's $2.00/$2.50 minimums); `notes` on both rows read `"Pool: Feral Normal"` (a copy-paste artifact, wrong on the Strong row) — changed to the `"Pool: <Name> — Feral"` convention already used by `vanilla-early.json`'s Badass/Feral rows
+- The new PDF (`YTbot Project Z Commands-EarlyGame_Jul12.pdf`) also raised `baseCount` on six existing spawn commands, unrelated to the feral re-add: `spawn normal` 8→20, `spawn strong` 5→15, `spawn ranged` 3→9, `spawn dogs`/`spawn animals`/`spawn bees` 2→4. Feral normal/strong `baseCount` of 5 was already correct
+- Bumped `updatedAt` to `2026-07-12`
+- Updated the hardcoded Super Chat math example in `spawns.mdx` (base 25 → base 20) to match the new `spawn normal` baseCount — this example isn't version-filtered so it tracks the default (projectz) version's numbers
+- Everything else in the PDF (point costs, min prices, extra-zombie thresholds, zombie pool rosters, points/Patreon/Discord economy text, command syntax rules) is unchanged from the prior revision
+
 ## 2026-07-10
 
 ### Add home-base and POI spawn notes to Spawn Reference

@@ -1,6 +1,6 @@
 {
-  "label": "Project Z — Early Game",
-  "updatedAt": "2026-07-10",
+  "label": "Project Z",
+  "updatedAt": "2026-07-17",
   "default": true,
   "pools": [
     {
@@ -269,9 +269,19 @@
       "cost": 100,
       "target": "player",
       "superChatMin": 1,
-      "baseCount": 8,
+      "baseCount": 20,
       "extraZombieThreshold": 0.25,
       "notes": "Pool: Normal"
+    },
+    {
+      "keyword": "spawn feral normal",
+      "effect": "Spawns a group of feral zombies that are drawn to the target player",
+      "cost": 200,
+      "target": "player",
+      "superChatMin": 2,
+      "baseCount": 5,
+      "extraZombieThreshold": 0.50,
+      "notes": "Pool: Normal — Feral"
     },
     {
       "keyword": "spawn strong",
@@ -279,9 +289,19 @@
       "cost": 150,
       "target": "player",
       "superChatMin": 1.5,
-      "baseCount": 5,
+      "baseCount": 15,
       "extraZombieThreshold": 0.25,
       "notes": "Pool: Strong"
+    },
+    {
+      "keyword": "spawn feral strong",
+      "effect": "Spawns a group of feral strong zombies that are drawn to the target player",
+      "cost": 250,
+      "target": "player",
+      "superChatMin": 2.5,
+      "baseCount": 5,
+      "extraZombieThreshold": 0.50,
+      "notes": "Pool: Strong — Feral"
     },
     {
       "keyword": "spawn ranged",
@@ -289,7 +309,7 @@
       "cost": 300,
       "target": "player",
       "superChatMin": 3,
-      "baseCount": 3,
+      "baseCount": 9,
       "extraZombieThreshold": 0.5,
       "notes": "Pool: Ranged"
     },
@@ -299,7 +319,7 @@
       "cost": 200,
       "target": "player",
       "superChatMin": 2,
-      "baseCount": 2,
+      "baseCount": 4,
       "extraZombieThreshold": 0.25,
       "notes": "Pool: Dogs"
     },
@@ -309,7 +329,7 @@
       "cost": 300,
       "target": "player",
       "superChatMin": 3,
-      "baseCount": 2,
+      "baseCount": 4,
       "extraZombieThreshold": 0.5,
       "notes": "Pool: Animals"
     },
@@ -319,7 +339,7 @@
       "cost": 200,
       "target": "player",
       "superChatMin": 2,
-      "baseCount": 2,
+      "baseCount": 4,
       "extraZombieThreshold": 0.25,
       "notes": "Pool: Bees"
     },

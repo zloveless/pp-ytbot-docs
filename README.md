@@ -24,7 +24,7 @@ Always use `yarn` — never `npm` or `npx`.
 | Edit the home page | `src/pages/index.md` |
 | Edit spawn mechanics explanations | `src/pages/commands/spawns.mdx` |
 
-Currently shipped versions: `vanilla-early.json` (Vanilla 3.0) and `projectz-2026-early.json` (Project Z — Early Game, default). Command entries are validated against the schema in `src/content.config.ts`.
+Currently shipped versions: `vanilla-early.json` (Vanilla 3.0) and `projectz-2026.json` (Project Z, default). Command entries are validated against the schema in `src/content.config.ts`.
 
 See [`docs/setup.html`](docs/setup.html) for a full ELI5 walkthrough.
 
