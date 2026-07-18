@@ -4,6 +4,16 @@ All AI-assisted changes to this repository are logged here.
 
 ---
 
+## 2026-07-18
+
+### Sync Project Z data with base-count increase and new Rad/Feral spawn variants
+- New source doc (`YTbot Project Z Commands-EarlyGame_Jul18.rtf`) raised `baseCount` on every existing spawn command in `src/data/commands/projectz-2026.json`: `spawn normal` 20→25, `spawn feral normal` 5→8, `spawn strong` 15→20, `spawn feral strong` 5→8, `spawn ranged` 9→15, `spawn dogs`/`spawn animals`/`spawn bees` 4→6. `spawn bees`'s `extraZombieThreshold` also rose 0.25→0.5
+- Added three new spawn commands the doc introduced: `spawn rad normal` (300 pts, $3.00 min, baseCount 5, notes `Pool: Normal — Rad`), `spawn rad strong` (350 pts, $3.50 min, baseCount 5, notes `Pool: Strong — Rad`), and re-added `spawn feral ranged` (400 pts, $4.00 min, baseCount 8, notes `Pool: Ranged — Feral`) plus a brand-new `spawn feral badass` (425 pts, $4.25 min, baseCount 8, notes `Pool: Badass — Feral`)
+- `spawn feral badass` draws from a zombie pool not previously in this file's `pools` array (`Wight, Mutated, Cop, Rancher, Chuck`) — added a `Badass` pool entry so it shows up in the Zombie Pools reference, unlike `vanilla-early.json`'s Badass rows which reference a pool that was never defined
+- Bumped `updatedAt` to `2026-07-18`
+- Updated the hardcoded Super Chat math example in `spawns.mdx` (base 20 → base 25) to match the new `spawn normal` baseCount
+- Everything else (point costs on unrelated commands, Super Chat/points/Patreon/Discord economy text, command syntax rules) is unchanged from the prior revision
+
 ## 2026-07-17 (custom domain)
 
 ### Configure GitHub Pages for the custom domain github.cncfps.com

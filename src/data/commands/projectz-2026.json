@@ -1,6 +1,6 @@
 {
   "label": "Project Z",
-  "updatedAt": "2026-07-17",
+  "updatedAt": "2026-07-18",
   "default": true,
   "pools": [
     {
@@ -26,6 +26,10 @@
     {
       "name": "Bees",
       "pool": "Bees"
+    },
+    {
+      "name": "Badass",
+      "pool": "Wight, Mutated, Cop, Rancher, Chuck"
     }
   ],
   "commands": [
@@ -269,7 +273,7 @@
       "cost": 100,
       "target": "player",
       "superChatMin": 1,
-      "baseCount": 20,
+      "baseCount": 25,
       "extraZombieThreshold": 0.25,
       "notes": "Pool: Normal"
     },
@@ -279,9 +283,19 @@
       "cost": 200,
       "target": "player",
       "superChatMin": 2,
-      "baseCount": 5,
+      "baseCount": 8,
       "extraZombieThreshold": 0.50,
       "notes": "Pool: Normal — Feral"
+    },
+    {
+      "keyword": "spawn rad normal",
+      "effect": "Spawns a group of radiated zombies that are drawn to the target player",
+      "cost": 300,
+      "target": "player",
+      "superChatMin": 3,
+      "baseCount": 5,
+      "extraZombieThreshold": 0.5,
+      "notes": "Pool: Normal — Rad"
     },
     {
       "keyword": "spawn strong",
@@ -289,7 +303,7 @@
       "cost": 150,
       "target": "player",
       "superChatMin": 1.5,
-      "baseCount": 15,
+      "baseCount": 20,
       "extraZombieThreshold": 0.25,
       "notes": "Pool: Strong"
     },
@@ -299,9 +313,19 @@
       "cost": 250,
       "target": "player",
       "superChatMin": 2.5,
-      "baseCount": 5,
+      "baseCount": 8,
       "extraZombieThreshold": 0.50,
       "notes": "Pool: Strong — Feral"
+    },
+    {
+      "keyword": "spawn rad strong",
+      "effect": "Spawns a group of radiated strong zombies that are drawn to the target player",
+      "cost": 350,
+      "target": "player",
+      "superChatMin": 3.5,
+      "baseCount": 5,
+      "extraZombieThreshold": 0.5,
+      "notes": "Pool: Strong — Rad"
     },
     {
       "keyword": "spawn ranged",
@@ -309,9 +333,29 @@
       "cost": 300,
       "target": "player",
       "superChatMin": 3,
-      "baseCount": 9,
+      "baseCount": 15,
       "extraZombieThreshold": 0.5,
       "notes": "Pool: Ranged"
+    },
+    {
+      "keyword": "spawn feral ranged",
+      "effect": "Spawns feral ranged zombies drawn to the target player",
+      "cost": 400,
+      "target": "player",
+      "superChatMin": 4,
+      "baseCount": 8,
+      "extraZombieThreshold": 0.5,
+      "notes": "Pool: Ranged — Feral"
+    },
+    {
+      "keyword": "spawn feral badass",
+      "effect": "Spawns feral badass zombies drawn to the target player",
+      "cost": 425,
+      "target": "player",
+      "superChatMin": 4.25,
+      "baseCount": 8,
+      "extraZombieThreshold": 0.5,
+      "notes": "Pool: Badass — Feral"
     },
     {
       "keyword": "spawn dogs",
@@ -319,7 +363,7 @@
       "cost": 200,
       "target": "player",
       "superChatMin": 2,
-      "baseCount": 4,
+      "baseCount": 6,
       "extraZombieThreshold": 0.25,
       "notes": "Pool: Dogs"
     },
@@ -329,7 +373,7 @@
       "cost": 300,
       "target": "player",
       "superChatMin": 3,
-      "baseCount": 4,
+      "baseCount": 6,
       "extraZombieThreshold": 0.5,
       "notes": "Pool: Animals"
     },
@@ -339,8 +383,8 @@
       "cost": 200,
       "target": "player",
       "superChatMin": 2,
-      "baseCount": 4,
-      "extraZombieThreshold": 0.25,
+      "baseCount": 6,
+      "extraZombieThreshold": 0.5,
       "notes": "Pool: Bees"
     },
     {
