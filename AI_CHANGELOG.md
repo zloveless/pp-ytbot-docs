@@ -4,6 +4,13 @@ All AI-assisted changes to this repository are logged here.
 
 ---
 
+## 2026-07-17 (custom domain)
+
+### Configure GitHub Pages for the custom domain github.cncfps.com
+- Added `public/CNAME` (content: `github.cncfps.com`) — the Actions-based Pages deploy (`actions/upload-pages-artifact`) doesn't auto-write a CNAME the way "deploy from a branch" does, so it has to ship in the build output
+- Updated `astro.config.mjs`: `site` changed to `https://github.cncfps.com` and the `base: '/pp-ytbot-docs'` override removed — a custom domain serves the Pages site from the root, so the old subpath base would have broken every internal link/asset URL
+- Still required outside this repo: a `CNAME` DNS record (`github.cncfps.com` → `zloveless.github.io`) at the DNS provider, and setting the custom domain in repo Settings → Pages
+
 ## 2026-07-17
 
 ### Rename Project Z data file to drop the "early-game" scoping (mid-game update)
