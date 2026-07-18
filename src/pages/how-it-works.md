@@ -22,6 +22,10 @@ Super Chats let you bypass the points economy entirely using a real-money donati
 - If you send a Super Chat **without** a command, you receive points at a **1 pt per $0.01** rate (e.g., a $2.00 Super Chat = 200 points).
 - Super Chat commands display with a **distinctive overlay** so everyone can see they came from a donation.
 
+<div class="alert alert-info" role="alert"><strong>YouTube note:</strong> Super Chats under $2.00 don't include a message, so the bot has no command to read from the Super Chat itself — that's a platform minimum set by YouTube, not a bot restriction. You still get the points, though (1 pt per $0.01), so just send a normal follow-up chat message with the command you want.</div>
+
+If your Super Chat **exceeds** the command's minimum, the overage isn't credited back to you as points — it just wasn't needed to trigger the command. A $2.00 Super Chat on `!burn @all` (minimum $1.75) triggers the burn once; the extra $0.25 doesn't turn into 25 points in your balance. Spawn commands are the one exception — extra funds there buy **extra zombies** instead of being lost. See [Extra Zombies via Super Chat](../commands/spawns#extra-zombies-via-super-chat) on the Spawn Reference page.
+
 Points and Super Chats work the same way mechanically — the only difference is whether you're spending accumulated points or sending money.
 
 ## Patreon & Discord Bonuses
