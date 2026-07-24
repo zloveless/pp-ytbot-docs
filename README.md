@@ -26,8 +26,6 @@ Always use `yarn` — never `npm` or `npx`.
 
 Currently shipped versions: `vanilla-early.json` (Vanilla 3.0) and `projectz-2026.json` (Project Z, default). Command entries are validated against the schema in `src/content.config.ts`.
 
-See [`docs/setup.html`](docs/setup.html) for a full ELI5 walkthrough.
-
 ## Build & deploy
 
 ```sh
@@ -52,7 +50,7 @@ src/
   components/         # Astro components (CommandTable, ValidTargets, ZombiePools, …)
   layouts/            # Base layout (nav, theme toggle, version-select dropdown)
   styles/             # Global SCSS
-docs/                 # Internal HTML docs (setup guide, implementation plan, changelog notes)
+docs/                 # Source command docs (PDFs/RTFs from the bot creator) used to author src/data/commands/*.json
 public/               # Static assets
 .github/workflows/    # GitHub Actions deploy pipeline
 ```

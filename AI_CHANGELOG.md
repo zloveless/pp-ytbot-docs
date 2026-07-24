@@ -4,6 +4,13 @@ All AI-assisted changes to this repository are logged here.
 
 ---
 
+## 2026-07-24 (docs cleanup)
+
+### Repurpose docs/ for source command docs, drop stale HTML plans
+- Deleted `docs/project.html` (Implementation Plan), `docs/setup.html` (an ELI5 update guide that had gone stale — still described the pre-version-dropdown, `vanilla-early.json`-only setup), and `docs/data-update-2026-06-19.html` (a one-off update log now redundant with this changelog). None of the three fed the Astro build — `docs/` isn't referenced by `astro.config.mjs`, `src/`, or the GitHub Actions deploy workflow
+- Moved all 7 source PDFs/RTFs (the bot creator's command docs used to author `src/data/commands/*.json`) from the repo root into `docs/`
+- Updated `README.md`: removed the dead `docs/setup.html` link and changed the `docs/` line in the project-structure block to describe its new purpose (source command docs, not internal HTML docs)
+
 ## 2026-07-24
 
 ### Sync Project Z data with LVL100 base-count increase, spawn pz_elites, and two new Rad variants
