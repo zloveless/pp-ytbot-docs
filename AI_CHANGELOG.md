@@ -4,6 +4,17 @@ All AI-assisted changes to this repository are logged here.
 
 ---
 
+## 2026-07-24
+
+### Sync Project Z data with LVL100 base-count increase, spawn pz_elites, and two new Rad variants
+- New source doc (`YTbot Project Z Commands-LVL100.pdf`) raised `baseCount` on every existing spawn command in `src/data/commands/projectz-2026.json`: `spawn normal`/`spawn strong` 25/20→30, `spawn feral normal`/`spawn rad normal`/`spawn feral strong`/`spawn rad strong`/`spawn feral ranged`/`spawn feral badass` 8 or 5→15, `spawn ranged` 15→20, `spawn dogs`/`spawn animals`/`spawn bees` 6→10
+- `spawn feral ranged`'s `cost`/`superChatMin` also rose 400/$4.00 → 425/$4.25 (now matches `spawn feral badass`'s price)
+- Added three new spawn commands the doc introduced: `spawn rad ranged` and `spawn rad badass` (both 500 pts, $5.00 min, baseCount 15, extraZombieThreshold 0.75, reusing the existing `Ranged`/`Badass` pools), and `spawn pz_elites` (600 pts, $6.00 min, baseCount 3, extraZombieThreshold 0.75, notes `Pool: Elite`)
+- `spawn pz_elites` draws from a zombie pool not previously in this file's `pools` array (`Fat Mama, Hawaiian, Cop, Wight, Soldier, Biker, Hazmat, Lumberjack, Spider, Party Girl, Burnt, Darlene`) — added an `Elite` pool entry so it shows up in the Zombie Pools reference
+- Bumped `updatedAt` to `2026-07-24`
+- Updated the hardcoded Super Chat math example in `spawns.mdx` (base 25 → base 30) to match the new `spawn normal` baseCount
+- Everything else (point costs on non-spawn commands, Super Chat/points/Patreon/Discord economy text, command syntax rules) is unchanged from the prior revision
+
 ## 2026-07-18
 
 ### Sync Project Z data with base-count increase and new Rad/Feral spawn variants
