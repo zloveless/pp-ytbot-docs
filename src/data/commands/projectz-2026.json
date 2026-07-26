@@ -1,6 +1,6 @@
 {
   "label": "Project Z",
-  "updatedAt": "2026-07-25",
+  "updatedAt": "2026-07-26",
   "default": true,
   "pools": [
     {
@@ -161,9 +161,9 @@
       "keyword": "trip",
       "category": "negative",
       "effect": "Target can trip and fall from moving or jumping for 60 seconds",
-      "cost": 400,
+      "cost": 600,
       "target": "player",
-      "superChatMin": 4
+      "superChatMin": 6
     },
     {
       "keyword": "flip controls",
@@ -382,6 +382,16 @@
       "notes": "Pool: Ranged — Rad"
     },
     {
+      "keyword": "spawn super ranged",
+      "effect": "Spawns a group of super-charged ranged zombies that are drawn to the target player",
+      "cost": 600,
+      "target": "player",
+      "superChatMin": 6,
+      "baseCount": 15,
+      "extraZombieThreshold": 1,
+      "notes": "Pool: Ranged — Super"
+    },
+    {
       "keyword": "spawn feral badass",
       "effect": "Spawns feral badass zombies drawn to the target player",
       "cost": 425,
@@ -400,6 +410,16 @@
       "baseCount": 15,
       "extraZombieThreshold": 0.75,
       "notes": "Pool: Badass — Rad"
+    },
+    {
+      "keyword": "spawn super badass",
+      "effect": "Spawns a group of super-charged badass zombies that are drawn to the target player",
+      "cost": 600,
+      "target": "player",
+      "superChatMin": 6,
+      "baseCount": 15,
+      "extraZombieThreshold": 1,
+      "notes": "Pool: Badass — Super"
     },
     {
       "keyword": "spawn dogs",
@@ -445,7 +465,7 @@
       "cost": 600,
       "target": "player",
       "superChatMin": 6,
-      "baseCount": 5,
+      "baseCount": 8,
       "extraZombieThreshold": 0.75,
       "notes": "Pool: Elite"
     }

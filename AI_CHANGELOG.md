@@ -4,6 +4,15 @@ All AI-assisted changes to this repository are logged here.
 
 ---
 
+## 2026-07-26
+
+### Sync Project Z data with Jul-26 update: trip repriced, two new "super" spawn tiers, pz_elites base count bump
+- New source doc (`YTbot Project Z Commands-LVL100_Jul26.pdf`) repriced `trip` in `src/data/commands/projectz-2026.json`: 400 pts/$4.00 min → 600 pts/$6.00 min (effect text and target unchanged)
+- Added two new spawn commands the doc introduced: `spawn super ranged` (600 pts, $6.00 min, baseCount 15, extraZombieThreshold 1, notes `Pool: Ranged — Super`) and `spawn super badass` (600 pts, $6.00 min, baseCount 15, extraZombieThreshold 1, notes `Pool: Badass — Super`) — both reuse the existing `Ranged`/`Badass` pools
+- `spawn pz_elites`'s `baseCount` rose 5→8 (`cost`/`superChatMin`/`extraZombieThreshold`/pool unchanged)
+- Bumped `updatedAt` to `2026-07-26`
+- Everything else (other command point costs, other spawn commands, zombie pool rosters, Super Chat/points/Patreon/Discord economy text, command syntax rules) is unchanged from the prior revision
+
 ## 2026-07-25
 
 ### Sync Project Z data with Jul-25 update: two new "super" spawn tiers, pz_elites base count fix
