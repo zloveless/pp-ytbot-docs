@@ -4,6 +4,15 @@ All AI-assisted changes to this repository are logged here.
 
 ---
 
+## 2026-07-25
+
+### Sync Project Z data with Jul-25 update: two new "super" spawn tiers, pz_elites base count fix
+- New source doc (`YTbot Project Z Commands-LVL100_July25.pdf`) added two new spawn commands to `src/data/commands/projectz-2026.json`: `spawn super normal` (450 pts, $4.50 min, baseCount 15, extraZombieThreshold 1, notes `Pool: Normal — Super`) and `spawn super strong` (500 pts, $5.00 min, baseCount 15, extraZombieThreshold 1, notes `Pool: Strong — Super`) — both reuse the existing `Normal`/`Strong` pools
+- The doc's first draft had a typo: both new rows were mislabeled under existing keywords (`spawn rad normal` and `spawn rad strong` respectively, duplicating those rows with different prices). Confirmed the correct keywords (`spawn super normal`/`spawn super strong`) with the user after they re-uploaded a corrected PDF
+- `spawn pz_elites`'s `baseCount` rose 3→5 (`cost`/`superChatMin`/`extraZombieThreshold`/pool unchanged)
+- Bumped `updatedAt` to `2026-07-25`
+- Everything else (point costs on non-spawn commands, other spawn commands, zombie pool rosters, Super Chat/points/Patreon/Discord economy text, command syntax rules) is unchanged from the prior revision
+
 ## 2026-07-24 (docs cleanup)
 
 ### Repurpose docs/ for source command docs, drop stale HTML plans
