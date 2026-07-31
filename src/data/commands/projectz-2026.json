@@ -439,7 +439,7 @@
       "cost": 600,
       "target": "player",
       "superChatMin": 6,
-      "baseCount": 5,
+      "baseCount": 4,
       "extraZombieThreshold": 1.5,
       "notes": "Pool: Small Boss"
     },
