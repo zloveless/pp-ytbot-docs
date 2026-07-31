@@ -6,6 +6,11 @@ All AI-assisted changes to this repository are logged here.
 
 ## 2026-07-31
 
+### Fix Home link doing nothing from any sub-page
+- `src/layouts/Base.astro`'s `base` const is `import.meta.env.BASE_URL` with the trailing slash stripped — since the site has no `base` path configured (root domain deploy), `BASE_URL` is `/` and `base` evaluates to `""`. The navbar-brand link and the "Home" nav link both used `href={base}` directly, so they rendered as `href=""`, which browsers resolve to the *current* URL rather than root. Clicking Home from any sub-page (e.g. `/commands/spawns`) just reloaded that same page
+- Fixed both bare `href={base}` spots to `href={base || '/'}`. Left every other link (`` `${base}/how-it-works` `` etc.) untouched — falling back the shared `base` const itself to `'/'` would have produced double-slash URLs like `//how-it-works` on those
+- Verified via `yarn build`: `dist/index.html`, `dist/how-it-works/index.html`, and `dist/commands/spawns/index.html` now all render `href="/"` for Home
+
 ### Verify LVL200 zombie pool rosters against corrected v2 source doc
 - User got the pool rosters confirmed directly with the bot creator and re-uploaded `YTbot Project Z Commands-LVL200_July31_v2.pdf`, which fills in each surviving spawn row's Zombie Pool cell with the actual roster instead of the v1 doc's "Same as spawn X zombie pool" placeholders. Diffed v1 vs v2 page-by-page: only the spawn table's Zombie Pool column text changed, no cost/baseCount/threshold changes anywhere
 - Confirmed `Normal` (`spawn rad normal`'s cell), `Strong` (`spawn rad strong`'s cell), and `Badass` (`spawn rad badass`'s cell) rosters in v2 match `src/data/commands/projectz-2026.json`'s existing `pools` entries verbatim — no changes needed
