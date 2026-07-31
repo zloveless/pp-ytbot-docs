@@ -4,6 +4,25 @@ All AI-assisted changes to this repository are logged here.
 
 ---
 
+## 2026-07-31
+
+### Verify LVL200 zombie pool rosters against corrected v2 source doc
+- User got the pool rosters confirmed directly with the bot creator and re-uploaded `YTbot Project Z Commands-LVL200_July31_v2.pdf`, which fills in each surviving spawn row's Zombie Pool cell with the actual roster instead of the v1 doc's "Same as spawn X zombie pool" placeholders. Diffed v1 vs v2 page-by-page: only the spawn table's Zombie Pool column text changed, no cost/baseCount/threshold changes anywhere
+- Confirmed `Normal` (`spawn rad normal`'s cell), `Strong` (`spawn rad strong`'s cell), and `Badass` (`spawn rad badass`'s cell) rosters in v2 match `src/data/commands/projectz-2026.json`'s existing `pools` entries verbatim — no changes needed
+- Flagged one discrepancy rather than applying it: v2's `spawn rad ranged` row lists its Zombie Pool as `Biker, Lumberjack, Fat Mama, Hawaiian, Bowler, Soldier, Cop` — identical, word-for-word, to the `Strong` row directly above it, and inconsistent with `Ranged`'s roster (`Rancher, Chuck, Cop`) in every prior doc revision back to `EarlyGame`. Reads as a copy-paste duplication in the source doc, not an intentional change. Left the `Ranged` pool unchanged pending the user re-confirming with the creator specifically on this row
+- No changes to `src/data/commands/projectz-2026.json`, `spawns.mdx`, or `updatedAt` (still `2026-07-31` from the same-day LVL200 sync below) — this pass only verified data already in place
+- Added the source PDF to the repo for reference
+
+### Sync Project Z data with LVL200 update: base/feral spawn tiers retired, rad/super tiers repriced, new boss command line
+- New source doc (`YTbot Project Z Commands-LVL200_July31.pdf`) drops 7 spawn commands from `src/data/commands/projectz-2026.json` entirely: `spawn normal`, `spawn feral normal`, `spawn strong`, `spawn feral strong`, `spawn ranged`, `spawn feral ranged`, `spawn feral badass`. The doc's "Full List of All Commands" table no longer lists these rows, even though surviving rows still say "Same as spawn normal zombie pool" / "Same as spawn feral badass pool" (stale back-references to the now-gone commands). Confirmed with the user this is an intentional retirement of the easy tiers at LVL200, not a table that lost rows — removed rather than kept
+- Repriced/rebased every surviving rad/super spawn tier (cheaper points, bigger `baseCount`, `extraZombieThreshold` normalized to $0.50/$0.75 across the board): `spawn rad normal` 300/$3.00/base15 → 200/$2.00/base25; `spawn super normal` 450/$4.50/base15/$1.00-thresh → 300/$3.00/base25/$0.50-thresh; `spawn rad strong` 350/$3.50/base15 → 250/$2.50/base25; `spawn super strong` 500/$5.00/base15/$1.00-thresh → 350/$3.50/base25/$0.50-thresh; `spawn rad ranged` 500/$5.00/base15 → 300/$3.00/base25; `spawn super ranged` 600/$6.00/base15/$1.00-thresh → 400/$4.00/base25/$0.75-thresh; `spawn rad badass` 500/$5.00/base15 → 300/$3.00/base25; `spawn super badass` 600/$6.00/base15/$1.00-thresh → 400/$4.00/base25/$0.75-thresh
+- `spawn dogs`/`spawn animals`/`spawn bees` `baseCount` rose 10→25/20/15 respectively (cost/superChatMin/extraZombieThreshold unchanged); `spawn pz_elites` got cheaper and bigger: 600/$6.00/base8 → 500/$5.00/base15 (extraZombieThreshold unchanged)
+- Added six new boss-tier spawn commands the doc introduced: `spawn pz_elite_cops` (550 pts, $5.50 min, baseCount 5, extraZombieThreshold 1.00, notes `Pool: Elite Cops`), `spawn pz_small_boss` (600 pts, $6.00 min, baseCount 5, extraZombieThreshold 1.50, notes `Pool: Small Boss`), and four `spawn pz_mini_boss_*` commands — `devourer`/`burningflesh`/`beardaddy`/`gargul`, each 650 pts, $6.50 min, baseCount 2, extraZombieThreshold 2.00, single-member pools named after the boss
+- These new commands draw from zombie pools not previously in this file's `pools` array — added `Elite Cops` (`Cop`), `Small Boss` (`Major, Brigadier, Chief, Authority, Professor, Alex, Biba`), and single-member `Devourer`/`BurningFlesh`/`BearDaddy`/`Gargul` pool entries so they show up in the Zombie Pools reference (following the existing `Bees` single-member-pool precedent)
+- Bumped `updatedAt` to `2026-07-31`
+- Updated the hardcoded Super Chat math example in `spawns.mdx` (`!spawn normal` $1.00-min/$0.25-thresh/base30 → `!spawn rad normal` $2.00-min/$0.50-thresh/base25) since the command it referenced no longer exists
+- The non-spawn commands table (negative/positive/funny), zombie pool rosters for existing pools, Super Chat/points/Patreon/Discord economy text, and command syntax rules are unchanged from the prior revision (verified byte-for-byte against the prior PDF's text)
+
 ## 2026-07-26
 
 ### Sync Project Z data with Jul-26 update: trip repriced, two new "super" spawn tiers, pz_elites base count bump
