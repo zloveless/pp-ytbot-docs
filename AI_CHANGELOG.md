@@ -4,6 +4,21 @@ All AI-assisted changes to this repository are logged here.
 
 ---
 
+## 2026-08-01
+
+### Add site-wide Double Point Weekend alert
+- Added a Bootstrap `alert-warning` banner to `src/layouts/Base.astro`, inside `<main>` above `<slot />`, so it shows at the top of every page (home, how-it-works, commands, spawns) noting passive point gain is 2x normal for the weekend
+- Verified via `yarn build` that the banner text renders in all four generated pages
+
+### Sync Project Z data with LVL200 Aug-1 update: elite/cop repricing, new charged/infernal elite tier, small boss and Gargul rebases
+- New source doc (`YTbot Project Z Commands-LVL200_Aug1.pdf`) repriced two existing boss-tier spawns in `src/data/commands/projectz-2026.json`: `spawn pz_elites` 500/$5.00/base15 → 450/$4.50/base20; `spawn pz_elite_cops` 550/$5.50/base5 → 500/$5.00/base8 (both `extraZombieThreshold` unchanged)
+- Added a new spawn command the doc introduced: `spawn pz_elites_charged_infernal` (550 pts, $5.50 min, baseCount 16, extraZombieThreshold 1.00), reusing the existing `Elite` pool (notes `Pool: Elite — Charged/Infernal`) since its roster is identical to `spawn pz_elites`'s
+- `spawn pz_small_boss`'s `baseCount` rose 4→6 (cost/superChatMin/extraZombieThreshold/pool unchanged)
+- `spawn pz_mini_boss_gargul` repriced 650/$6.50 → 750/$7.50 (baseCount/extraZombieThreshold/pool unchanged); the other three mini-boss spawns (Devourer, BurningFlesh, BearDaddy) are unchanged
+- Bumped `updatedAt` to `2026-08-01`
+- The non-spawn commands table (negative/positive/funny), all other spawn tiers (rad/super normal/strong/ranged/badass, dogs, animals, bees, screamers), zombie pool rosters, Super Chat/points/Patreon/Discord economy text, and command syntax rules are unchanged from the prior revision (verified against the new PDF's full text)
+- Verified via `yarn build`: the new command and updated values render correctly on `dist/commands/spawns/index.html`
+
 ## 2026-07-31
 
 ### Fix Home link doing nothing from any sub-page

@@ -1,6 +1,6 @@
 {
   "label": "Project Z",
-  "updatedAt": "2026-07-31",
+  "updatedAt": "2026-08-01",
   "default": true,
   "pools": [
     {
@@ -416,22 +416,32 @@
     {
       "keyword": "spawn pz_elites",
       "effect": "Spawns a group of elite zombies that are drawn to the target player",
-      "cost": 500,
+      "cost": 450,
       "target": "player",
-      "superChatMin": 5,
-      "baseCount": 15,
+      "superChatMin": 4.5,
+      "baseCount": 20,
       "extraZombieThreshold": 0.75,
       "notes": "Pool: Elite"
     },
     {
       "keyword": "spawn pz_elite_cops",
       "effect": "Spawns a group of elite cop zombies that are drawn to the target player",
+      "cost": 500,
+      "target": "player",
+      "superChatMin": 5,
+      "baseCount": 8,
+      "extraZombieThreshold": 1,
+      "notes": "Pool: Elite Cops"
+    },
+    {
+      "keyword": "spawn pz_elites_charged_infernal",
+      "effect": "Spawns a group of charged/infernal elite zombies that are drawn to the target player",
       "cost": 550,
       "target": "player",
       "superChatMin": 5.5,
-      "baseCount": 5,
+      "baseCount": 16,
       "extraZombieThreshold": 1,
-      "notes": "Pool: Elite Cops"
+      "notes": "Pool: Elite — Charged/Infernal"
     },
     {
       "keyword": "spawn pz_small_boss",
@@ -439,7 +449,7 @@
       "cost": 600,
       "target": "player",
       "superChatMin": 6,
-      "baseCount": 4,
+      "baseCount": 6,
       "extraZombieThreshold": 1.5,
       "notes": "Pool: Small Boss"
     },
@@ -476,9 +486,9 @@
     {
       "keyword": "spawn pz_mini_boss_gargul",
       "effect": "Spawns Gargul, a mini boss, drawn to the target player",
-      "cost": 650,
+      "cost": 750,
       "target": "player",
-      "superChatMin": 6.5,
+      "superChatMin": 7.5,
       "baseCount": 2,
       "extraZombieThreshold": 2,
       "notes": "Pool: Gargul"
