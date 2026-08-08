@@ -6,6 +6,19 @@ All AI-assisted changes to this repository are logged here.
 
 ## 2026-08-07
 
+### Split spawn commands into a separate "posse" table on the spawns page
+- `src/components/CommandTable.astro`: added a `variant="posse"` prop that filters spawn entries by whether the keyword contains `" posse"`, so the same component can render either the posse subset or everything else without a schema change
+- `src/pages/commands/spawns.mdx`: added a new "Basic Zombie Spawn Commands" section with its own `<CommandTable category="spawn" variant="posse" />`, ahead of the existing spawn table, explaining that posse spawns scale with Game Stage only (no Super Chat zombie-count scaling) — mirrors the source PDF's own table split
+- The existing `<CommandTable category="spawn" />` now excludes the 4 posse commands (they're rendered in the new table instead), so nothing is duplicated; its Extra Zombies column behavior is otherwise unchanged
+- Verified via `yarn build`: the posse table renders 4 rows (`spawn small/medium/large/boss posse`) with a Base Spawn column and no Extra Zombies column (none of them have `extraZombieThreshold`); the main table renders the remaining 13 `projectz-2026` spawn commands unchanged
+
+### Remove commands absent from the LVL300 doc: struck-through debuffs and the superseded rad/super spawn tier
+- Removed 3 Project Z debuff commands (`stank`, `hot zone`, `cold snap`) from `src/data/commands/projectz-2026.json` — the LVL300 PDF still lists them but with strikethrough formatting, which per the user's stated rule means the command was cut from the game
+- Removed all 8 `spawn rad {normal,strong,ranged,badass}` / `spawn super {normal,strong,ranged,badass}` commands from `spawns` — none appear anywhere in the LVL300 doc, which replaced them with the GameStage-scaled "posse" spawn tier added earlier the same day
+- Removed the now-orphaned `Normal`, `Strong`, `Ranged`, and `Badass` zombie pool definitions, since no remaining command references them
+- Updated `src/pages/commands/spawns.mdx`: swapped the Super Chat scaling example from the removed `!spawn rad normal` to `!spawn dogs`, and dropped the trailing "Feral, radiated, ..." variant note since neither feral nor radiated spawns exist as commands anymore (only charged/infernal does)
+- Verified via `yarn build` and by tracing the client-side version filter in `src/layouts/Base.astro` that the default `projectz-2026` version now renders without these entries
+
 ### Sync Project Z data with LVL300 update: new debuff/buff category, new GameStage-scaled "posse" spawns, boss/elite base-count rebases, new infernal elite cop tier
 - New source doc (`YTbot Project Z Commands-LVL300.pdf`) repriced `trip` in `src/data/commands/projectz-2026.json`: 600 pts/$6.00 min → 1000 pts/$10.00 min (effect/target unchanged); every other entry in the shared negative/positive/funny command table is byte-for-byte unchanged from the prior revision
 - Added 23 new Project-Z-specific buff/debuff commands from the doc's new "Project Z Buff and Debuff Commands" table: 10 negative (`blur`, `live wire`, `hotfoot`, `dead legs`, `bad feeling`, `stank`, `hot zone`, `cold snap`, `banana peel`, `mr glass`) and 13 positive (`catnap`, `good vibes`, `reverse stank`, `second wind`, `clear head`, `begone stank`, `spa day`, `untouchable`, `cooled off`, `warm`, `rad off`, `hazard suit`, `shockwave`) — mostly Fatigue/Sanity/Hygiene/Heat-Stroke/Frostbite management, which are Project-Z-only survival stats

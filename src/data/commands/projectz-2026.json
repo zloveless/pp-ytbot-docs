@@ -4,18 +4,6 @@
   "default": true,
   "pools": [
     {
-      "name": "Normal",
-      "pool": "Arlene, Marlene, Party Girl, Nurse, Joe, Steve, Tom Clark, Business Man, Burnt, Spider, Boe, Hazmat, Janitor, Inmate, Moe, Lab, Darlene, Yo, Utility Worker, Biker, Lumberjack, Fat Mama, Hawaiian, Bowler, Soldier"
-    },
-    {
-      "name": "Strong",
-      "pool": "Biker, Lumberjack, Fat Mama, Hawaiian, Bowler, Soldier, Cop"
-    },
-    {
-      "name": "Ranged",
-      "pool": "Rancher, Chuck, Cop"
-    },
-    {
       "name": "Dogs",
       "pool": "Z Dog, Dire Wolf"
     },
@@ -26,10 +14,6 @@
     {
       "name": "Bees",
       "pool": "Bees"
-    },
-    {
-      "name": "Badass",
-      "pool": "Wight, Mutated, Cop, Rancher, Chuck"
     },
     {
       "name": "Elite",
@@ -342,30 +326,6 @@
       "superChatMin": 2.5
     },
     {
-      "keyword": "stank",
-      "category": "negative",
-      "effect": "Hygiene -25",
-      "cost": 250,
-      "target": "player",
-      "superChatMin": 2.5
-    },
-    {
-      "keyword": "hot zone",
-      "category": "negative",
-      "effect": "Heat Stroke +25",
-      "cost": 300,
-      "target": "player",
-      "superChatMin": 3
-    },
-    {
-      "keyword": "cold snap",
-      "category": "negative",
-      "effect": "Frostbite +25",
-      "cost": 300,
-      "target": "player",
-      "superChatMin": 3
-    },
-    {
       "keyword": "banana peel",
       "category": "negative",
       "effect": "Immediately knocked down for 4 seconds",
@@ -521,86 +481,6 @@
       "target": "player",
       "superChatMin": 5.5,
       "notes": "Pool: Boss Posse — no Super Chat scaling; base count (1-4) scales with Game Stage"
-    },
-    {
-      "keyword": "spawn rad normal",
-      "effect": "Spawns a group of radiated zombies that are drawn to the target player",
-      "cost": 200,
-      "target": "player",
-      "superChatMin": 2,
-      "baseCount": 25,
-      "extraZombieThreshold": 0.5,
-      "notes": "Pool: Normal — Rad"
-    },
-    {
-      "keyword": "spawn super normal",
-      "effect": "Spawns a group of super-charged zombies that are drawn to the target player",
-      "cost": 300,
-      "target": "player",
-      "superChatMin": 3,
-      "baseCount": 25,
-      "extraZombieThreshold": 0.5,
-      "notes": "Pool: Normal — Super"
-    },
-    {
-      "keyword": "spawn rad strong",
-      "effect": "Spawns a group of radiated strong zombies that are drawn to the target player",
-      "cost": 250,
-      "target": "player",
-      "superChatMin": 2.5,
-      "baseCount": 25,
-      "extraZombieThreshold": 0.5,
-      "notes": "Pool: Strong — Rad"
-    },
-    {
-      "keyword": "spawn super strong",
-      "effect": "Spawns a group of super-charged strong zombies that are drawn to the target player",
-      "cost": 350,
-      "target": "player",
-      "superChatMin": 3.5,
-      "baseCount": 25,
-      "extraZombieThreshold": 0.5,
-      "notes": "Pool: Strong — Super"
-    },
-    {
-      "keyword": "spawn rad ranged",
-      "effect": "Spawns radiated ranged zombies drawn to the target player",
-      "cost": 300,
-      "target": "player",
-      "superChatMin": 3,
-      "baseCount": 25,
-      "extraZombieThreshold": 0.75,
-      "notes": "Pool: Ranged — Rad"
-    },
-    {
-      "keyword": "spawn super ranged",
-      "effect": "Spawns a group of super-charged ranged zombies that are drawn to the target player",
-      "cost": 400,
-      "target": "player",
-      "superChatMin": 4,
-      "baseCount": 25,
-      "extraZombieThreshold": 0.75,
-      "notes": "Pool: Ranged — Super"
-    },
-    {
-      "keyword": "spawn rad badass",
-      "effect": "Spawns radiated badass zombies drawn to the target player",
-      "cost": 300,
-      "target": "player",
-      "superChatMin": 3,
-      "baseCount": 25,
-      "extraZombieThreshold": 0.75,
-      "notes": "Pool: Badass — Rad"
-    },
-    {
-      "keyword": "spawn super badass",
-      "effect": "Spawns a group of super-charged badass zombies that are drawn to the target player",
-      "cost": 400,
-      "target": "player",
-      "superChatMin": 4,
-      "baseCount": 25,
-      "extraZombieThreshold": 0.75,
-      "notes": "Pool: Badass — Super"
     },
     {
       "keyword": "spawn dogs",

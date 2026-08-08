@@ -25,10 +25,16 @@ If your Super Chat donation exceeds the command's minimum price, you spawn **ext
 - `minimum` — the command's Super Chat minimum (see table below)
 - `threshold` — the USD increment per extra zombie (see table below)
 
-**Example:** `!spawn rad normal` has a $2.00 minimum and a $0.50 threshold.
-A $3.00 Super Chat → $1.00 over minimum ÷ $0.50 = **2 extra zombies** on top of the base 25.
+**Example:** `!spawn dogs` has a $2.00 minimum and a $0.25 threshold.
+A $3.00 Super Chat → $1.00 over minimum ÷ $0.25 = **4 extra zombies** on top of the base 32.
 
 > **Screamers** are an exception — they have no base count and no Super Chat scaling. The screamer horde size is determined entirely by your current Game Stage.
+
+## Basic Zombie Spawn Commands
+
+The "posse" spawns are budget-friendly and scale purely with **Game Stage (GS)** — unlike the Super Chat scaling described above, a donation over the minimum does **not** spawn extra zombies for these commands. Remember, harder biomes have a higher GS, so the same command spawns more zombies there than in an easy biome.
+
+<CommandTable category="spawn" variant="posse" />
 
 ## Spawn Commands
 
@@ -44,4 +50,4 @@ Click any column header to sort. The **Notes** column references the zombie pool
 
 <ZombiePools />
 
-Feral, radiated, and charged/infernal variants draw from the same named zombie pool but spawn that variant of each zombie instead. Feral zombies are faster and more aggressive.
+Charged/infernal variants draw from the same named zombie pool but spawn that variant of each zombie instead.
