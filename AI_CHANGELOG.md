@@ -6,6 +6,19 @@ All AI-assisted changes to this repository are logged here.
 
 ## 2026-08-07
 
+### Add non-affiliation disclaimer, remove GitHub source link, switch to new custom domain
+- `src/layouts/Base.astro`: removed the "Source on GitHub" footer link (repo is no longer meant to be publicly discoverable from the site) and added a fan-site disclaimer line ("not affiliated with, endorsed by, or operated by the Pseudo Posse") below the existing footer content
+- `astro.config.mjs`: `site` changed from `https://github.cncfps.com` to `https://botdocs.possehq.net` (user purchased the new domain)
+- `public/CNAME`: updated to `botdocs.possehq.net` to match — still needs a matching CNAME DNS record and the custom domain set in repo Settings → Pages, same as the prior `github.cncfps.com` setup
+- Verified via `yarn build` that `dist/CNAME` and the footer disclaimer render correctly
+
+### Remove real-name/GitHub-profile credit from the footer
+- `src/layouts/Base.astro`: dropped the "Docs by Genesis" line (and its link to the site owner's personal GitHub profile) entirely, per the user's stated goal of severing any link between their real identity and the site — collapsed the footer's flex row down to a single centered line since the credit was the only other item in it
+- Verified via `yarn build` that no personal-profile reference remains anywhere under `src/` or `public/`
+
+### Scrub the site owner's GitHub username from past AI changelog entries
+- Reworded the two prior entries that named the site owner's personal GitHub username directly (the 2026-07-17 custom-domain DNS note and the 2026-06-13 footer-credit note) to describe them generically instead — git history still has the originals, per the user, so this only affects the file as it reads going forward
+
 ### Split spawn commands into a separate "posse" table on the spawns page
 - `src/components/CommandTable.astro`: added a `variant="posse"` prop that filters spawn entries by whether the keyword contains `" posse"`, so the same component can render either the posse subset or everything else without a schema change
 - `src/pages/commands/spawns.mdx`: added a new "Basic Zombie Spawn Commands" section with its own `<CommandTable category="spawn" variant="posse" />`, ahead of the existing spawn table, explaining that posse spawns scale with Game Stage only (no Super Chat zombie-count scaling) — mirrors the source PDF's own table split
@@ -118,7 +131,7 @@ All AI-assisted changes to this repository are logged here.
 ### Configure GitHub Pages for the custom domain github.cncfps.com
 - Added `public/CNAME` (content: `github.cncfps.com`) — the Actions-based Pages deploy (`actions/upload-pages-artifact`) doesn't auto-write a CNAME the way "deploy from a branch" does, so it has to ship in the build output
 - Updated `astro.config.mjs`: `site` changed to `https://github.cncfps.com` and the `base: '/pp-ytbot-docs'` override removed — a custom domain serves the Pages site from the root, so the old subpath base would have broken every internal link/asset URL
-- Still required outside this repo: a `CNAME` DNS record (`github.cncfps.com` → `zloveless.github.io`) at the DNS provider, and setting the custom domain in repo Settings → Pages
+- Still required outside this repo: a `CNAME` DNS record (`github.cncfps.com` → the GitHub Pages host) at the DNS provider, and setting the custom domain in repo Settings → Pages
 
 ## 2026-07-17
 
@@ -184,7 +197,7 @@ All AI-assisted changes to this repository are logged here.
 
 ### Update footer: add source credit, remove duplicate version
 - Removed version/date from footer (duplicated by the navbar version dropdown)
-- Added "Docs by Genesis" credit linking to github.com/zloveless and "Source on GitHub" linking to the repo
+- Added a "Docs by Genesis" credit linking to the site owner's GitHub profile and "Source on GitHub" linking to the repo
 
 ### Fix extra spacing inside alert box on Spawn Reference
 - MDX was wrapping inline content in a `<p>` tag (adding `margin-bottom: 1rem` inside the alert padding) because the text was on its own indented line inside the JSX div

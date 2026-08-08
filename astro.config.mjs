@@ -5,7 +5,7 @@ import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://github.cncfps.com',
+  site: 'https://botdocs.possehq.net',
   output: 'static',
   integrations: [mdx()]
 });
