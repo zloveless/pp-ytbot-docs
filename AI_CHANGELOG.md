@@ -4,6 +4,17 @@ All AI-assisted changes to this repository are logged here.
 
 ---
 
+## 2026-08-07
+
+### Sync Project Z data with LVL300 update: new debuff/buff category, new GameStage-scaled "posse" spawns, boss/elite base-count rebases, new infernal elite cop tier
+- New source doc (`YTbot Project Z Commands-LVL300.pdf`) repriced `trip` in `src/data/commands/projectz-2026.json`: 600 pts/$6.00 min → 1000 pts/$10.00 min (effect/target unchanged); every other entry in the shared negative/positive/funny command table is byte-for-byte unchanged from the prior revision
+- Added 23 new Project-Z-specific buff/debuff commands from the doc's new "Project Z Buff and Debuff Commands" table: 10 negative (`blur`, `live wire`, `hotfoot`, `dead legs`, `bad feeling`, `stank`, `hot zone`, `cold snap`, `banana peel`, `mr glass`) and 13 positive (`catnap`, `good vibes`, `reverse stank`, `second wind`, `clear head`, `begone stank`, `spa day`, `untouchable`, `cooled off`, `warm`, `rad off`, `hazard suit`, `shockwave`) — mostly Fatigue/Sanity/Hygiene/Heat-Stroke/Frostbite management, which are Project-Z-only survival stats
+- Added a new "Basic Zombie Spawn Commands" tier (`spawn small posse`/`spawn medium posse`/`spawn large posse`/`spawn boss posse`), all GameStage-scaled with no Super Chat zombie-count scaling (mirrors the existing `spawn screamers` no-`extraZombieThreshold` pattern): base counts 3/8/16 for small/medium/large from a new `All Zombies` pool, and `spawn boss posse` (1-4 base, scales with GS) from a new `Boss Posse` pool (`Bitch, Cholera, Devourer, Burning Flesh, Gargul, Bear Daddy, Boss, Shocker, Bull, Veteran, Ancient Yeti, Carrier`)
+- Rebased several existing spawn commands' `baseCount` (costs/thresholds/pools all unchanged): `spawn dogs` 25→32, `spawn animals` 20→32, `spawn bees` 15→20, `spawn pz_elites` 20→32, `spawn pz_elite_cops` 8→20, `spawn pz_elites_charged_infernal` 16→24, `spawn pz_small_boss` 6→18, and all four `spawn pz_mini_boss_*` commands 2→3
+- Added a new boss-tier spawn the doc introduced: `spawn pz_elite_cops_infernal` (650 pts, $6.50 min, baseCount 15, extraZombieThreshold 1.50, reusing the existing `Elite Cops` pool with notes `Pool: Elite Cops — Infernal`)
+- Bumped `updatedAt` to `2026-08-07`
+- Verified via `yarn build` that all new commands and updated values render on `dist/commands/index.html` and `dist/commands/spawns/index.html`
+
 ## 2026-08-01
 
 ### Add site-wide Double Point Weekend alert

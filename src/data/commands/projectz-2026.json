@@ -1,6 +1,6 @@
 {
   "label": "Project Z",
-  "updatedAt": "2026-08-01",
+  "updatedAt": "2026-08-07",
   "default": true,
   "pools": [
     {
@@ -58,6 +58,14 @@
     {
       "name": "Gargul",
       "pool": "Gargul"
+    },
+    {
+      "name": "All Zombies",
+      "pool": "Every zombie type in the game, weighted by current Game Stage"
+    },
+    {
+      "name": "Boss Posse",
+      "pool": "Bitch, Cholera, Devourer, Burning Flesh, Gargul, Bear Daddy, Boss, Shocker, Bull, Veteran, Ancient Yeti, Carrier"
     }
   ],
   "commands": [
@@ -185,9 +193,9 @@
       "keyword": "trip",
       "category": "negative",
       "effect": "Target can trip and fall from moving or jumping for 60 seconds",
-      "cost": 600,
+      "cost": 1000,
       "target": "player",
-      "superChatMin": 6
+      "superChatMin": 10
     },
     {
       "keyword": "flip controls",
@@ -292,9 +300,228 @@
       "cost": 50,
       "target": "player",
       "superChatMin": 0.5
+    },
+    {
+      "keyword": "blur",
+      "category": "negative",
+      "effect": "Vision warped, heavy blur for 16 seconds",
+      "cost": 150,
+      "target": "player",
+      "superChatMin": 1.5
+    },
+    {
+      "keyword": "live wire",
+      "category": "negative",
+      "effect": "Stun for 4 seconds, with movement speed reduction, blur, camera shake, and stun audio",
+      "cost": 200,
+      "target": "player",
+      "superChatMin": 2
+    },
+    {
+      "keyword": "hotfoot",
+      "category": "negative",
+      "effect": "Double burns for 4 seconds",
+      "cost": 200,
+      "target": "player",
+      "superChatMin": 2
+    },
+    {
+      "keyword": "dead legs",
+      "category": "negative",
+      "effect": "Fatigue -25",
+      "cost": 250,
+      "target": "player",
+      "superChatMin": 2.5
+    },
+    {
+      "keyword": "bad feeling",
+      "category": "negative",
+      "effect": "Sanity -25",
+      "cost": 250,
+      "target": "player",
+      "superChatMin": 2.5
+    },
+    {
+      "keyword": "stank",
+      "category": "negative",
+      "effect": "Hygiene -25",
+      "cost": 250,
+      "target": "player",
+      "superChatMin": 2.5
+    },
+    {
+      "keyword": "hot zone",
+      "category": "negative",
+      "effect": "Heat Stroke +25",
+      "cost": 300,
+      "target": "player",
+      "superChatMin": 3
+    },
+    {
+      "keyword": "cold snap",
+      "category": "negative",
+      "effect": "Frostbite +25",
+      "cost": 300,
+      "target": "player",
+      "superChatMin": 3
+    },
+    {
+      "keyword": "banana peel",
+      "category": "negative",
+      "effect": "Immediately knocked down for 4 seconds",
+      "cost": 450,
+      "target": "player",
+      "superChatMin": 4.5
+    },
+    {
+      "keyword": "mr glass",
+      "category": "negative",
+      "effect": "Physical damage resistance -25% for 30 seconds",
+      "cost": 500,
+      "target": "player",
+      "superChatMin": 5
+    },
+    {
+      "keyword": "catnap",
+      "category": "positive",
+      "effect": "Fatigue +25",
+      "cost": 50,
+      "target": "player",
+      "superChatMin": 0.5
+    },
+    {
+      "keyword": "good vibes",
+      "category": "positive",
+      "effect": "Sanity +25",
+      "cost": 50,
+      "target": "player",
+      "superChatMin": 0.5
+    },
+    {
+      "keyword": "reverse stank",
+      "category": "positive",
+      "effect": "Hygiene +25",
+      "cost": 50,
+      "target": "player",
+      "superChatMin": 0.5
+    },
+    {
+      "keyword": "second wind",
+      "category": "positive",
+      "effect": "Full Fatigue",
+      "cost": 150,
+      "target": "player",
+      "superChatMin": 1.5
+    },
+    {
+      "keyword": "clear head",
+      "category": "positive",
+      "effect": "Full Sanity",
+      "cost": 150,
+      "target": "player",
+      "superChatMin": 1.5
+    },
+    {
+      "keyword": "begone stank",
+      "category": "positive",
+      "effect": "Full Hygiene",
+      "cost": 150,
+      "target": "player",
+      "superChatMin": 1.5
+    },
+    {
+      "keyword": "spa day",
+      "category": "positive",
+      "effect": "Full Fatigue, Sanity, and Hygiene",
+      "cost": 300,
+      "target": "player",
+      "superChatMin": 3
+    },
+    {
+      "keyword": "untouchable",
+      "category": "positive",
+      "effect": "Fatigue, Sanity, and Hygiene held at full for 20 minutes",
+      "cost": 400,
+      "target": "player",
+      "superChatMin": 4
+    },
+    {
+      "keyword": "cooled off",
+      "category": "positive",
+      "effect": "Heat Stroke cured",
+      "cost": 150,
+      "target": "player",
+      "superChatMin": 1.5
+    },
+    {
+      "keyword": "warm",
+      "category": "positive",
+      "effect": "Frostbite cured",
+      "cost": 150,
+      "target": "player",
+      "superChatMin": 1.5
+    },
+    {
+      "keyword": "rad off",
+      "category": "positive",
+      "effect": "Radiation cured",
+      "cost": 150,
+      "target": "player",
+      "superChatMin": 1.5
+    },
+    {
+      "keyword": "hazard suit",
+      "category": "positive",
+      "effect": "Protection against heat stroke, frostbite, and radiation for 20 minutes",
+      "cost": 400,
+      "target": "player",
+      "superChatMin": 4
+    },
+    {
+      "keyword": "shockwave",
+      "category": "positive",
+      "effect": "Every zombie within 15m is knocked down",
+      "cost": 250,
+      "target": "player",
+      "superChatMin": 2.5
     }
   ],
   "spawns": [
+    {
+      "keyword": "spawn small posse",
+      "effect": "Spawns a small group of zombies drawn from every zombie type in the game, 15-35m from the target player",
+      "cost": 50,
+      "target": "player",
+      "superChatMin": 0.5,
+      "baseCount": 3,
+      "notes": "Pool: All Zombies — no Super Chat scaling; base count scales with Game Stage"
+    },
+    {
+      "keyword": "spawn medium posse",
+      "effect": "Spawns a medium group of zombies drawn from every zombie type in the game, 15-35m from the target player",
+      "cost": 150,
+      "target": "player",
+      "superChatMin": 1.5,
+      "baseCount": 8,
+      "notes": "Pool: All Zombies — no Super Chat scaling; base count scales with Game Stage"
+    },
+    {
+      "keyword": "spawn large posse",
+      "effect": "Spawns a large group of zombies drawn from every zombie type in the game, 15-35m from the target player",
+      "cost": 350,
+      "target": "player",
+      "superChatMin": 3.5,
+      "baseCount": 16,
+      "notes": "Pool: All Zombies — no Super Chat scaling; base count scales with Game Stage"
+    },
+    {
+      "keyword": "spawn boss posse",
+      "effect": "Spawns 1-4 boss-tier zombies, 15-35m from the target player",
+      "cost": 550,
+      "target": "player",
+      "superChatMin": 5.5,
+      "notes": "Pool: Boss Posse — no Super Chat scaling; base count (1-4) scales with Game Stage"
+    },
     {
       "keyword": "spawn rad normal",
       "effect": "Spawns a group of radiated zombies that are drawn to the target player",
@@ -381,7 +608,7 @@
       "cost": 200,
       "target": "player",
       "superChatMin": 2,
-      "baseCount": 25,
+      "baseCount": 32,
       "extraZombieThreshold": 0.25,
       "notes": "Pool: Dogs"
     },
@@ -391,7 +618,7 @@
       "cost": 300,
       "target": "player",
       "superChatMin": 3,
-      "baseCount": 20,
+      "baseCount": 32,
       "extraZombieThreshold": 0.5,
       "notes": "Pool: Animals"
     },
@@ -401,7 +628,7 @@
       "cost": 200,
       "target": "player",
       "superChatMin": 2,
-      "baseCount": 15,
+      "baseCount": 20,
       "extraZombieThreshold": 0.5,
       "notes": "Pool: Bees"
     },
@@ -419,7 +646,7 @@
       "cost": 450,
       "target": "player",
       "superChatMin": 4.5,
-      "baseCount": 20,
+      "baseCount": 32,
       "extraZombieThreshold": 0.75,
       "notes": "Pool: Elite"
     },
@@ -429,7 +656,7 @@
       "cost": 500,
       "target": "player",
       "superChatMin": 5,
-      "baseCount": 8,
+      "baseCount": 20,
       "extraZombieThreshold": 1,
       "notes": "Pool: Elite Cops"
     },
@@ -439,7 +666,7 @@
       "cost": 550,
       "target": "player",
       "superChatMin": 5.5,
-      "baseCount": 16,
+      "baseCount": 24,
       "extraZombieThreshold": 1,
       "notes": "Pool: Elite — Charged/Infernal"
     },
@@ -449,9 +676,19 @@
       "cost": 600,
       "target": "player",
       "superChatMin": 6,
-      "baseCount": 6,
+      "baseCount": 18,
       "extraZombieThreshold": 1.5,
       "notes": "Pool: Small Boss"
+    },
+    {
+      "keyword": "spawn pz_elite_cops_infernal",
+      "effect": "Spawns a group of infernal elite cop zombies that are drawn to the target player",
+      "cost": 650,
+      "target": "player",
+      "superChatMin": 6.5,
+      "baseCount": 15,
+      "extraZombieThreshold": 1.5,
+      "notes": "Pool: Elite Cops — Infernal"
     },
     {
       "keyword": "spawn pz_mini_boss_devourer",
@@ -459,7 +696,7 @@
       "cost": 650,
       "target": "player",
       "superChatMin": 6.5,
-      "baseCount": 2,
+      "baseCount": 3,
       "extraZombieThreshold": 2,
       "notes": "Pool: Devourer"
     },
@@ -469,7 +706,7 @@
       "cost": 650,
       "target": "player",
       "superChatMin": 6.5,
-      "baseCount": 2,
+      "baseCount": 3,
       "extraZombieThreshold": 2,
       "notes": "Pool: BurningFlesh"
     },
@@ -479,7 +716,7 @@
       "cost": 650,
       "target": "player",
       "superChatMin": 6.5,
-      "baseCount": 2,
+      "baseCount": 3,
       "extraZombieThreshold": 2,
       "notes": "Pool: BearDaddy"
     },
@@ -489,7 +726,7 @@
       "cost": 750,
       "target": "player",
       "superChatMin": 7.5,
-      "baseCount": 2,
+      "baseCount": 3,
       "extraZombieThreshold": 2,
       "notes": "Pool: Gargul"
     }
