@@ -1,6 +1,6 @@
 {
   "label": "Project Z",
-  "updatedAt": "2026-08-07",
+  "updatedAt": "2026-08-08",
   "default": true,
   "pools": [
     {
@@ -42,6 +42,26 @@
     {
       "name": "Gargul",
       "pool": "Gargul"
+    },
+    {
+      "name": "Bitch",
+      "pool": "Bitch"
+    },
+    {
+      "name": "Mystic",
+      "pool": "Mystic"
+    },
+    {
+      "name": "Hot Harry",
+      "pool": "Hot Harry"
+    },
+    {
+      "name": "Shocker",
+      "pool": "Shocker"
+    },
+    {
+      "name": "Mummy",
+      "pool": "Mummy"
     },
     {
       "name": "All Zombies",
@@ -326,6 +346,30 @@
       "superChatMin": 2.5
     },
     {
+      "keyword": "stank",
+      "category": "negative",
+      "effect": "Hygiene -25",
+      "cost": 250,
+      "target": "player",
+      "superChatMin": 2.5
+    },
+    {
+      "keyword": "hot zone",
+      "category": "negative",
+      "effect": "Heat Stroke +25",
+      "cost": 300,
+      "target": "player",
+      "superChatMin": 3
+    },
+    {
+      "keyword": "cold snap",
+      "category": "negative",
+      "effect": "Frostbite +25",
+      "cost": 300,
+      "target": "player",
+      "superChatMin": 3
+    },
+    {
       "keyword": "banana peel",
       "category": "negative",
       "effect": "Immediately knocked down for 4 seconds",
@@ -601,6 +645,26 @@
       "notes": "Pool: BearDaddy"
     },
     {
+      "keyword": "spawn pz_mini_boss_bitch",
+      "effect": "Spawns Bitch, a mini boss, drawn to the target player",
+      "cost": 650,
+      "target": "player",
+      "superChatMin": 6.5,
+      "baseCount": 3,
+      "extraZombieThreshold": 2,
+      "notes": "Pool: Bitch"
+    },
+    {
+      "keyword": "spawn pz_mini_boss_mystic",
+      "effect": "Spawns Mystic, a mini boss, drawn to the target player",
+      "cost": 650,
+      "target": "player",
+      "superChatMin": 6.5,
+      "baseCount": 3,
+      "extraZombieThreshold": 2,
+      "notes": "Pool: Mystic"
+    },
+    {
       "keyword": "spawn pz_mini_boss_gargul",
       "effect": "Spawns Gargul, a mini boss, drawn to the target player",
       "cost": 750,
@@ -609,6 +673,36 @@
       "baseCount": 3,
       "extraZombieThreshold": 2,
       "notes": "Pool: Gargul"
+    },
+    {
+      "keyword": "spawn pz_boss_harry",
+      "effect": "Spawns Hot Harry, a boss, drawn to the target player",
+      "cost": 900,
+      "target": "player",
+      "superChatMin": 9,
+      "baseCount": 1,
+      "extraZombieThreshold": 3,
+      "notes": "Pool: Hot Harry"
+    },
+    {
+      "keyword": "spawn pz_boss_shocker",
+      "effect": "Spawns Shocker, a boss, drawn to the target player",
+      "cost": 900,
+      "target": "player",
+      "superChatMin": 9,
+      "baseCount": 1,
+      "extraZombieThreshold": 3,
+      "notes": "Pool: Shocker"
+    },
+    {
+      "keyword": "spawn pz_boss_mummy",
+      "effect": "Spawns Mummy, a boss, drawn to the target player",
+      "cost": 900,
+      "target": "player",
+      "superChatMin": 9,
+      "baseCount": 1,
+      "extraZombieThreshold": 3,
+      "notes": "Pool: Mummy"
     }
   ]
 }

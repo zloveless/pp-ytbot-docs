@@ -4,6 +4,17 @@ All AI-assisted changes to this repository are logged here.
 
 ---
 
+## 2026-08-08
+
+### Sync Project Z data with LVL300-V2 doc: re-add un-struck debuffs, new mini-boss/boss spawn tiers
+- New source doc (`YTbot Project Z Commands-LVL300-V2.pdf`) renders `stank`, `hot zone`, and `cold snap` as plain (non-struck-through) text, reversing the prior LVL300 doc's strikethrough that got them removed on 2026-08-07 — re-added all 3 to `src/data/commands/projectz-2026.json` with their original values (`stank`: Hygiene -25, 250 pts/$2.50; `hot zone`: Heat Stroke +25, 300 pts/$3.00; `cold snap`: Frostbite +25, 300 pts/$3.00), verified via rendered page image, not just text extraction, since strikethrough doesn't survive `pdftotext`
+- Added 5 new spawn commands from the "Project Z Zombie Spawn Commands" table: `spawn pz_mini_boss_bitch` and `spawn pz_mini_boss_mystic` (Mini Boss tier, 650 pts/$6.50 min, baseCount 3, extraZombieThreshold 2, matching the existing Devourer/BurningFlesh/BearDaddy mini-boss pattern) and a new "Boss" tier: `spawn pz_boss_harry` (Hot Harry), `spawn pz_boss_shocker` (Shocker), `spawn pz_boss_mummy` (Mummy) — all 900 pts/$9.00 min, baseCount 1, extraZombieThreshold 3
+- Added 5 new single-zombie pools (`Bitch`, `Mystic`, `Hot Harry`, `Shocker`, `Mummy`) to back the new spawns, following the existing Devourer/BurningFlesh/BearDaddy/Gargul naming pattern
+- The doc's `spawn pz_mini_boss_gargul` row appears twice with identical values — treated as a duplicate/typo in the source doc, not a distinct command, and left as the single existing entry
+- Everything else (shared negative/positive/funny table, basic/GS-scaled posse spawns, dogs/animals/bees/screamers, existing elite/small-boss/mini-boss spawns, zombie pool rosters) is byte-for-byte unchanged from the prior revision, confirmed via `diff` against `pdftotext -layout` output of both PDFs
+- Bumped `updatedAt` to `2026-08-08`
+- Verified via `yarn build` that all 8 new/restored commands render on `dist/commands/index.html` and `dist/commands/spawns/index.html`
+
 ## 2026-08-07
 
 ### Add non-affiliation disclaimer, remove GitHub source link, switch to new custom domain
