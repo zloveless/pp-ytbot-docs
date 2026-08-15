@@ -4,6 +4,16 @@ All AI-assisted changes to this repository are logged here.
 
 ---
 
+## 2026-08-15 (Aug15 doc sync)
+
+### Sync Project Z data with the Aug15 source doc: three new boss-tier spawns, base-count increases across Elite/Infernal/Mini Boss spawns
+- `src/data/commands/projectz-2026.json`: bumped `updatedAt` to 2026-08-15
+- Added three new spawn commands per the new doc: `spawn pz_mini_boss_nagaina` (Mini Boss, 650 pts / $6.50 min, base 4), `spawn pz_boss_bull` and `spawn pz_boss_veteran` (Boss, 1,000 pts / $10.00 min, base 1) — plus matching `Nagaina`/`Bull`/`Veteran` pool entries (Bull and Veteran previously only existed inside the composite "Boss Posse" pool text)
+- Increased `baseCount` on six existing spawns to match the new doc's table: `pz_elite_cops` 20→28, `pz_elites_charged_infernal` 24→28, `pz_small_boss` 18→20, `pz_elite_cops_infernal` 15→20, and all six `pz_mini_boss_*` commands (devourer, burningflesh, beardaddy, bitch, mystic, gargul) 3→4
+- `src/pages/index.md`: added an "Aug 15, 2026 Update" patch note entry above the existing Aug 14 entry, summarizing the new bosses and base-count increases for viewers
+- Buffs/debuffs and the Basic (posse) zombie spawns were unchanged between the two source docs — verified line-by-line against the new PDF
+- Verified `projectz-2026.json` still parses and the new totals are 25 spawns / 52 commands / 20 pools
+
 ## 2026-08-15 (zombie pools grid)
 
 ### Lay out the Zombie Pools reference as a responsive grid instead of a single column

@@ -1,6 +1,6 @@
 {
   "label": "Project Z",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-08-15",
   "default": true,
   "pools": [
     {
@@ -70,6 +70,18 @@
     {
       "name": "Boss Posse",
       "pool": "Bitch, Cholera, Devourer, Burning Flesh, Gargul, Bear Daddy, Boss, Shocker, Bull, Veteran, Ancient Yeti, Carrier"
+    },
+    {
+      "name": "Nagaina",
+      "pool": "Nagaina"
+    },
+    {
+      "name": "Bull",
+      "pool": "Bull"
+    },
+    {
+      "name": "Veteran",
+      "pool": "Veteran"
     }
   ],
   "commands": [
@@ -580,7 +592,7 @@
       "cost": 500,
       "target": "player",
       "superChatMin": 5,
-      "baseCount": 20,
+      "baseCount": 28,
       "extraZombieThreshold": 1,
       "notes": "Pool: Elite Cops"
     },
@@ -590,7 +602,7 @@
       "cost": 550,
       "target": "player",
       "superChatMin": 5.5,
-      "baseCount": 24,
+      "baseCount": 28,
       "extraZombieThreshold": 1,
       "notes": "Pool: Elite — Charged/Infernal"
     },
@@ -600,7 +612,7 @@
       "cost": 600,
       "target": "player",
       "superChatMin": 6,
-      "baseCount": 18,
+      "baseCount": 20,
       "extraZombieThreshold": 1.5,
       "notes": "Pool: Small Boss"
     },
@@ -610,7 +622,7 @@
       "cost": 650,
       "target": "player",
       "superChatMin": 6.5,
-      "baseCount": 15,
+      "baseCount": 20,
       "extraZombieThreshold": 1.5,
       "notes": "Pool: Elite Cops — Infernal"
     },
@@ -620,7 +632,7 @@
       "cost": 650,
       "target": "player",
       "superChatMin": 6.5,
-      "baseCount": 3,
+      "baseCount": 4,
       "extraZombieThreshold": 2,
       "notes": "Pool: Devourer"
     },
@@ -630,7 +642,7 @@
       "cost": 650,
       "target": "player",
       "superChatMin": 6.5,
-      "baseCount": 3,
+      "baseCount": 4,
       "extraZombieThreshold": 2,
       "notes": "Pool: BurningFlesh"
     },
@@ -640,7 +652,7 @@
       "cost": 650,
       "target": "player",
       "superChatMin": 6.5,
-      "baseCount": 3,
+      "baseCount": 4,
       "extraZombieThreshold": 2,
       "notes": "Pool: BearDaddy"
     },
@@ -650,7 +662,7 @@
       "cost": 650,
       "target": "player",
       "superChatMin": 6.5,
-      "baseCount": 3,
+      "baseCount": 4,
       "extraZombieThreshold": 2,
       "notes": "Pool: Bitch"
     },
@@ -660,9 +672,19 @@
       "cost": 650,
       "target": "player",
       "superChatMin": 6.5,
-      "baseCount": 3,
+      "baseCount": 4,
       "extraZombieThreshold": 2,
       "notes": "Pool: Mystic"
+    },
+    {
+      "keyword": "spawn pz_mini_boss_nagaina",
+      "effect": "Spawns Nagaina, a mini boss, drawn to the target player",
+      "cost": 650,
+      "target": "player",
+      "superChatMin": 6.5,
+      "baseCount": 4,
+      "extraZombieThreshold": 2,
+      "notes": "Pool: Nagaina"
     },
     {
       "keyword": "spawn pz_mini_boss_gargul",
@@ -670,7 +692,7 @@
       "cost": 750,
       "target": "player",
       "superChatMin": 7.5,
-      "baseCount": 3,
+      "baseCount": 4,
       "extraZombieThreshold": 2,
       "notes": "Pool: Gargul"
     },
@@ -703,6 +725,26 @@
       "baseCount": 1,
       "extraZombieThreshold": 3,
       "notes": "Pool: Mummy"
+    },
+    {
+      "keyword": "spawn pz_boss_bull",
+      "effect": "Spawns Bull, a boss, drawn to the target player",
+      "cost": 1000,
+      "target": "player",
+      "superChatMin": 10,
+      "baseCount": 1,
+      "extraZombieThreshold": 3.5,
+      "notes": "Pool: Bull"
+    },
+    {
+      "keyword": "spawn pz_boss_veteran",
+      "effect": "Spawns Veteran, a boss, drawn to the target player",
+      "cost": 1000,
+      "target": "player",
+      "superChatMin": 10,
+      "baseCount": 1,
+      "extraZombieThreshold": 3.5,
+      "notes": "Pool: Veteran"
     }
   ]
 }

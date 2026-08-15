@@ -19,6 +19,11 @@ You can **help** the streamers with heals and buffs, **hinder** them with debuff
 
 What's changed in Project Z since launch, newest first.
 
+### Aug 15, 2026 Update
+
+- Three new Boss-tier spawns: **Nagaina** (Mini Boss, 650 pts / $6.50 min) and **Bull** and **Veteran** (Boss, 1,000 pts / $10.00 min)
+- Base spawn counts increased for Elite Cops, Charged/Infernal Elites, Infernal Elite Cops, Small Boss, and every Mini Boss (Devourer, Burning Flesh, Bear Daddy, Bitch, Mystic, Gargul)
+
 ### Aug 14, 2026 — LVL400ish Update
 
 - Failed spawn commands now automatically retry, and refund your points if every retry comes up empty
