@@ -4,6 +4,14 @@ All AI-assisted changes to this repository are logged here.
 
 ---
 
+## 2026-08-14
+
+### Sync with LVL400ish doc: no command/price/pool changes, add retry-refund and !stats behavior notes
+- New source doc (`YTbot Project Z Commands-LVL400ish.pdf`) is byte-for-byte identical to the LVL300-V2 revision across every command table, spawn table, and zombie pool roster — confirmed by reading both PDFs in full and cross-checking every row; `src/data/commands/projectz-2026.json` needed no command/spawn/pool edits, only bumped `updatedAt` to `2026-08-14` to reflect the re-sync
+- The new doc adds two narrative-only changes not present in LVL300-V2: (1) a note under "Zombie Spawning Explained" that failed commands now auto-retry and refund points if all retries fail (flagged in the source as new/experimental), and (2) a new "Interactive Bot Features" section documenting a `!stats` chat command that shows the streamers' live zombie kill/death counts, resetting to 0 each stream
+- Updated `src/pages/how-it-works.md`: added a "Live Stats" section documenting `!stats`, and rewrote "If Something Goes Wrong" to describe the auto-retry/refund behavior (replacing the prior "there are no refunds" language, which the new doc's retry/refund note now contradicts)
+- Verified via `yarn build` that both pages render without errors
+
 ## 2026-08-08
 
 ### Sync Project Z data with LVL300-V2 doc: re-add un-struck debuffs, new mini-boss/boss spawn tiers

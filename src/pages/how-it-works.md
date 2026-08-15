@@ -68,6 +68,10 @@ Targeting `@all` applies the command to **both players simultaneously** for **75
 - If chat is quiet for 5 minutes, the bot slows its polling — your command may take up to **60 seconds** to process.
 - **Tip:** During quiet periods, send a few normal messages before your command to wake the bot back up.
 
+## Live Stats
+
+In addition to `!points`, type `!stats` in chat to check the streamers' current zombie kill and death counts. Stats reset to 0 at the start of each stream and increment as the streamers kill zombies — or die horribly.
+
 ## If Something Goes Wrong
 
-The bot is still a work in progress. If your command fails due to a bug, the streamer will manually execute it in-game. Points are only deducted on a successful command execution — there are no refunds if the target player is out of range or otherwise unreachable.
+The bot is still a work in progress. If a command fails to execute, it automatically retries — if it's still unsuccessful after the maximum retries, your points are refunded. *(This retry/refund behavior is new and experimental.)* If a command fails outright due to a bug, the streamer will manually execute it in-game.
