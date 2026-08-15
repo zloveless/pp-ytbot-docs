@@ -4,6 +4,35 @@ All AI-assisted changes to this repository are logged here.
 
 ---
 
+## 2026-08-15 (zombie pools grid)
+
+### Lay out the Zombie Pools reference as a responsive grid instead of a single column
+- `src/components/ZombiePools.astro`: changed the wrapping `<dl>` from `row-cols-1` (one pool per row) to `row-cols-2 row-cols-md-3` — 2 columns on narrow viewports, 3 from `md` up — to cut down the page's scroll length now that `projectz-2026.json` has 17 pools. User tried a 4-column `xl` breakpoint first, then asked to drop it after seeing it rendered, since they don't have a large enough display to judge it and didn't want an unverified breakpoint left in — capped at 3
+- Verified via `yarn build` that the `row-cols-2 row-cols-md-3` classes render on `dist/commands/spawns/index.html`
+
+## 2026-08-15 (smaller headings)
+
+### Reduce heading sizes site-wide by ~12%
+- `src/styles/main.scss`: overrode Bootstrap's `$h1`–`$h6-font-size` Sass variables (before the `@import`, matching the file's existing `$primary`/`$danger` override pattern) to ~88% of their defaults, per the user's feedback that headers felt too big after the new Patch Notes section landed. Kept heading *levels* unchanged (still semantic `h1`→`h6`) and only shrank the visual size, applying uniformly across index/how-it-works/commands/spawns
+- Verified via `yarn build` that the compiled CSS emits `h1{font-size:2.2rem}` etc.
+
+## 2026-08-15 (boss table split)
+
+### Split boss-tier spawns into their own table on the Spawn Reference page
+- `src/components/CommandTable.astro`: extended the `variant` prop from `'posse'` to `'posse' | 'boss'`, replacing the old binary `isPosse` filter with a three-way `groupOf()` helper (`posse` / `boss` / `main`) — `isBoss` matches any spawn keyword containing `boss` that isn't already claimed by the posse group (so `spawn boss posse` still renders in the posse table, not the new one)
+- `src/pages/commands/spawns.mdx`: added a new "Boss Spawn Commands" section with `<CommandTable category="spawn" variant="boss" />`, placed after the existing "Spawn Commands" table and before "Zombie Pools"
+- Per the user's request, this pulls every `projectz-2026` spawn from `pz_small_boss` onward whose keyword contains "boss" — 10 commands: `pz_small_boss`, the 6 `pz_mini_boss_*` entries, and the 3 `pz_boss_*` entries. `pz_elite_cops_infernal` (no "boss" in its name) stays in the main table alongside dogs/animals/bees/screamers/elites/elite_cops/elites_charged_infernal
+- Verified via `yarn build`: main table renders 8 projectz-2026 rows, new boss table renders exactly the 10 expected rows, in source order
+
+## 2026-08-15
+
+### Add player-facing Patch Notes section to the landing page
+- Added a "Patch Notes" section to `src/pages/index.md`, below the existing Quick Links, so the update history is visible to viewers without digging through this dev-facing changelog
+- Written in reverse-chronological game-patch-notes style (dated entries, bolded command/feature names, no file paths or verification notes) rather than mirroring this file's format — scoped to Project Z content/command changes only (new commands, repricing, retirements, feature additions like `!stats` and auto-retry/refund) and excludes infrastructure entries (domain changes, footer edits, docs reorganization, component refactors) per the user's request to keep the index page clean of infra details
+- Covers every Project Z-relevant change from the 2026-07-10 launch (`projectz-2026-early.json` going live as default) through the 2026-08-14 LVL400ish sync — 11 dated entries total; the mid-patch stank/hot zone/cold snap removal-then-restoral (2026-08-07 → 2026-08-08) is narrated across two entries rather than collapsed, matching how the change actually shipped to players
+- Omitted the 2026-08-01 Double Point Weekend banner (a since-expired temporary alert, confirmed removed from `src/layouts/Base.astro`) and the 2026-07-17 mid-game rename (data-identical, no player-visible change)
+- Verified via `yarn build` that `dist/index.html` renders all 11 dated `<h3>` entries under the new `<h2>Patch Notes</h2>` section
+
 ## 2026-08-14
 
 ### Sync with LVL400ish doc: no command/price/pool changes, add retry-refund and !stats behavior notes

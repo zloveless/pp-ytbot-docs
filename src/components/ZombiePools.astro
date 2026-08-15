@@ -5,7 +5,7 @@ const entries = await getCollection('commands');
 ---
 
 {entries.map(e => (
-  <dl class="row row-cols-1 gy-1 mt-1" data-ver={e.id}>
+  <dl class="row row-cols-2 row-cols-md-3 gy-3 gx-4 mt-1" data-ver={e.id}>
     {(e.data.pools ?? []).map(p => (
       <div class="col">
         <dt>{p.name}</dt>

@@ -10,6 +10,14 @@ $success: #2ea85f;   // positive commands
 $warning: #e07530;   // spawn commands — orange
 $info:    #8b6af0;   // funny commands — purple
 
+// Headings ~12% smaller than Bootstrap's defaults (2.5/2/1.75/1.5/1.25/1rem)
+$h1-font-size: 2.2rem;
+$h2-font-size: 1.76rem;
+$h3-font-size: 1.54rem;
+$h4-font-size: 1.32rem;
+$h5-font-size: 1.1rem;
+$h6-font-size: .88rem;
+
 @import 'bootstrap/scss/bootstrap';
 
 body {

@@ -3,17 +3,19 @@ import { getCollection } from 'astro:content';
 
 interface Props {
   category?: 'negative' | 'positive' | 'spawn' | 'funny';
-  variant?: 'posse';
+  variant?: 'posse' | 'boss';
 }
 
 const { category, variant } = Astro.props;
 const isPosse = (keyword: string) => keyword.includes(' posse');
+const isBoss = (keyword: string) => keyword.includes('boss') && !isPosse(keyword);
+const groupOf = (keyword: string) => isPosse(keyword) ? 'posse' : isBoss(keyword) ? 'boss' : 'main';
 
 const entries = await getCollection('commands');
 const commands = category === 'spawn'
   ? entries
       .flatMap(e => (e.data.spawns ?? []).map(cmd => ({ ...cmd, _ver: e.id })))
-      .filter(c => (variant === 'posse') === isPosse(c.keyword))
+      .filter(c => groupOf(c.keyword) === (variant ?? 'main'))
   : entries
       .flatMap(e => e.data.commands.map(cmd => ({ ...cmd, _ver: e.id })))
       .filter(c => !category || c.category === category);
