@@ -1,6 +1,6 @@
 {
   "label": "Project Z",
-  "updatedAt": "2026-08-15",
+  "updatedAt": "2026-08-16",
   "default": true,
   "pools": [
     {
@@ -82,6 +82,10 @@
     {
       "name": "Veteran",
       "pool": "Veteran"
+    },
+    {
+      "name": "Yeti",
+      "pool": "Yeti"
     }
   ],
   "commands": [
@@ -632,7 +636,7 @@
       "cost": 650,
       "target": "player",
       "superChatMin": 6.5,
-      "baseCount": 4,
+      "baseCount": 6,
       "extraZombieThreshold": 2,
       "notes": "Pool: Devourer"
     },
@@ -642,7 +646,7 @@
       "cost": 650,
       "target": "player",
       "superChatMin": 6.5,
-      "baseCount": 4,
+      "baseCount": 6,
       "extraZombieThreshold": 2,
       "notes": "Pool: BurningFlesh"
     },
@@ -652,7 +656,7 @@
       "cost": 650,
       "target": "player",
       "superChatMin": 6.5,
-      "baseCount": 4,
+      "baseCount": 6,
       "extraZombieThreshold": 2,
       "notes": "Pool: BearDaddy"
     },
@@ -662,7 +666,7 @@
       "cost": 650,
       "target": "player",
       "superChatMin": 6.5,
-      "baseCount": 4,
+      "baseCount": 6,
       "extraZombieThreshold": 2,
       "notes": "Pool: Bitch"
     },
@@ -672,7 +676,7 @@
       "cost": 650,
       "target": "player",
       "superChatMin": 6.5,
-      "baseCount": 4,
+      "baseCount": 6,
       "extraZombieThreshold": 2,
       "notes": "Pool: Mystic"
     },
@@ -682,7 +686,7 @@
       "cost": 650,
       "target": "player",
       "superChatMin": 6.5,
-      "baseCount": 4,
+      "baseCount": 6,
       "extraZombieThreshold": 2,
       "notes": "Pool: Nagaina"
     },
@@ -692,7 +696,7 @@
       "cost": 750,
       "target": "player",
       "superChatMin": 7.5,
-      "baseCount": 4,
+      "baseCount": 6,
       "extraZombieThreshold": 2,
       "notes": "Pool: Gargul"
     },
@@ -702,7 +706,7 @@
       "cost": 900,
       "target": "player",
       "superChatMin": 9,
-      "baseCount": 1,
+      "baseCount": 2,
       "extraZombieThreshold": 3,
       "notes": "Pool: Hot Harry"
     },
@@ -712,7 +716,7 @@
       "cost": 900,
       "target": "player",
       "superChatMin": 9,
-      "baseCount": 1,
+      "baseCount": 2,
       "extraZombieThreshold": 3,
       "notes": "Pool: Shocker"
     },
@@ -722,7 +726,7 @@
       "cost": 900,
       "target": "player",
       "superChatMin": 9,
-      "baseCount": 1,
+      "baseCount": 2,
       "extraZombieThreshold": 3,
       "notes": "Pool: Mummy"
     },
@@ -732,7 +736,7 @@
       "cost": 1000,
       "target": "player",
       "superChatMin": 10,
-      "baseCount": 1,
+      "baseCount": 2,
       "extraZombieThreshold": 3.5,
       "notes": "Pool: Bull"
     },
@@ -742,9 +746,19 @@
       "cost": 1000,
       "target": "player",
       "superChatMin": 10,
-      "baseCount": 1,
+      "baseCount": 2,
       "extraZombieThreshold": 3.5,
       "notes": "Pool: Veteran"
+    },
+    {
+      "keyword": "spawn pz_boss_yeti",
+      "effect": "Spawns Yeti, a boss, drawn to the target player",
+      "cost": 1000,
+      "target": "player",
+      "superChatMin": 10,
+      "baseCount": 2,
+      "extraZombieThreshold": 4,
+      "notes": "Pool: Yeti"
     }
   ]
 }

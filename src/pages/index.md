@@ -19,6 +19,11 @@ You can **help** the streamers with heals and buffs, **hinder** them with debuff
 
 What's changed in Project Z since launch, newest first.
 
+### Aug 16, 2026 Update
+
+- New **Yeti** Boss-tier spawn (1,000 pts / $10.00 min)
+- Base spawn counts increased for every Mini Boss (Devourer, Burning Flesh, Bear Daddy, Bitch, Mystic, Nagaina, Gargul) and every Boss (Hot Harry, Shocker, Mummy, Bull, Veteran)
+
 ### Aug 15, 2026 Update
 
 - Three new Boss-tier spawns: **Nagaina** (Mini Boss, 650 pts / $6.50 min) and **Bull** and **Veteran** (Boss, 1,000 pts / $10.00 min)

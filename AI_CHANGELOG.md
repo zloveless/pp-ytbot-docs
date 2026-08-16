@@ -4,6 +4,16 @@ All AI-assisted changes to this repository are logged here.
 
 ---
 
+## 2026-08-16 (Aug16 doc sync)
+
+### Sync Project Z data with the Aug16 source doc: new Yeti boss spawn, base-count increases across Mini Boss/Boss spawns
+- `src/data/commands/projectz-2026.json`: bumped `updatedAt` to 2026-08-16
+- Added new spawn command `spawn pz_boss_yeti` (Boss, 1,000 pts / $10.00 min, base 2, +1 per $4.00 over) plus a matching `Yeti` pool entry
+- Increased `baseCount` on twelve existing spawns to match the new doc's table: all seven `pz_mini_boss_*` commands (devourer, burningflesh, beardaddy, bitch, mystic, nagaina, gargul) 4→6, and all five existing `pz_boss_*` commands (harry, shocker, mummy, bull, veteran) 1→2
+- `src/pages/index.md`: added an "Aug 16, 2026 Update" patch note entry above the existing Aug 15 entry
+- Buffs/debuffs and the Basic (posse) zombie spawns were unchanged between the two source docs — verified line-by-line against the new PDF
+- Verified `projectz-2026.json` still parses and `yarn build` succeeds with Yeti appearing in both the boss spawn table and Zombie Pools grid
+
 ## 2026-08-15 (Aug15 doc sync)
 
 ### Sync Project Z data with the Aug15 source doc: three new boss-tier spawns, base-count increases across Elite/Infernal/Mini Boss spawns
